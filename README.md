@@ -38,9 +38,11 @@ In the folder ./scripts/querPy/ you can find executables and the source code
 the executables need to be run in the terminal with two options available:
 
 ```querPy -t```
+
 Creating a template config file where you can edit all the necessary sparql-queries, endpoints, descriptions etc.
 
 ```querPy -r template.py```
+
 Runs the script and executes all the queries defined in the config file 'template.py'
 
 
