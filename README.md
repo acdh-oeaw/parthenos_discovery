@@ -37,10 +37,10 @@ In the folder ./scripts/querPy/ you can find executables and the source code
 
 the executables need to be run in the terminal with two options available:
 
-'''querPy -t'''
+```querPy -t```
 Creating a template config file where you can edit all the necessary sparql-queries, endpoints, descriptions etc.
 
-'''querPy -r template.py'''
+```querPy -r template.py```
 Runs the script and executes all the queries defined in the config file 'template.py'
 
 
@@ -48,14 +48,14 @@ Runs the script and executes all the queries defined in the config file 'templat
 
 To run the source code with your own python interpreter you need to install the following:
 
-'''
+```
 pip install SPARQLWrapper
 pip install google-api-python-client
-'''
+```
 
 To make an executable on your own for your platform you need to install pyinstaller and run it:
 
-'''
+```
 pip install pyinstaller
 pyinstaller --onefile querPy.py
-'''
+```
