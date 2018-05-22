@@ -28,22 +28,24 @@ Various scripts and data related to resource discovery in project Parthenos
 
 ## querPy
 
-Script for querying multiple queries against an endpoint of your choice, returned in either different data formats or uploaded as google sheets files into a public folder / sheets file.
-There is no fancyness yet at all to this script; it just provides the core logic for the described purpose, in a minimalistic manner in order to be extensible for any kind of interface later on. 
+Script for querying multiple queries against an endpoint of your choice, returned in either different data formats or uploaded as google sheets files into a public google folder / sheets file.
+There is no fancyness yet at all to this script; it just provides the core logic for the described purpose, in a minimalistic manner in order to be extensible for any kind of interface to be wrapped around it later on. 
 
 In the folder ./scripts/querPy/ you can find executables and the source code
 
 ### executable stand-alone binaries for windows and linux
 
-the executables need to be run in the terminal with two options available:
+the executables need to be run in the terminal. 
 
-```querPy -t```
+There are two options available:
 
-Creating a template config file where you can edit all the necessary sparql-queries, endpoints, descriptions etc.
+```querPy_bin_<windows.exe/linux> -t```
 
-```querPy -r template.py```
+creates a template config file where you can edit all the necessary sparql-queries, endpoints, descriptions etc.
 
-Runs the script and executes all the queries defined in the config file 'template.py'
+```querPy_bin_<windows.exe/linux> -r template.py```
+
+runs the script and executes all the queries defined in the config file 'template.py'
 
 
 ### source code of script
@@ -55,7 +57,7 @@ pip install SPARQLWrapper
 pip install google-api-python-client
 ```
 
-To make an executable on your own for your platform you need to install pyinstaller and run it:
+To make an executable on your own for your platform, you need to install pyinstaller and run it:
 
 ```
 pip install pyinstaller
