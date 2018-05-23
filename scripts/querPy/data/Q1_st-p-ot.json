@@ -1,0 +1,1330 @@
+    
+    {"nodes": [
+    
+        {"id":"crm_E84_Information_Carrier","key":"crm_E84_Information_Carrier","name":"crm_E84_Information_Carrier","count":"774501","type":"entity" }
+        , 
+        {"id":"crm_P128_carries","key":"crm_P128_carries","name":"crm_P128_carries","count":"428147","type":"entity" }
+        , 
+        {"id":"crm_E89_Propositional_object","key":"crm_E89_Propositional_object","name":"crm_E89_Propositional_object","count":"554423","type":"entity" }
+        , 
+        {"id":"crm_PC14_carried_out_by","key":"crm_PC14_carried_out_by","name":"crm_PC14_carried_out_by","count":"506736","type":"entity" }
+        , 
+        {"id":"crm_P02_has_range","key":"crm_P02_has_range","name":"crm_P02_has_range","count":"168912","type":"entity" }
+        , 
+        {"id":"crm_E39_Actor","key":"crm_E39_Actor","name":"crm_E39_Actor","count":"532272","type":"entity" }
+        , 
+        {"id":"crm_P14_1_in_the_role_of","key":"crm_P14_1_in_the_role_of","name":"crm_P14.1_in_the_role_of","count":"168912","type":"entity" }
+        , 
+        {"id":"crm_E55_Type","key":"crm_E55_Type","name":"crm_E55_Type","count":"671017","type":"entity" }
+        , 
+        {"id":"crm_P46_is_composed_of","key":"crm_P46_is_composed_of","name":"crm_P46_is_composed_of","count":"131538","type":"entity" }
+        , 
+        {"id":"dig_D7_Digital_Machine_Event","key":"dig_D7_Digital_Machine_Event","name":"dig_D7_Digital_Machine_Event","count":"468426","type":"entity" }
+        , 
+        {"id":"crm_P01i_is_domain_of","key":"crm_P01i_is_domain_of","name":"crm_P01i_is_domain_of","count":"168912","type":"entity" }
+        , 
+        {"id":"crm_P52_has_current_owner","key":"crm_P52_has_current_owner","name":"crm_P52_has_current_owner","count":"115100","type":"entity" }
+        , 
+        {"id":"crm_E74_Group","key":"crm_E74_Group","name":"crm_E74_Group","count":"116256","type":"entity" }
+        , 
+        {"id":"crm_P4_has_time_span","key":"crm_P4_has_time_span","name":"crm_P4_has_time_span","count":"135528","type":"entity" }
+        , 
+        {"id":"crm_E52_Time_Span","key":"crm_E52_Time_Span","name":"crm_E52_Time_Span","count":"99716","type":"entity" }
+        , 
+        {"id":"crm_E65_Creation","key":"crm_E65_Creation","name":"crm_E65_Creation","count":"324858","type":"entity" }
+        , 
+        {"id":"crm_P94_has_created","key":"crm_P94_has_created","name":"crm_P94_has_created","count":"99338","type":"entity" }
+        , 
+        {"id":"crm_P92_brought_into_existence","key":"crm_P92_brought_into_existence","name":"crm_P92_brought_into_existence","count":"95727","type":"entity" }
+        , 
+        {"id":"crm_E21_Person","key":"crm_E21_Person","name":"crm_E21_Person","count":"139596","type":"entity" }
+        , 
+        {"id":"crm_P1_is_identified_by","key":"crm_P1_is_identified_by","name":"crm_P1_is_identified_by","count":"279088","type":"entity" }
+        , 
+        {"id":"crm_E41_Appellation","key":"crm_E41_Appellation","name":"crm_E41_Appellation","count":"245678","type":"entity" }
+        , 
+        {"id":"crm_P139_has_alternative_form","key":"crm_P139_has_alternative_form","name":"crm_P139_has_alternative_form","count":"74313","type":"entity" }
+        , 
+        {"id":"crm_E33_Linguistic_Object","key":"crm_E33_Linguistic_Object","name":"crm_E33_Linguistic_Object","count":"694633","type":"entity" }
+        , 
+        {"id":"crm_P129_is_about","key":"crm_P129_is_about","name":"crm_P129_is_about","count":"362649","type":"entity" }
+        , 
+        {"id":"pe_PE24_Volatile_Dataset","key":"pe_PE24_Volatile_Dataset","name":"pe_PE24_Volatile_Dataset","count":"253711","type":"entity" }
+        , 
+        {"id":"pe_PP23_has_dataset_part","key":"pe_PP23_has_dataset_part","name":"pe_PP23_has_dataset_part","count":"66186","type":"entity" }
+        , 
+        {"id":"pe_PE22_Persistent_Dataset","key":"pe_PE22_Persistent_Dataset","name":"pe_PE22_Persistent_Dataset","count":"677243","type":"entity" }
+        , 
+        {"id":"crm_P72_has_language","key":"crm_P72_has_language","name":"crm_P72_has_language","count":"123644","type":"entity" }
+        , 
+        {"id":"crm_E56_Language","key":"crm_E56_Language","name":"crm_E56_Language","count":"123644","type":"entity" }
+        , 
+        {"id":"crm_P2_has_type","key":"crm_P2_has_type","name":"crm_P2_has_type","count":"342760","type":"entity" }
+        , 
+        {"id":"crm_P104_is_subject_to","key":"crm_P104_is_subject_to","name":"crm_P104_is_subject_to","count":"146270","type":"entity" }
+        , 
+        {"id":"crm_E30_Right","key":"crm_E30_Right","name":"crm_E30_Right","count":"211466","type":"entity" }
+        , 
+        {"id":"crm_P102_has_title","key":"crm_P102_has_title","name":"crm_P102_has_title","count":"116751","type":"entity" }
+        , 
+        {"id":"crm_E35_Title","key":"crm_E35_Title","name":"crm_E35_Title","count":"125875","type":"entity" }
+        , 
+        {"id":"dig_L11i_was_output_of","key":"dig_L11i_was_output_of","name":"dig_L11i_was_output_of","count":"85643","type":"entity" }
+        , 
+        {"id":"crm_P4_has_time_span","key":"crm_P4_has_time_span","name":"crm_P4_has_time-span","count":"97158","type":"entity" }
+        , 
+        {"id":"crm_E52_Time_Span","key":"crm_E52_Time_Span","name":"crm_E52_Time-Span","count":"133213","type":"entity" }
+        , 
+        {"id":"crm_E7_Activity","key":"crm_E7_Activity","name":"crm_E7_Activity","count":"109560","type":"entity" }
+        , 
+        {"id":"crm_P7_took_place_at","key":"crm_P7_took_place_at","name":"crm_P7_took_place_at","count":"37703","type":"entity" }
+        , 
+        {"id":"crm_E53_Place","key":"crm_E53_Place","name":"crm_E53_Place","count":"166862","type":"entity" }
+        , 
+        {"id":"crm_E4_Period","key":"crm_E4_Period","name":"crm_E4_Period","count":"74964","type":"entity" }
+        , 
+        {"id":"pe_PE15_Data_E_Service","key":"pe_PE15_Data_E_Service","name":"pe_PE15_Data_E-Service","count":"122982","type":"entity" }
+        , 
+        {"id":"pe_PP49_provides_access_point","key":"pe_PP49_provides_access_point","name":"pe_PP49_provides_access_point","count":"62517","type":"entity" }
+        , 
+        {"id":"pe_PE29_Access_Point","key":"pe_PE29_Access_Point","name":"pe_PE29_Access_Point","count":"95457","type":"entity" }
+        , 
+        {"id":"crm_E78_Collection","key":"crm_E78_Collection","name":"crm_E78_Collection","count":"207292","type":"entity" }
+        , 
+        {"id":"crm_P148_has_component","key":"crm_P148_has_component","name":"crm_P148_has_component","count":"30549","type":"entity" }
+        , 
+        {"id":"crm_P14_performed","key":"crm_P14_performed","name":"crm_P14_performed","count":"30250","type":"entity" }
+        , 
+        {"id":"dig_L10i_was_input_of","key":"dig_L10i_was_input_of","name":"dig_L10i_was_input_of","count":"49684","type":"entity" }
+        , 
+        {"id":"crm_P43_has_dimension","key":"crm_P43_has_dimension","name":"crm_P43_has_dimension","count":"51536","type":"entity" }
+        , 
+        {"id":"crm_E54_Dimension","key":"crm_E54_Dimension","name":"crm_E54_Dimension","count":"51536","type":"entity" }
+        , 
+        {"id":"dig_L23_used_software_or_firmware","key":"dig_L23_used_software_or_firmware","name":"dig_L23_used_software_or_firmware","count":"28890","type":"entity" }
+        , 
+        {"id":"pe_PE38_Schema","key":"pe_PE38_Schema","name":"pe_PE38_Schema","count":"24149","type":"entity" }
+        , 
+        {"id":"crm_E45_Address","key":"crm_E45_Address","name":"crm_E45_Address","count":"23896","type":"entity" }
+        , 
+        {"id":"pe_PE12_Data_curating_Service","key":"pe_PE12_Data_curating_Service","name":"pe_PE12_Data_curating_Service","count":"49513","type":"entity" }
+        , 
+        {"id":"crm_PP2_provided_by","key":"crm_PP2_provided_by","name":"crm_PP2_provided_by","count":"42938","type":"entity" }
+        , 
+        {"id":"crm_P74_has_current_or_former_residence","key":"crm_P74_has_current_or_former_residence","name":"crm_P74_has_current_or_former_residence","count":"21054","type":"entity" }
+        , 
+        {"id":"crm_E42_Identifier","key":"crm_E42_Identifier","name":"crm_E42_Identifier","count":"93583","type":"entity" }
+        , 
+        {"id":"pe_PP23i_is_dataset_part_of","key":"pe_PP23i_is_dataset_part_of","name":"pe_PP23i_is_dataset_part_of","count":"44002","type":"entity" }
+        , 
+        {"id":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event","key":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event","name":"http://www.cidoc-crm.org/frbr/F30_Publication_Event","count":"59465","type":"entity" }
+        , 
+        {"id":"crm_P94i_was_created_by","key":"crm_P94i_was_created_by","name":"crm_P94i_was_created_by","count":"117749","type":"entity" }
+        , 
+        {"id":"pe_PP50_accessible_at","key":"pe_PP50_accessible_at","name":"pe_PP50_accessible_at","count":"42106","type":"entity" }
+        , 
+        {"id":"pe_PP8i_is_dataset_hosted_by","key":"pe_PP8i_is_dataset_hosted_by","name":"pe_PP8i_is_dataset_hosted_by","count":"57362","type":"entity" }
+        , 
+        {"id":"pe_PP39_is_metadata_for","key":"pe_PP39_is_metadata_for","name":"pe_PP39_is_metadata_for","count":"54775","type":"entity" }
+        , 
+        {"id":"pe_PE29_Access_point","key":"pe_PE29_Access_point","name":"pe_PE29_Access_point","count":"39684","type":"entity" }
+        , 
+        {"id":"crm_P14_carried_out_by","key":"crm_P14_carried_out_by","name":"crm_P14_carried_out_by","count":"37910","type":"entity" }
+        , 
+        {"id":"pe_PP4i_is_object_hosted_by","key":"pe_PP4i_is_object_hosted_by","name":"pe_PP4i_is_object_hosted_by","count":"38556","type":"entity" }
+        , 
+        {"id":"pe_PE2_Hosting_Service","key":"pe_PE2_Hosting_Service","name":"pe_PE2_Hosting_Service","count":"57834","type":"entity" }
+        , 
+        {"id":"pe_PP2_provided_by","key":"pe_PP2_provided_by","name":"pe_PP2_provided_by","count":"19442","type":"entity" }
+        , 
+        {"id":"crm_E47_Spatial_Coordinates","key":"crm_E47_Spatial_Coordinates","name":"crm_E47_Spatial_Coordinates","count":"41444","type":"entity" }
+        , 
+        {"id":"crm_P89_falls_within","key":"crm_P89_falls_within","name":"crm_P89_falls_within","count":"18308","type":"entity" }
+        , 
+        {"id":"crm_P24i_changed_ownership_through","key":"crm_P24i_changed_ownership_through","name":"crm_P24i_changed_ownership_through","count":"36532","type":"entity" }
+        , 
+        {"id":"crm_E8_Acquisition","key":"crm_E8_Acquisition","name":"crm_E8_Acquisition","count":"44523","type":"entity" }
+        , 
+        {"id":"crm_E13_Attribute_Assignment","key":"crm_E13_Attribute_Assignment","name":"crm_E13_Attribute_Assignment","count":"35808","type":"entity" }
+        , 
+        {"id":"crm_P141_assigned","key":"crm_P141_assigned","name":"crm_P141_assigned","count":"17915","type":"entity" }
+        , 
+        {"id":"crm_P140i_was_attributed_by","key":"crm_P140i_was_attributed_by","name":"crm_P140i_was_attributed_by","count":"17893","type":"entity" }
+        , 
+        {"id":"crm_P75i_is_possessed_by","key":"crm_P75i_is_possessed_by","name":"crm_P75i_is_possessed_by","count":"16273","type":"entity" }
+        , 
+        {"id":"crm_E69_Death","key":"crm_E69_Death","name":"crm_E69_Death","count":"30474","type":"entity" }
+        , 
+        {"id":"crm_P100_was_death_of_died_in","key":"crm_P100_was_death_of_died_in","name":"crm_P100_was_death_of_died_in","count":"15237","type":"entity" }
+        , 
+        {"id":"crm_P12i_was_present_at","key":"crm_P12i_was_present_at","name":"crm_P12i_was_present_at","count":"15225","type":"entity" }
+        , 
+        {"id":"crm_E67_Birth","key":"crm_E67_Birth","name":"crm_E67_Birth","count":"30450","type":"entity" }
+        , 
+        {"id":"pe_PE20_Volatile_Digital_Object","key":"pe_PE20_Volatile_Digital_Object","name":"pe_PE20_Volatile_Digital_Object","count":"55961","type":"entity" }
+        , 
+        {"id":"crm_P108i_was_produced_by","key":"crm_P108i_was_produced_by","name":"crm_P108i_was_produced_by","count":"24310","type":"entity" }
+        , 
+        {"id":"crm_E12_Production","key":"crm_E12_Production","name":"crm_E12_Production","count":"38369","type":"entity" }
+        , 
+        {"id":"crm_P32_used_general_technique","key":"crm_P32_used_general_technique","name":"crm_P32_used_general_technique","count":"7760","type":"entity" }
+        , 
+        {"id":"pe_PE5_Digital_Hosting_Service","key":"pe_PE5_Digital_Hosting_Service","name":"pe_PE5_Digital_Hosting_Service","count":"14906","type":"entity" }
+        , 
+        {"id":"crm_P9i_forms_part_of","key":"crm_P9i_forms_part_of","name":"crm_P9i_forms_part_of","count":"7453","type":"entity" }
+        , 
+        {"id":"crm_P16i_was_used_for","key":"crm_P16i_was_used_for","name":"crm_P16i_was_used_for","count":"7759","type":"entity" }
+        , 
+        {"id":"pe_PP6i_is_digital_object_hosted_by","key":"pe_PP6i_is_digital_object_hosted_by","name":"pe_PP6i_is_digital_object_hosted_by","count":"7453","type":"entity" }
+        , 
+        {"id":"crm_P76_has_contact_point","key":"crm_P76_has_contact_point","name":"crm_P76_has_contact_point","count":"11358","type":"entity" }
+        , 
+        {"id":"crm_E51_Contact_Point","key":"crm_E51_Contact_Point","name":"crm_E51_Contact_Point","count":"13548","type":"entity" }
+        , 
+        {"id":"pe_PP32i_was_curated_by","key":"pe_PP32i_was_curated_by","name":"pe_PP32i_was_curated_by","count":"6575","type":"entity" }
+        , 
+        {"id":"crm_P129i_is_subject_of","key":"crm_P129i_is_subject_of","name":"crm_P129i_is_subject_of","count":"20966","type":"entity" }
+        , 
+        {"id":"pe_PE21_Persistent_Software","key":"pe_PE21_Persistent_Software","name":"pe_PE21_Persistent_Software","count":"4748","type":"entity" }
+        , 
+        {"id":"crm_P17i_motivated","key":"crm_P17i_motivated","name":"crm_P17i_motivated","count":"3619","type":"entity" }
+        , 
+        {"id":"crm_E31_Document","key":"crm_E31_Document","name":"crm_E31_Document","count":"3623","type":"entity" }
+        , 
+        {"id":"crm_P147i_was_curated_by","key":"crm_P147i_was_curated_by","name":"crm_P147i_was_curated_by","count":"5274","type":"entity" }
+        , 
+        {"id":"crm_E87_Curation_Activity","key":"crm_E87_Curation_Activity","name":"crm_E87_Curation_Activity","count":"7911","type":"entity" }
+        , 
+        {"id":"crm_P33_used_specific_technique","key":"crm_P33_used_specific_technique","name":"crm_P33_used_specific_technique","count":"2661","type":"entity" }
+        , 
+        {"id":"crm_E29_Design_or_Procedure","key":"crm_E29_Design_or_Procedure","name":"crm_E29_Design_or_Procedure","count":"2685","type":"entity" }
+        , 
+        {"id":"crm_P53_has_former_or_current_location","key":"crm_P53_has_former_or_current_location","name":"crm_P53_has_former_or_current_location","count":"2395","type":"entity" }
+        , 
+        {"id":"crm_P103_was_intended_for","key":"crm_P103_was_intended_for","name":"crm_P103_was_intended_for","count":"2160","type":"entity" }
+        , 
+        {"id":"pe_PE3_Curating_Service","key":"pe_PE3_Curating_Service","name":"pe_PE3_Curating_Service","count":"3184","type":"entity" }
+        , 
+        {"id":"pe_PP39i_has_metadata","key":"pe_PP39i_has_metadata","name":"pe_PP39i_has_metadata","count":"2530","type":"entity" }
+        , 
+        {"id":"pe_PP32i_is_curated_by","key":"pe_PP32i_is_curated_by","name":"pe_PP32i_is_curated_by","count":"1564","type":"entity" }
+        , 
+        {"id":"pe_PP24_has_dataset_snapshot","key":"pe_PP24_has_dataset_snapshot","name":"pe_PP24_has_dataset_snapshot","count":"1231","type":"entity" }
+        , 
+        {"id":"crm_P107i_is_current_or_former_member_of","key":"crm_P107i_is_current_or_former_member_of","name":"crm_P107i_is_current_or_former_member_of","count":"1156","type":"entity" }
+        , 
+        {"id":"crm_P130i_features_are_also_found_on","key":"crm_P130i_features_are_also_found_on","name":"crm_P130i_features_are_also_found_on","count":"1642","type":"entity" }
+        , 
+        {"id":"crm_P67_refers_to","key":"crm_P67_refers_to","name":"crm_P67_refers_to","count":"1410","type":"entity" }
+        , 
+        {"id":"crm_P143i_was_joined_by","key":"crm_P143i_was_joined_by","name":"crm_P143i_was_joined_by","count":"725","type":"entity" }
+        , 
+        {"id":"crm_E85_Joining","key":"crm_E85_Joining","name":"crm_E85_Joining","count":"725","type":"entity" }
+        , 
+        {"id":"crm_P130_shows_features_of","key":"crm_P130_shows_features_of","name":"crm_P130_shows_features_of","count":"1420","type":"entity" }
+        , 
+        {"id":"crm_P138i_has_representation","key":"crm_P138i_has_representation","name":"crm_P138i_has_representation","count":"1346","type":"entity" }
+        , 
+        {"id":"crm_E38_Image","key":"crm_E38_Image","name":"crm_E38_Image","count":"673","type":"entity" }
+        , 
+        {"id":"dig_D3_Formal_Derivation","key":"dig_D3_Formal_Derivation","name":"dig_D3_Formal_Derivation","count":"1389","type":"entity" }
+        , 
+        {"id":"dig_L22_created_derivative","key":"dig_L22_created_derivative","name":"dig_L22_created_derivative","count":"463","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#Property","count":"973","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ2000Z01Zrdf_schemadomain","key":"httpZZwww_w3_orgZ2000Z01Zrdf_schemadomain","name":"http://www.w3.org/2000/01/rdf-schema#domain","count":"389","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass","key":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass","name":"http://www.w3.org/2000/01/rdf-schema#Class","count":"898","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ2000Z01Zrdf_schemarange","key":"httpZZwww_w3_orgZ2000Z01Zrdf_schemarange","name":"http://www.w3.org/2000/01/rdf-schema#range","count":"372","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubPropertyOf","key":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubPropertyOf","name":"http://www.w3.org/2000/01/rdf-schema#subPropertyOf","count":"212","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubClassOf","key":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubClassOf","name":"http://www.w3.org/2000/01/rdf-schema#subClassOf","count":"137","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMapFormat","count":"292","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfinheritFrom","key":"httpZZwww_openlinksw_comZschemasZvirtrdfinheritFrom","name":"http://www.openlinksw.com/schemas/virtrdf#inheritFrom","count":"99","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSuperFormats","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSuperFormats","name":"http://www.openlinksw.com/schemas/virtrdf#qmfSuperFormats","count":"98","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat","key":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat","name":"http://www.openlinksw.com/schemas/virtrdf#array-of-QuadMapFormat","count":"183","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#_1","count":"66","type":"entity" }
+        , 
+        {"id":"pe_PE17_Curated_Data_E_Service","key":"pe_PE17_Curated_Data_E_Service","name":"pe_PE17_Curated_Data_E-Service","count":"281","type":"entity" }
+        , 
+        {"id":"pe_PE34_Team","key":"pe_PE34_Team","name":"pe_PE34_Team","count":"214","type":"entity" }
+        , 
+        {"id":"pe_PP28_has_designated_access_point","key":"pe_PP28_has_designated_access_point","name":"pe_PP28_has_designated_access_point","count":"66","type":"entity" }
+        , 
+        {"id":"crm_E40_Legal_Body","key":"crm_E40_Legal_Body","name":"crm_E40_Legal_Body","count":"121","type":"entity" }
+        , 
+        {"id":"pe_PE1_Service","key":"pe_PE1_Service","name":"pe_PE1_Service","count":"246","type":"entity" }
+        , 
+        {"id":"pe_PP45_has_competency","key":"pe_PP45_has_competency","name":"pe_PP45_has_competency","count":"77","type":"entity" }
+        , 
+        {"id":"pe_PE36_Competency_Type","key":"pe_PE36_Competency_Type","name":"pe_PE36_Competency_Type","count":"91","type":"entity" }
+        , 
+        {"id":"pe_PE26_RI_Project","key":"pe_PE26_RI_Project","name":"pe_PE26_RI_Project","count":"94","type":"entity" }
+        , 
+        {"id":"pe_PP1_currently_offers","key":"pe_PP1_currently_offers","name":"pe_PP1_currently_offers","count":"51","type":"entity" }
+        , 
+        {"id":"crm_P107_has_current_or_former_member","key":"crm_P107_has_current_or_former_member","name":"crm_P107_has_current_or_former_member","count":"60","type":"entity" }
+        , 
+        {"id":"crm_P16_used_specific_object","key":"crm_P16_used_specific_object","name":"crm_P16_used_specific_object","count":"52","type":"entity" }
+        , 
+        {"id":"pe_PE25_RI_Consortium","key":"pe_PE25_RI_Consortium","name":"pe_PE25_RI_Consortium","count":"139","type":"entity" }
+        , 
+        {"id":"pe_PP13i_is_volatile_dataset_curated_by","key":"pe_PP13i_is_volatile_dataset_curated_by","name":"pe_PP13i_is_volatile_dataset_curated_by","count":"37","type":"entity" }
+        , 
+        {"id":"pe_PP47_has_protocol_type","key":"pe_PP47_has_protocol_type","name":"pe_PP47_has_protocol_type","count":"32","type":"entity" }
+        , 
+        {"id":"pe_PE37_Protocol_Type","key":"pe_PE37_Protocol_Type","name":"pe_PE37_Protocol_Type","count":"32","type":"entity" }
+        , 
+        {"id":"pe_PP11i_is_volatile_digital_object_curated_by","key":"pe_PP11i_is_volatile_digital_object_curated_by","name":"pe_PP11i_is_volatile_digital_object_curated_by","count":"14","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_2","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_2","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#_2","count":"13","type":"entity" }
+        , 
+        {"id":"pe_PP44_has_maintaining_team","key":"pe_PP44_has_maintaining_team","name":"pe_PP44_has_maintaining_team","count":"27","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_3","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_3","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#_3","count":"10","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMapValue","count":"36","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvATables","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvATables","name":"http://www.openlinksw.com/schemas/virtrdf#qmvATables","count":"8","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapATable","key":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapATable","name":"http://www.openlinksw.com/schemas/virtrdf#array-of-QuadMapATable","count":"10","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapColumn","key":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapColumn","name":"http://www.openlinksw.com/schemas/virtrdf#array-of-QuadMapColumn","count":"16","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapColumn","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapColumn","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMapColumn","count":"8","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvColumns","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvColumns","name":"http://www.openlinksw.com/schemas/virtrdf#qmvColumns","count":"8","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFormat","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFormat","name":"http://www.openlinksw.com/schemas/virtrdf#qmvFormat","count":"8","type":"entity" }
+        , 
+        {"id":"crm_P103i_was_intention_of","key":"crm_P103i_was_intention_of","name":"crm_P103i_was_intention_of","count":"7","type":"entity" }
+        , 
+        {"id":"pe_PP41i_is_indexed_by","key":"pe_PP41i_is_indexed_by","name":"pe_PP41i_is_indexed_by","count":"7","type":"entity" }
+        , 
+        {"id":"httpZZwww_ics_forth_grZislZCRMextZCRMsci_rdfsZS6_Data_Evaluation","key":"httpZZwww_ics_forth_grZislZCRMextZCRMsci_rdfsZS6_Data_Evaluation","name":"http://www.ics.forth.gr/isl/CRMext/CRMsci.rdfs/S6_Data_Evaluation","count":"7","type":"entity" }
+        , 
+        {"id":"crm_P70i_is_documented_in","key":"crm_P70i_is_documented_in","name":"crm_P70i_is_documented_in","count":"8","type":"entity" }
+        , 
+        {"id":"pe_PE12_Data_Curating_Service","key":"pe_PE12_Data_Curating_Service","name":"pe_PE12_Data_Curating_Service","count":"8","type":"entity" }
+        , 
+        {"id":"pe_PE13_Software_Computing_E_Service","key":"pe_PE13_Software_Computing_E_Service","name":"pe_PE13_Software_Computing_E-Service","count":"20","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadStorage","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadStorage","name":"http://www.openlinksw.com/schemas/virtrdf#QuadStorage","count":"5","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqsUserMaps","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqsUserMaps","name":"http://www.openlinksw.com/schemas/virtrdf#qsUserMaps","count":"3","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMap","name":"http://www.openlinksw.com/schemas/virtrdf#array-of-QuadMap","count":"3","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_4","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_4","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#_4","count":"3","type":"entity" }
+        , 
+        {"id":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_5","key":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_5","name":"http://www.w3.org/1999/02/22-rdf-syntax-ns#_5","count":"3","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMap","count":"10","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmPredicateMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmPredicateMap","name":"http://www.openlinksw.com/schemas/virtrdf#qmPredicateMap","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmObjectMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmObjectMap","name":"http://www.openlinksw.com/schemas/virtrdf#qmObjectMap","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvGeo","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvGeo","name":"http://www.openlinksw.com/schemas/virtrdf#qmvGeo","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFText","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFText","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMapFText","count":"6","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSubFormatForRefs","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSubFormatForRefs","name":"http://www.openlinksw.com/schemas/virtrdf#qmfSubFormatForRefs","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqsDefaultMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqsDefaultMap","name":"http://www.openlinksw.com/schemas/virtrdf#qsDefaultMap","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvftConds","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvftConds","name":"http://www.openlinksw.com/schemas/virtrdf#qmvftConds","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_string","key":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_string","name":"http://www.openlinksw.com/schemas/virtrdf#array-of-string","count":"2","type":"entity" }
+        , 
+        {"id":"crm_P11_had_participant","key":"crm_P11_had_participant","name":"crm_P11_had_participant","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmGraphMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmGraphMap","name":"http://www.openlinksw.com/schemas/virtrdf#qmGraphMap","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmSubjectMap","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmSubjectMap","name":"http://www.openlinksw.com/schemas/virtrdf#qmSubjectMap","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFText","key":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFText","name":"http://www.openlinksw.com/schemas/virtrdf#qmvFText","count":"2","type":"entity" }
+        , 
+        {"id":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapATable","key":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapATable","name":"http://www.openlinksw.com/schemas/virtrdf#QuadMapATable","count":"2","type":"entity" }
+        , 
+        {"id":"pe_PP31_uses_curation_plan","key":"pe_PP31_uses_curation_plan","name":"pe_PP31_uses_curation_plan","count":"3","type":"entity" }
+        , 
+        {"id":"pe_PE28_Curation_Plan","key":"pe_PE28_Curation_Plan","name":"pe_PE28_Curation_Plan","count":"3","type":"entity" }
+        , 
+        {"id":"pe_PE7_Data_Hosting_Service","key":"pe_PE7_Data_Hosting_Service","name":"pe_PE7_Data_Hosting_Service","count":"8","type":"entity" }
+        , 
+        {"id":"pe_PP43i_is_project_activity_supported_by","key":"pe_PP43i_is_project_activity_supported_by","name":"pe_PP43i_is_project_activity_supported_by","count":"1","type":"entity" }
+        , 
+        {"id":"pe_PE35_Project","key":"pe_PE35_Project","name":"pe_PE35_Project","count":"5","type":"entity" }
+        , 
+        {"id":"crm_P105_right_held_by","key":"crm_P105_right_held_by","name":"crm_P105_right_held_by","count":"1","type":"entity" }
+        
+    ],
+    "links": [    
+    
+        {"source":"crm_E84_Information_Carrier", "target":"crm_P128_carries", "value":"428147"},
+        {"source":"crm_P128_carries", "target":"crm_E89_Propositional_object", "value":"428147"}
+        , 
+        {"source":"crm_PC14_carried_out_by", "target":"crm_P02_has_range", "value":"168912"},
+        {"source":"crm_P02_has_range", "target":"crm_E39_Actor", "value":"168912"}
+        , 
+        {"source":"crm_PC14_carried_out_by", "target":"crm_P14_1_in_the_role_of", "value":"168912"},
+        {"source":"crm_P14_1_in_the_role_of", "target":"crm_E55_Type", "value":"168912"}
+        , 
+        {"source":"crm_E84_Information_Carrier", "target":"crm_P46_is_composed_of", "value":"131538"},
+        {"source":"crm_P46_is_composed_of", "target":"crm_E84_Information_Carrier", "value":"131538"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P01i_is_domain_of", "value":"129915"},
+        {"source":"crm_P01i_is_domain_of", "target":"crm_PC14_carried_out_by", "value":"129915"}
+        , 
+        {"source":"crm_E84_Information_Carrier", "target":"crm_P52_has_current_owner", "value":"115100"},
+        {"source":"crm_P52_has_current_owner", "target":"crm_E74_Group", "value":"115100"}
+        , 
+        {"source":"crm_E84_Information_Carrier", "target":"crm_P4_has_time_span", "value":"99716"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"99716"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P94_has_created", "value":"95727"},
+        {"source":"crm_P94_has_created", "target":"crm_E89_Propositional_object", "value":"95727"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P92_brought_into_existence", "value":"95727"},
+        {"source":"crm_P92_brought_into_existence", "target":"crm_E65_Creation", "value":"95727"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P1_is_identified_by", "value":"84109"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"84109"}
+        , 
+        {"source":"crm_E41_Appellation", "target":"crm_P139_has_alternative_form", "value":"74313"},
+        {"source":"crm_P139_has_alternative_form", "target":"crm_E41_Appellation", "value":"74313"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"70848"},
+        {"source":"crm_P129_is_about", "target":"crm_E55_Type", "value":"70848"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP23_has_dataset_part", "value":"66186"},
+        {"source":"pe_PP23_has_dataset_part", "target":"pe_PE22_Persistent_Dataset", "value":"66186"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P1_is_identified_by", "value":"64247"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"64247"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P72_has_language", "value":"61822"},
+        {"source":"crm_P72_has_language", "target":"crm_E56_Language", "value":"61822"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P2_has_type", "value":"60469"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"60469"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P104_is_subject_to", "value":"59185"},
+        {"source":"crm_P104_is_subject_to", "target":"crm_E30_Right", "value":"59185"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P104_is_subject_to", "value":"59185"},
+        {"source":"crm_P104_is_subject_to", "target":"crm_E30_Right", "value":"59185"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P102_has_title", "value":"58375"},
+        {"source":"crm_P102_has_title", "target":"crm_E35_Title", "value":"58375"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"dig_L11i_was_output_of", "value":"55061"},
+        {"source":"dig_L11i_was_output_of", "target":"dig_D7_Digital_Machine_Event", "value":"55061"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P4_has_time_span", "value":"50155"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"50155"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P129_is_about", "value":"46344"},
+        {"source":"crm_P129_is_about", "target":"crm_E55_Type", "value":"46344"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P2_has_type", "value":"46325"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"46325"}
+        , 
+        {"source":"crm_E30_Right", "target":"crm_P2_has_type", "value":"45169"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"45169"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P72_has_language", "value":"44644"},
+        {"source":"crm_P72_has_language", "target":"crm_E56_Language", "value":"44644"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P2_has_type", "value":"43053"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"43053"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P102_has_title", "value":"39097"},
+        {"source":"crm_P102_has_title", "target":"crm_E35_Title", "value":"39097"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P01i_is_domain_of", "value":"38997"},
+        {"source":"crm_P01i_is_domain_of", "target":"crm_PC14_carried_out_by", "value":"38997"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P7_took_place_at", "value":"37703"},
+        {"source":"crm_P7_took_place_at", "target":"crm_E53_Place", "value":"37703"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P129_is_about", "value":"37470"},
+        {"source":"crm_P129_is_about", "target":"crm_E4_Period", "value":"37470"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"37470"},
+        {"source":"crm_P129_is_about", "target":"crm_E4_Period", "value":"37470"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP49_provides_access_point", "value":"35104"},
+        {"source":"pe_PP49_provides_access_point", "target":"pe_PE29_Access_Point", "value":"35104"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P129_is_about", "value":"31309"},
+        {"source":"crm_P129_is_about", "target":"crm_E55_Type", "value":"31309"}
+        , 
+        {"source":"crm_E89_Propositional_object", "target":"crm_P148_has_component", "value":"30549"},
+        {"source":"crm_P148_has_component", "target":"crm_E89_Propositional_object", "value":"30549"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P14_performed", "value":"30250"},
+        {"source":"crm_P14_performed", "target":"crm_E7_Activity", "value":"30250"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"dig_L10i_was_input_of", "value":"29821"},
+        {"source":"dig_L10i_was_input_of", "target":"dig_D7_Digital_Machine_Event", "value":"29821"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"dig_L11i_was_output_of", "value":"25945"},
+        {"source":"dig_L11i_was_output_of", "target":"dig_D7_Digital_Machine_Event", "value":"25945"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P43_has_dimension", "value":"25768"},
+        {"source":"crm_P43_has_dimension", "target":"crm_E54_Dimension", "value":"25768"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"dig_L23_used_software_or_firmware", "value":"24149"},
+        {"source":"dig_L23_used_software_or_firmware", "target":"pe_PE38_Schema", "value":"24149"}
+        , 
+        {"source":"crm_E53_Place", "target":"crm_P1_is_identified_by", "value":"21702"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E45_Address", "value":"21702"}
+        , 
+        {"source":"pe_PE12_Data_curating_Service", "target":"crm_PP2_provided_by", "value":"21469"},
+        {"source":"crm_PP2_provided_by", "target":"crm_E39_Actor", "value":"21469"}
+        , 
+        {"source":"pe_PE12_Data_curating_Service", "target":"crm_PP2_provided_by", "value":"21469"},
+        {"source":"crm_PP2_provided_by", "target":"crm_E21_Person", "value":"21469"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P2_has_type", "value":"21366"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"21366"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"21258"},
+        {"source":"crm_P129_is_about", "target":"crm_E53_Place", "value":"21258"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P74_has_current_or_former_residence", "value":"21050"},
+        {"source":"crm_P74_has_current_or_former_residence", "target":"crm_E53_Place", "value":"21050"}
+        , 
+        {"source":"crm_E42_Identifier", "target":"crm_P2_has_type", "value":"20974"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"20974"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P1_is_identified_by", "value":"20869"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"20869"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP23i_is_dataset_part_of", "value":"19952"},
+        {"source":"pe_PP23i_is_dataset_part_of", "target":"pe_PE24_Volatile_Dataset", "value":"19952"}
+        , 
+        {"source":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event", "target":"crm_P4_has_time_span", "value":"19822"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"19822"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P94i_was_created_by", "value":"19821"},
+        {"source":"crm_P94i_was_created_by", "target":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event", "value":"19821"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P94i_was_created_by", "value":"19821"},
+        {"source":"crm_P94i_was_created_by", "target":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event", "value":"19821"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP50_accessible_at", "value":"19657"},
+        {"source":"pe_PP50_accessible_at", "target":"pe_PE29_Access_Point", "value":"19657"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP8i_is_dataset_hosted_by", "value":"19539"},
+        {"source":"pe_PP8i_is_dataset_hosted_by", "target":"pe_PE15_Data_E_Service", "value":"19539"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P94i_was_created_by", "value":"19478"},
+        {"source":"crm_P94i_was_created_by", "target":"dig_D7_Digital_Machine_Event", "value":"19478"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P94i_was_created_by", "value":"19478"},
+        {"source":"crm_P94i_was_created_by", "target":"dig_D7_Digital_Machine_Event", "value":"19478"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P1_is_identified_by", "value":"19359"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"19359"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP39_is_metadata_for", "value":"19359"},
+        {"source":"pe_PP39_is_metadata_for", "target":"crm_E33_Linguistic_Object", "value":"19359"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP39_is_metadata_for", "value":"19359"},
+        {"source":"pe_PP39_is_metadata_for", "target":"pe_PE22_Persistent_Dataset", "value":"19359"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP50_accessible_at", "value":"19313"},
+        {"source":"pe_PP50_accessible_at", "target":"pe_PE29_Access_point", "value":"19313"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P14_carried_out_by", "value":"19309"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E39_Actor", "value":"19309"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"pe_PP23i_is_dataset_part_of", "value":"19279"},
+        {"source":"pe_PP23i_is_dataset_part_of", "target":"pe_PE24_Volatile_Dataset", "value":"19279"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"pe_PP4i_is_object_hosted_by", "value":"19278"},
+        {"source":"pe_PP4i_is_object_hosted_by", "target":"pe_PE2_Hosting_Service", "value":"19278"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"19278"},
+        {"source":"crm_P129_is_about", "target":"crm_E33_Linguistic_Object", "value":"19278"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P129_is_about", "value":"19278"},
+        {"source":"crm_P129_is_about", "target":"crm_E78_Collection", "value":"19278"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P129_is_about", "value":"19278"},
+        {"source":"crm_P129_is_about", "target":"crm_E33_Linguistic_Object", "value":"19278"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"19278"},
+        {"source":"crm_P129_is_about", "target":"crm_E78_Collection", "value":"19278"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P102_has_title", "value":"19278"},
+        {"source":"crm_P102_has_title", "target":"crm_E35_Title", "value":"19278"}
+        , 
+        {"source":"pe_PE2_Hosting_Service", "target":"pe_PP2_provided_by", "value":"19278"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"19278"}
+        , 
+        {"source":"crm_E78_Collection", "target":"pe_PP4i_is_object_hosted_by", "value":"19278"},
+        {"source":"pe_PP4i_is_object_hosted_by", "target":"pe_PE2_Hosting_Service", "value":"19278"}
+        , 
+        {"source":"crm_E47_Spatial_Coordinates", "target":"crm_P2_has_type", "value":"18977"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"18977"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"dig_L10i_was_input_of", "value":"18937"},
+        {"source":"dig_L10i_was_input_of", "target":"dig_D7_Digital_Machine_Event", "value":"18937"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"pe_PP8i_is_dataset_hosted_by", "value":"18896"},
+        {"source":"pe_PP8i_is_dataset_hosted_by", "target":"pe_PE15_Data_E_Service", "value":"18896"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP8i_is_dataset_hosted_by", "value":"18896"},
+        {"source":"pe_PP8i_is_dataset_hosted_by", "target":"pe_PE15_Data_E_Service", "value":"18896"}
+        , 
+        {"source":"crm_E53_Place", "target":"crm_P89_falls_within", "value":"18308"},
+        {"source":"crm_P89_falls_within", "target":"crm_E53_Place", "value":"18308"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P24i_changed_ownership_through", "value":"18266"},
+        {"source":"crm_P24i_changed_ownership_through", "target":"crm_E8_Acquisition", "value":"18266"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P24i_changed_ownership_through", "value":"18266"},
+        {"source":"crm_P24i_changed_ownership_through", "target":"crm_E8_Acquisition", "value":"18266"}
+        , 
+        {"source":"crm_E13_Attribute_Assignment", "target":"crm_P141_assigned", "value":"17915"},
+        {"source":"crm_P141_assigned", "target":"crm_E47_Spatial_Coordinates", "value":"17915"}
+        , 
+        {"source":"crm_E53_Place", "target":"crm_P140i_was_attributed_by", "value":"17893"},
+        {"source":"crm_P140i_was_attributed_by", "target":"crm_E13_Attribute_Assignment", "value":"17893"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P72_has_language", "value":"17178"},
+        {"source":"crm_P72_has_language", "target":"crm_E56_Language", "value":"17178"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P1_is_identified_by", "value":"16480"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"16480"}
+        , 
+        {"source":"crm_E30_Right", "target":"crm_P75i_is_possessed_by", "value":"15894"},
+        {"source":"crm_P75i_is_possessed_by", "target":"crm_E39_Actor", "value":"15894"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P4_has_time_span", "value":"15456"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"15456"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P2_has_type", "value":"15323"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"15323"}
+        , 
+        {"source":"crm_E69_Death", "target":"crm_P4_has_time_span", "value":"15237"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"15237"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P100_was_death_of_died_in", "value":"15237"},
+        {"source":"crm_P100_was_death_of_died_in", "target":"crm_E69_Death", "value":"15237"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P12i_was_present_at", "value":"15225"},
+        {"source":"crm_P12i_was_present_at", "target":"crm_E67_Birth", "value":"15225"}
+        , 
+        {"source":"crm_E67_Birth", "target":"crm_P4_has_time_span", "value":"15225"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"15225"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P2_has_type", "value":"14906"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"14906"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP49_provides_access_point", "value":"14257"},
+        {"source":"pe_PP49_provides_access_point", "target":"pe_PE29_Access_point", "value":"14257"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P43_has_dimension", "value":"13246"},
+        {"source":"crm_P43_has_dimension", "target":"crm_E54_Dimension", "value":"13246"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P129_is_about", "value":"13017"},
+        {"source":"crm_P129_is_about", "target":"crm_E53_Place", "value":"13017"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P94i_was_created_by", "value":"12633"},
+        {"source":"crm_P94i_was_created_by", "target":"crm_E65_Creation", "value":"12633"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P2_has_type", "value":"12633"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"12633"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P94i_was_created_by", "value":"12633"},
+        {"source":"crm_P94i_was_created_by", "target":"crm_E65_Creation", "value":"12633"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P43_has_dimension", "value":"12522"},
+        {"source":"crm_P43_has_dimension", "target":"crm_E54_Dimension", "value":"12522"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P14_carried_out_by", "value":"12481"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E39_Actor", "value":"12481"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P108i_was_produced_by", "value":"12155"},
+        {"source":"crm_P108i_was_produced_by", "target":"crm_E12_Production", "value":"12155"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P108i_was_produced_by", "value":"12155"},
+        {"source":"crm_P108i_was_produced_by", "target":"crm_E12_Production", "value":"12155"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P104_is_subject_to", "value":"10847"},
+        {"source":"crm_P104_is_subject_to", "target":"pe_PE29_Access_Point", "value":"10847"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"crm_P104_is_subject_to", "value":"10847"},
+        {"source":"crm_P104_is_subject_to", "target":"pe_PE29_Access_Point", "value":"10847"}
+        , 
+        {"source":"pe_PE29_Access_Point", "target":"crm_P2_has_type", "value":"10847"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"10847"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP49_provides_access_point", "value":"10847"},
+        {"source":"pe_PP49_provides_access_point", "target":"crm_E30_Right", "value":"10847"}
+        , 
+        {"source":"crm_E12_Production", "target":"crm_P4_has_time_span", "value":"10518"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"10518"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P129_is_about", "value":"9190"},
+        {"source":"crm_P129_is_about", "target":"crm_E39_Actor", "value":"9190"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129_is_about", "value":"9190"},
+        {"source":"crm_P129_is_about", "target":"crm_E39_Actor", "value":"9190"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P1_is_identified_by", "value":"9123"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E35_Title", "value":"9123"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP39_is_metadata_for", "value":"8433"},
+        {"source":"pe_PP39_is_metadata_for", "target":"pe_PE24_Volatile_Dataset", "value":"8433"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P129_is_about", "value":"8241"},
+        {"source":"crm_P129_is_about", "target":"crm_E53_Place", "value":"8241"}
+        , 
+        {"source":"crm_E8_Acquisition", "target":"crm_P2_has_type", "value":"7991"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"7991"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P1_is_identified_by", "value":"7734"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"7734"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P32_used_general_technique", "value":"7453"},
+        {"source":"crm_P32_used_general_technique", "target":"crm_E55_Type", "value":"7453"}
+        , 
+        {"source":"pe_PE5_Digital_Hosting_Service", "target":"crm_P2_has_type", "value":"7453"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"7453"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P1_is_identified_by", "value":"7453"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"7453"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P1_is_identified_by", "value":"7453"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"7453"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P9i_forms_part_of", "value":"7453"},
+        {"source":"crm_P9i_forms_part_of", "target":"crm_E7_Activity", "value":"7453"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P16i_was_used_for", "value":"7453"},
+        {"source":"crm_P16i_was_used_for", "target":"crm_E7_Activity", "value":"7453"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"pe_PP6i_is_digital_object_hosted_by", "value":"7453"},
+        {"source":"pe_PP6i_is_digital_object_hosted_by", "target":"pe_PE5_Digital_Hosting_Service", "value":"7453"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P1_is_identified_by", "value":"7453"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"7453"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P94i_was_created_by", "value":"7453"},
+        {"source":"crm_P94i_was_created_by", "target":"crm_E65_Creation", "value":"7453"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P76_has_contact_point", "value":"7089"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E51_Contact_Point", "value":"7089"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP32i_was_curated_by", "value":"6575"},
+        {"source":"pe_PP32i_was_curated_by", "target":"pe_PE12_Data_curating_Service", "value":"6575"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P94i_was_created_by", "value":"6431"},
+        {"source":"crm_P94i_was_created_by", "target":"crm_E65_Creation", "value":"6431"}
+        , 
+        {"source":"crm_E51_Contact_Point", "target":"crm_P2_has_type", "value":"6307"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"6307"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129i_is_subject_of", "value":"6198"},
+        {"source":"crm_P129i_is_subject_of", "target":"crm_E30_Right", "value":"6198"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P129i_is_subject_of", "value":"6198"},
+        {"source":"crm_P129i_is_subject_of", "target":"crm_E30_Right", "value":"6198"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P4_has_time_span", "value":"5350"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"5350"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P1_is_identified_by", "value":"5062"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"5062"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP23i_is_dataset_part_of", "value":"4771"},
+        {"source":"pe_PP23i_is_dataset_part_of", "target":"pe_PE24_Volatile_Dataset", "value":"4771"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"dig_L23_used_software_or_firmware", "value":"4741"},
+        {"source":"dig_L23_used_software_or_firmware", "target":"pe_PE21_Persistent_Software", "value":"4741"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P2_has_type", "value":"4610"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"4610"}
+        , 
+        {"source":"crm_E53_Place", "target":"crm_P1_is_identified_by", "value":"4552"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E47_Spatial_Coordinates", "value":"4552"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P2_has_type", "value":"4413"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"4413"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P129i_is_subject_of", "value":"4285"},
+        {"source":"crm_P129i_is_subject_of", "target":"pe_PE22_Persistent_Dataset", "value":"4285"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P129i_is_subject_of", "value":"4285"},
+        {"source":"crm_P129i_is_subject_of", "target":"pe_PE22_Persistent_Dataset", "value":"4285"}
+        , 
+        {"source":"pe_PE29_Access_point", "target":"pe_PP39_is_metadata_for", "value":"3812"},
+        {"source":"pe_PP39_is_metadata_for", "target":"pe_PE24_Volatile_Dataset", "value":"3812"}
+        , 
+        {"source":"pe_PE29_Access_Point", "target":"pe_PP39_is_metadata_for", "value":"3812"},
+        {"source":"pe_PP39_is_metadata_for", "target":"pe_PE24_Volatile_Dataset", "value":"3812"}
+        , 
+        {"source":"pe_PE20_Volatile_Digital_Object", "target":"crm_P104_is_subject_to", "value":"3790"},
+        {"source":"crm_P104_is_subject_to", "target":"crm_E30_Right", "value":"3790"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P17i_motivated", "value":"3619"},
+        {"source":"crm_P17i_motivated", "target":"crm_E65_Creation", "value":"3619"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P94_has_created", "value":"3611"},
+        {"source":"crm_P94_has_created", "target":"crm_E31_Document", "value":"3611"}
+        , 
+        {"source":"crm_E12_Production", "target":"crm_P14_carried_out_by", "value":"3541"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E39_Actor", "value":"3541"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P1_is_identified_by", "value":"3386"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E42_Identifier", "value":"3386"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP50_accessible_at", "value":"3136"},
+        {"source":"pe_PP50_accessible_at", "target":"pe_PE22_Persistent_Dataset", "value":"3136"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P147i_was_curated_by", "value":"2637"},
+        {"source":"crm_P147i_was_curated_by", "target":"crm_E87_Curation_Activity", "value":"2637"}
+        , 
+        {"source":"crm_E87_Curation_Activity", "target":"crm_P33_used_specific_technique", "value":"2637"},
+        {"source":"crm_P33_used_specific_technique", "target":"crm_E29_Design_or_Procedure", "value":"2637"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P147i_was_curated_by", "value":"2637"},
+        {"source":"crm_P147i_was_curated_by", "target":"crm_E87_Curation_Activity", "value":"2637"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P104_is_subject_to", "value":"2416"},
+        {"source":"crm_P104_is_subject_to", "target":"crm_E30_Right", "value":"2416"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P53_has_former_or_current_location", "value":"2395"},
+        {"source":"crm_P53_has_former_or_current_location", "target":"crm_E53_Place", "value":"2395"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP49_provides_access_point", "value":"2302"},
+        {"source":"pe_PP49_provides_access_point", "target":"pe_PE22_Persistent_Dataset", "value":"2302"}
+        , 
+        {"source":"pe_PE29_Access_Point", "target":"dig_L11i_was_output_of", "value":"2302"},
+        {"source":"dig_L11i_was_output_of", "target":"dig_D7_Digital_Machine_Event", "value":"2302"}
+        , 
+        {"source":"pe_PE29_Access_point", "target":"dig_L11i_was_output_of", "value":"2302"},
+        {"source":"dig_L11i_was_output_of", "target":"dig_D7_Digital_Machine_Event", "value":"2302"}
+        , 
+        {"source":"crm_E30_Right", "target":"crm_P103_was_intended_for", "value":"2153"},
+        {"source":"crm_P103_was_intended_for", "target":"crm_E55_Type", "value":"2153"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P76_has_contact_point", "value":"2072"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E45_Address", "value":"2072"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P76_has_contact_point", "value":"1909"},
+        {"source":"crm_P76_has_contact_point", "target":"pe_PE29_Access_Point", "value":"1909"}
+        , 
+        {"source":"pe_PE3_Curating_Service", "target":"crm_P14_carried_out_by", "value":"1620"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E21_Person", "value":"1620"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P2_has_type", "value":"1604"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"1604"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP39i_has_metadata", "value":"1604"},
+        {"source":"pe_PP39i_has_metadata", "target":"pe_PE22_Persistent_Dataset", "value":"1604"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP32i_is_curated_by", "value":"1564"},
+        {"source":"pe_PP32i_is_curated_by", "target":"pe_PE3_Curating_Service", "value":"1564"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP24_has_dataset_snapshot", "value":"1231"},
+        {"source":"pe_PP24_has_dataset_snapshot", "target":"pe_PE22_Persistent_Dataset", "value":"1231"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P4_has_time_span", "value":"1199"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"1199"}
+        , 
+        {"source":"crm_E21_Person", "target":"crm_P107i_is_current_or_former_member_of", "value":"1156"},
+        {"source":"crm_P107i_is_current_or_former_member_of", "target":"crm_E74_Group", "value":"1156"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P129_is_about", "value":"931"},
+        {"source":"crm_P129_is_about", "target":"crm_E55_Type", "value":"931"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P14_carried_out_by", "value":"914"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E21_Person", "value":"914"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P130i_features_are_also_found_on", "value":"821"},
+        {"source":"crm_P130i_features_are_also_found_on", "target":"crm_E78_Collection", "value":"821"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P130i_features_are_also_found_on", "value":"821"},
+        {"source":"crm_P130i_features_are_also_found_on", "target":"crm_E78_Collection", "value":"821"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P67_refers_to", "value":"737"},
+        {"source":"crm_P67_refers_to", "target":"crm_E53_Place", "value":"737"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P143i_was_joined_by", "value":"725"},
+        {"source":"crm_P143i_was_joined_by", "target":"crm_E85_Joining", "value":"725"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"crm_P130_shows_features_of", "value":"710"},
+        {"source":"crm_P130_shows_features_of", "target":"crm_E78_Collection", "value":"710"}
+        , 
+        {"source":"crm_E78_Collection", "target":"crm_P130_shows_features_of", "value":"710"},
+        {"source":"crm_P130_shows_features_of", "target":"crm_E78_Collection", "value":"710"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P67_refers_to", "value":"673"},
+        {"source":"crm_P67_refers_to", "target":"crm_E39_Actor", "value":"673"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P138i_has_representation", "value":"673"},
+        {"source":"crm_P138i_has_representation", "target":"crm_E38_Image", "value":"673"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P138i_has_representation", "value":"673"},
+        {"source":"crm_P138i_has_representation", "target":"pe_PE22_Persistent_Dataset", "value":"673"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"pe_PP39i_has_metadata", "value":"463"},
+        {"source":"pe_PP39i_has_metadata", "target":"pe_PE22_Persistent_Dataset", "value":"463"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"dig_L10i_was_input_of", "value":"463"},
+        {"source":"dig_L10i_was_input_of", "target":"dig_D3_Formal_Derivation", "value":"463"}
+        , 
+        {"source":"pe_PE22_Persistent_Dataset", "target":"pe_PP39i_has_metadata", "value":"463"},
+        {"source":"pe_PP39i_has_metadata", "target":"pe_PE22_Persistent_Dataset", "value":"463"}
+        , 
+        {"source":"crm_E33_Linguistic_Object", "target":"dig_L10i_was_input_of", "value":"463"},
+        {"source":"dig_L10i_was_input_of", "target":"dig_D3_Formal_Derivation", "value":"463"}
+        , 
+        {"source":"dig_D3_Formal_Derivation", "target":"dig_L22_created_derivative", "value":"463"},
+        {"source":"dig_L22_created_derivative", "target":"pe_PE22_Persistent_Dataset", "value":"463"}
+        , 
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemadomain", "value":"389"},
+        {"source":"httpZZwww_w3_orgZ2000Z01Zrdf_schemadomain", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass", "value":"389"}
+        , 
+        {"source":"crm_E30_Right", "target":"crm_P75i_is_possessed_by", "value":"379"},
+        {"source":"crm_P75i_is_possessed_by", "target":"crm_E21_Person", "value":"379"}
+        , 
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemarange", "value":"372"},
+        {"source":"httpZZwww_w3_orgZ2000Z01Zrdf_schemarange", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass", "value":"372"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P32_used_general_technique", "value":"307"},
+        {"source":"crm_P32_used_general_technique", "target":"crm_E55_Type", "value":"307"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P16i_was_used_for", "value":"305"},
+        {"source":"crm_P16i_was_used_for", "target":"crm_E7_Activity", "value":"305"}
+        , 
+        {"source":"crm_E41_Appellation", "target":"crm_P2_has_type", "value":"264"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"264"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P129_is_about", "value":"243"},
+        {"source":"crm_P129_is_about", "target":"crm_E52_Time_Span", "value":"243"}
+        , 
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubPropertyOf", "value":"212"},
+        {"source":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubPropertyOf", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_nsProperty", "value":"212"}
+        , 
+        {"source":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubClassOf", "value":"137"},
+        {"source":"httpZZwww_w3_orgZ2000Z01Zrdf_schemasubClassOf", "target":"httpZZwww_w3_orgZ2000Z01Zrdf_schemaClass", "value":"137"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfinheritFrom", "value":"99"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfinheritFrom", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"99"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSuperFormats", "value":"98"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSuperFormats", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "value":"98"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P76_has_contact_point", "value":"68"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E51_Contact_Point", "value":"68"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "value":"56"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"56"}
+        , 
+        {"source":"crm_E45_Address", "target":"crm_P2_has_type", "value":"45"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"45"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP2_provided_by", "value":"42"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"42"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP28_has_designated_access_point", "value":"36"},
+        {"source":"pe_PP28_has_designated_access_point", "target":"pe_PE29_Access_Point", "value":"36"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P76_has_contact_point", "value":"35"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E51_Contact_Point", "value":"35"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP45_has_competency", "value":"34"},
+        {"source":"pe_PP45_has_competency", "target":"pe_PE36_Competency_Type", "value":"34"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"dig_L11i_was_output_of", "value":"33"},
+        {"source":"dig_L11i_was_output_of", "target":"dig_D7_Digital_Machine_Event", "value":"33"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP45_has_competency", "value":"31"},
+        {"source":"pe_PP45_has_competency", "target":"pe_PE36_Competency_Type", "value":"31"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP2_provided_by", "value":"31"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"31"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P76_has_contact_point", "value":"27"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E51_Contact_Point", "value":"27"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP1_currently_offers", "value":"25"},
+        {"source":"pe_PP1_currently_offers", "target":"pe_PE1_Service", "value":"25"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P107_has_current_or_former_member", "value":"24"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E39_Actor", "value":"24"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP28_has_designated_access_point", "value":"24"},
+        {"source":"pe_PP28_has_designated_access_point", "target":"pe_PE29_Access_Point", "value":"24"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P129_is_about", "value":"24"},
+        {"source":"crm_P129_is_about", "target":"crm_E4_Period", "value":"24"}
+        , 
+        {"source":"pe_PE1_Service", "target":"crm_P1_is_identified_by", "value":"24"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"24"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P33_used_specific_technique", "value":"24"},
+        {"source":"crm_P33_used_specific_technique", "target":"crm_E29_Design_or_Procedure", "value":"24"}
+        , 
+        {"source":"pe_PE1_Service", "target":"crm_P16_used_specific_object", "value":"24"},
+        {"source":"crm_P16_used_specific_object", "target":"crm_E30_Right", "value":"24"}
+        , 
+        {"source":"crm_E29_Design_or_Procedure", "target":"crm_P2_has_type", "value":"24"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"24"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"crm_P1_is_identified_by", "value":"22"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"22"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"crm_P16_used_specific_object", "value":"22"},
+        {"source":"crm_P16_used_specific_object", "target":"crm_E30_Right", "value":"22"}
+        , 
+        {"source":"pe_PE25_RI_Consortium", "target":"crm_P76_has_contact_point", "value":"22"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E51_Contact_Point", "value":"22"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P76_has_contact_point", "value":"22"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E45_Address", "value":"22"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P76_has_contact_point", "value":"21"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E45_Address", "value":"21"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP1_currently_offers", "value":"20"},
+        {"source":"pe_PP1_currently_offers", "target":"pe_PE17_Curated_Data_E_Service", "value":"20"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP2_provided_by", "value":"20"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE25_RI_Consortium", "value":"20"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P76_has_contact_point", "value":"19"},
+        {"source":"crm_P76_has_contact_point", "target":"pe_PE29_Access_Point", "value":"19"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P1_is_identified_by", "value":"19"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"19"}
+        , 
+        {"source":"pe_PE25_RI_Consortium", "target":"crm_P107_has_current_or_former_member", "value":"19"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E39_Actor", "value":"19"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P76_has_contact_point", "value":"19"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E45_Address", "value":"19"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP2_provided_by", "value":"18"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE25_RI_Consortium", "value":"18"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP13i_is_volatile_dataset_curated_by", "value":"17"},
+        {"source":"pe_PP13i_is_volatile_dataset_curated_by", "target":"pe_PE17_Curated_Data_E_Service", "value":"17"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P14_carried_out_by", "value":"17"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E40_Legal_Body", "value":"17"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP47_has_protocol_type", "value":"17"},
+        {"source":"pe_PP47_has_protocol_type", "target":"pe_PE37_Protocol_Type", "value":"17"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P76_has_contact_point", "value":"17"},
+        {"source":"crm_P76_has_contact_point", "target":"pe_PE29_Access_Point", "value":"17"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P14_carried_out_by", "value":"17"},
+        {"source":"crm_P14_carried_out_by", "target":"pe_PE34_Team", "value":"17"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP8i_is_dataset_hosted_by", "value":"16"},
+        {"source":"pe_PP8i_is_dataset_hosted_by", "target":"pe_PE17_Curated_Data_E_Service", "value":"16"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP8i_is_dataset_hosted_by", "value":"15"},
+        {"source":"pe_PP8i_is_dataset_hosted_by", "target":"pe_PE1_Service", "value":"15"}
+        , 
+        {"source":"pe_PE25_RI_Consortium", "target":"crm_P76_has_contact_point", "value":"15"},
+        {"source":"crm_P76_has_contact_point", "target":"crm_E45_Address", "value":"15"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP47_has_protocol_type", "value":"15"},
+        {"source":"pe_PP47_has_protocol_type", "target":"pe_PE37_Protocol_Type", "value":"15"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP13i_is_volatile_dataset_curated_by", "value":"15"},
+        {"source":"pe_PP13i_is_volatile_dataset_curated_by", "target":"pe_PE1_Service", "value":"15"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP11i_is_volatile_digital_object_curated_by", "value":"14"},
+        {"source":"pe_PP11i_is_volatile_digital_object_curated_by", "target":"pe_PE17_Curated_Data_E_Service", "value":"14"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP2_provided_by", "value":"14"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"14"}
+        , 
+        {"source":"crm_E39_Actor", "target":"crm_P107_has_current_or_former_member", "value":"13"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E39_Actor", "value":"13"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_2", "value":"13"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_2", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"13"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP2_provided_by", "value":"13"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"13"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P1_is_identified_by", "value":"12"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"12"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P76_has_contact_point", "value":"12"},
+        {"source":"crm_P76_has_contact_point", "target":"pe_PE29_Access_Point", "value":"12"}
+        , 
+        {"source":"pe_PE25_RI_Consortium", "target":"crm_P1_is_identified_by", "value":"11"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"11"}
+        , 
+        {"source":"pe_PE25_RI_Consortium", "target":"crm_P76_has_contact_point", "value":"11"},
+        {"source":"crm_P76_has_contact_point", "target":"pe_PE29_Access_Point", "value":"11"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP44_has_maintaining_team", "value":"10"},
+        {"source":"pe_PP44_has_maintaining_team", "target":"pe_PE34_Team", "value":"10"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP44_has_maintaining_team", "value":"10"},
+        {"source":"pe_PP44_has_maintaining_team", "target":"pe_PE25_RI_Consortium", "value":"10"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_3", "value":"10"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_3", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"10"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"crm_P1_is_identified_by", "value":"10"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"10"}
+        , 
+        {"source":"dig_D7_Digital_Machine_Event", "target":"crm_P14_carried_out_by", "value":"9"},
+        {"source":"crm_P14_carried_out_by", "target":"pe_PE25_RI_Consortium", "value":"9"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvATables", "value":"8"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvATables", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapATable", "value":"8"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapColumn", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "value":"8"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapColumn", "value":"8"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvColumns", "value":"8"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvColumns", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapColumn", "value":"8"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"crm_P4_has_time_span", "value":"8"},
+        {"source":"crm_P4_has_time_span", "target":"crm_E52_Time_Span", "value":"8"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFormat", "value":"8"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFormat", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"8"}
+        , 
+        {"source":"pe_PE36_Competency_Type", "target":"crm_P103i_was_intention_of", "value":"7"},
+        {"source":"crm_P103i_was_intention_of", "target":"pe_PE21_Persistent_Software", "value":"7"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P103_was_intended_for", "value":"7"},
+        {"source":"crm_P103_was_intended_for", "target":"pe_PE36_Competency_Type", "value":"7"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP41i_is_indexed_by", "value":"7"},
+        {"source":"pe_PP41i_is_indexed_by", "target":"pe_PE24_Volatile_Dataset", "value":"7"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP45_has_competency", "value":"7"},
+        {"source":"pe_PP45_has_competency", "target":"pe_PE36_Competency_Type", "value":"7"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP49_provides_access_point", "value":"7"},
+        {"source":"pe_PP49_provides_access_point", "target":"pe_PE29_Access_Point", "value":"7"}
+        , 
+        {"source":"httpZZwww_ics_forth_grZislZCRMextZCRMsci_rdfsZS6_Data_Evaluation", "target":"crm_P70i_is_documented_in", "value":"7"},
+        {"source":"crm_P70i_is_documented_in", "target":"crm_E31_Document", "value":"7"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP2_provided_by", "value":"6"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"6"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP44_has_maintaining_team", "value":"5"},
+        {"source":"pe_PP44_has_maintaining_team", "target":"crm_E39_Actor", "value":"5"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P74_has_current_or_former_residence", "value":"4"},
+        {"source":"crm_P74_has_current_or_former_residence", "target":"crm_E53_Place", "value":"4"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP13i_is_volatile_dataset_curated_by", "value":"4"},
+        {"source":"pe_PP13i_is_volatile_dataset_curated_by", "target":"pe_PE12_Data_Curating_Service", "value":"4"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"pe_PP45_has_competency", "value":"4"},
+        {"source":"pe_PP45_has_competency", "target":"pe_PE36_Competency_Type", "value":"4"}
+        , 
+        {"source":"pe_PE12_Data_Curating_Service", "target":"pe_PP2_provided_by", "value":"4"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"4"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadStorage", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqsUserMaps", "value":"3"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqsUserMaps", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMap", "value":"3"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_4", "value":"3"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_4", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"3"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP1_currently_offers", "value":"3"},
+        {"source":"pe_PP1_currently_offers", "target":"pe_PE15_Data_E_Service", "value":"3"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"pe_PP2_provided_by", "value":"3"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"3"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP28_has_designated_access_point", "value":"3"},
+        {"source":"pe_PP28_has_designated_access_point", "target":"pe_PE29_Access_Point", "value":"3"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P1_is_identified_by", "value":"3"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"3"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapFormat", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_5", "value":"3"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_5", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"3"}
+        , 
+        {"source":"pe_PE1_Service", "target":"crm_P2_has_type", "value":"3"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"3"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P16_used_specific_object", "value":"3"},
+        {"source":"crm_P16_used_specific_object", "target":"crm_E30_Right", "value":"3"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmPredicateMap", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmPredicateMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmObjectMap", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmObjectMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvGeo", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvGeo", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFText", "value":"2"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"pe_PP28_has_designated_access_point", "value":"2"},
+        {"source":"pe_PP28_has_designated_access_point", "target":"pe_PE29_Access_Point", "value":"2"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"crm_P1_is_identified_by", "value":"2"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"2"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP2_provided_by", "value":"2"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E40_Legal_Body", "value":"2"}
+        , 
+        {"source":"crm_E65_Creation", "target":"crm_P14_carried_out_by", "value":"2"},
+        {"source":"crm_P14_carried_out_by", "target":"crm_E21_Person", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSubFormatForRefs", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmfSubFormatForRefs", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFormat", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadStorage", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqsDefaultMap", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqsDefaultMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFText", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvftConds", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvftConds", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_string", "value":"2"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P107_has_current_or_former_member", "value":"2"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E39_Actor", "value":"2"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP1_currently_offers", "value":"2"},
+        {"source":"pe_PP1_currently_offers", "target":"pe_PE13_Software_Computing_E_Service", "value":"2"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"pe_PP2_provided_by", "value":"2"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE25_RI_Consortium", "value":"2"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"pe_PP2_provided_by", "value":"2"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"2"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P129_is_about", "value":"2"},
+        {"source":"crm_P129_is_about", "target":"crm_E53_Place", "value":"2"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"crm_P11_had_participant", "value":"2"},
+        {"source":"crm_P11_had_participant", "target":"crm_E39_Actor", "value":"2"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"crm_P16_used_specific_object", "value":"2"},
+        {"source":"crm_P16_used_specific_object", "target":"crm_E30_Right", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmGraphMap", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmGraphMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmSubjectMap", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmSubjectMap", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapValue", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFText", "value":"2"},
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfqmvFText", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapFText", "value":"2"}
+        , 
+        {"source":"httpZZwww_openlinksw_comZschemasZvirtrdfarray_of_QuadMapATable", "target":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "value":"2"},
+        {"source":"httpZZwww_w3_orgZ1999Z02Z22_rdf_syntax_ns_1", "target":"httpZZwww_openlinksw_comZschemasZvirtrdfQuadMapATable", "value":"2"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"pe_PP31_uses_curation_plan", "value":"2"},
+        {"source":"pe_PP31_uses_curation_plan", "target":"pe_PE28_Curation_Plan", "value":"2"}
+        , 
+        {"source":"pe_PE17_Curated_Data_E_Service", "target":"crm_P2_has_type", "value":"2"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"2"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E40_Legal_Body", "value":"1"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE25_RI_Consortium", "value":"1"}
+        , 
+        {"source":"crm_E65_Creation", "target":"pe_PP43i_is_project_activity_supported_by", "value":"1"},
+        {"source":"pe_PP43i_is_project_activity_supported_by", "target":"pe_PE35_Project", "value":"1"}
+        , 
+        {"source":"pe_PE34_Team", "target":"crm_P107_has_current_or_former_member", "value":"1"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E21_Person", "value":"1"}
+        , 
+        {"source":"crm_E40_Legal_Body", "target":"crm_P107_has_current_or_former_member", "value":"1"},
+        {"source":"crm_P107_has_current_or_former_member", "target":"crm_E21_Person", "value":"1"}
+        , 
+        {"source":"pe_PE35_Project", "target":"crm_P1_is_identified_by", "value":"1"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"1"}
+        , 
+        {"source":"crm_E7_Activity", "target":"crm_P70i_is_documented_in", "value":"1"},
+        {"source":"crm_P70i_is_documented_in", "target":"crm_E31_Document", "value":"1"}
+        , 
+        {"source":"crm_E31_Document", "target":"crm_P2_has_type", "value":"1"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"1"}
+        , 
+        {"source":"crm_E31_Document", "target":"crm_P16i_was_used_for", "value":"1"},
+        {"source":"crm_P16i_was_used_for", "target":"httpZZwww_cidoc_crm_orgZfrbrZF30_Publication_Event", "value":"1"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"pe_PP13i_is_volatile_dataset_curated_by", "value":"1"},
+        {"source":"pe_PP13i_is_volatile_dataset_curated_by", "target":"pe_PE15_Data_E_Service", "value":"1"}
+        , 
+        {"source":"pe_PE26_RI_Project", "target":"pe_PP1_currently_offers", "value":"1"},
+        {"source":"pe_PP1_currently_offers", "target":"pe_PE7_Data_Hosting_Service", "value":"1"}
+        , 
+        {"source":"pe_PE1_Service", "target":"pe_PP31_uses_curation_plan", "value":"1"},
+        {"source":"pe_PP31_uses_curation_plan", "target":"pe_PE28_Curation_Plan", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE34_Team", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"pe_PP45_has_competency", "value":"1"},
+        {"source":"pe_PP45_has_competency", "target":"pe_PE36_Competency_Type", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"pe_PP28_has_designated_access_point", "value":"1"},
+        {"source":"pe_PP28_has_designated_access_point", "target":"pe_PE29_Access_Point", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E39_Actor", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"crm_P1_is_identified_by", "value":"1"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E41_Appellation", "value":"1"}
+        , 
+        {"source":"pe_PE13_Software_Computing_E_Service", "target":"crm_P2_has_type", "value":"1"},
+        {"source":"crm_P2_has_type", "target":"crm_E55_Type", "value":"1"}
+        , 
+        {"source":"pe_PE7_Data_Hosting_Service", "target":"crm_P16_used_specific_object", "value":"1"},
+        {"source":"crm_P16_used_specific_object", "target":"crm_E30_Right", "value":"1"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"crm_E40_Legal_Body", "value":"1"}
+        , 
+        {"source":"pe_PE24_Volatile_Dataset", "target":"crm_P105_right_held_by", "value":"1"},
+        {"source":"crm_P105_right_held_by", "target":"crm_E40_Legal_Body", "value":"1"}
+        , 
+        {"source":"pe_PE35_Project", "target":"pe_PP44_has_maintaining_team", "value":"1"},
+        {"source":"pe_PP44_has_maintaining_team", "target":"crm_E40_Legal_Body", "value":"1"}
+        , 
+        {"source":"pe_PE35_Project", "target":"pe_PP44_has_maintaining_team", "value":"1"},
+        {"source":"pe_PP44_has_maintaining_team", "target":"pe_PE34_Team", "value":"1"}
+        , 
+        {"source":"pe_PE35_Project", "target":"crm_P1_is_identified_by", "value":"1"},
+        {"source":"crm_P1_is_identified_by", "target":"crm_E35_Title", "value":"1"}
+        , 
+        {"source":"crm_E31_Document", "target":"crm_P102_has_title", "value":"1"},
+        {"source":"crm_P102_has_title", "target":"crm_E35_Title", "value":"1"}
+        , 
+        {"source":"crm_E31_Document", "target":"crm_P94i_was_created_by", "value":"1"},
+        {"source":"crm_P94i_was_created_by", "target":"crm_E65_Creation", "value":"1"}
+        , 
+        {"source":"pe_PE15_Data_E_Service", "target":"pe_PP2_provided_by", "value":"1"},
+        {"source":"pe_PP2_provided_by", "target":"pe_PE25_RI_Consortium", "value":"1"}
+        
+    ] }
