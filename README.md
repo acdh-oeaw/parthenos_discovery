@@ -92,3 +92,69 @@ pyinstaller --onefile querPy.py
 after these commands, several folders were created; within the dist folder you would find a single executable file which should contain everything needed to run the script (which includes a dedicated python interpreter, all the imported libraries and the script itself).
 
 This single executable file you can run as outlined before.
+
+
+### structure of the config file
+
+The config file fed with the '-r' command is itself actually a python module (due to problems having arisen when using other formats), thus basic python syntax is to be respected. There is a ready-made template file included in the querPy folder.
+
+Within the file there are several variables (most of which are actually optional):
+
+#### title
+defines the title of the whole set of queries
+
+OPTIONAL, if not set, timestamp will be used
+
+#### description
+defines the textual and human-intended description of the purpose of these queries
+
+OPTIONAL, if not set, nothing will be used or displayed
+
+#### output_destination
+defines where to save the results, input can be: 
+
+* a local path to a folder 
+
+* a URL for a public google sheets document  
+
+* a URL for a public google drive folder
+
+NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
+In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
+
+OPTIONAL, if not set, folder of executed script will be used
+
+#### output_format
+defines the format in which the result data shall be saved (currently available: csv, tsv, xml, json, xlsx)
+
+OPTIONAL, if not set, csv will be used
+
+#### summary_sample_limit
+defines how many rows shall be displayed in the summary
+
+OPTIONAL, if not set, 5 will be used
+
+#### endpoint
+defines the SPARQL endpoint against which all the queries are run
+
+MANDATORY
+
+#### queries
+defines the set of queries to be run. 
+
+MANDATAORY
+
+##### query
+
+###### title
+
+OPTIONAL, if not set, timestamp will be used
+
+###### description
+
+OPTIONAL, if not set, nothing will be used or displayed
+
+###### query
+the sparql query itself
+
+MANDATORY
