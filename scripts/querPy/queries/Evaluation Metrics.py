@@ -48,10 +48,71 @@ endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 queries = [
 
     {    
-        "title" : "" , 
-        "description" : "" , 
+        "title" : "Count of all triples in Virtuoso" , 
         "query" : """
-			
+			SELECT COUNT(*) WHERE { 
+				[][][] 
+			}
+        """
+    },
+    {    
+        "title" : "All used predicates + their frequencies" , 
+        "query" : """
+			SELECT ?p (COUNT(?p) as ?pCount) WHERE {
+				[] ?p []
+			}
+			GROUP BY ?p
+			ORDER BY DESC(?pCount)
+        """
+    },
+    {    
+        "title" : "All used Subject types + their frequencies" , 
+        "query" : """
+			SELECT ?type (COUNT(?type) as ?typeCount) WHERE {
+				[] a ?type
+			}
+			GROUP BY ?type
+			ORDER BY DESC(?typeCount)			
+        """
+    },
+    {    
+        "title" : "Number of graphs" , 
+        "query" : """
+			SELECT (COUNT (DISTINCT ?g) AS ?numberOfGraphs) WHERE { 
+				GRAPH ?g { ?s ?p ?o }
+			}
+        """
+    },
+    {    
+        "title" : "All graphs, sorted by their number of triples contained within" , 
+        "query" : """
+			SELECT DISTINCT ?g (count(?p) as ?triples) WHERE { 
+				GRAPH ?g { ?s ?p ?o } 
+			} 
+			GROUP BY ?g
+			ORDER BY DESC (?triples)
+        """
+    },
+    {    
+        "title" : "Return most connected entities" , 
+        "query" : """
+			SELECT ?resource COUNT(*) AS ?countOfConnections WHERE {
+				{ ?resource ?pTo ?rTo } UNION
+				{ ?rFrom ?pFrom ?resource } 
+			} 
+			GROUP BY ?resource
+			ORDER BY DESC ( ?countOfConnections )
+        """
+    },
+    {    
+        "title" : "Duplicate tripes (spread over different graphs)" , 
+        "description" : "Heuristically one can assume that the lower this number, the better the data quality" , 
+        "query" : """
+			SELECT ?s ?p ?o COUNT( DISTINCT ( ?g ) ) AS ?countOfOccurrence WHERE {
+				GRAPH ?g { ?s ?p ?o }
+			}
+			GROUP BY ?s ?p ?o
+			ORDER BY DESC( ?countOfOccurrence )
         """
     },
 ]
