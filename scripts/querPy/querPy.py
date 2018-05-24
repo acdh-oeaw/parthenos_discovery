@@ -33,7 +33,7 @@ def main():
         # read user configuration file
         conf = imp.load_source('conf', args.r)
 
-        logging.basicConfig(filename="querPy_log.log", filemode="w", level=logging.INFO)
+        logging.basicConfig(filename="./logs/querPy_log.log", filemode="w", level=logging.INFO)
 
         # extract and validate data from the configuration
         data = read_input(conf, args.r)
@@ -61,7 +61,7 @@ def read_input(conf, conf_filename):
     def main(conf):
 
         data = {}
-        data['timestamp_start'] = time.strftime('%Y%m%d_%H%M%S')
+        data['timestamp_start'] = time.strftime('%y%m%d_%H%M%S')
 
         message = \
             "\n################################\n" + \
@@ -1101,7 +1101,7 @@ class OutputWriter:
 
             else:
                 # results_lines_count
-                self.xlsx_worksheet_summary.write(self.line_number, 0, "Total count of triples in results: " + str(query['results_lines_count']))
+                self.xlsx_worksheet_summary.write(self.line_number, 0, "Total count of lines in results: " + str(query['results_lines_count']))
                 self.line_number += 2
 
                 # results
@@ -1151,7 +1151,7 @@ class OutputWriter:
 
             else:
                 query_stats.append(
-                    ["Total count of triples in results: " +
+                    ["Total count of lines in results: " +
                      str(query['results_lines_count'])])
 
                 # get sample results
