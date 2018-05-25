@@ -4,13 +4,13 @@
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = "TEST QUERIES"
+title = "Evaluation Metrics"
 
 
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "This set of queries is used as a template for showcasing a valid configuration."
+description = "Set of queries which shall produce metrics to be continuously evaluated"
 
 
 # output_destination
@@ -21,13 +21,13 @@ description = "This set of queries is used as a template for showcasing a valid 
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"https://drive.google.com/drive/folders/1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj"
+output_destination = r"https://drive.google.com/drive/folders/1ZFDByQ_5itFU4YEvMJNKPm8O5etflHx-"
 
 
 # output_format
 # defines the format in which the result data shall be saved (currently available: csv, tsv, xml, json, xlsx)
 # OPTIONAL, if not set, csv will be used
-output_format = "csv"
+output_format = ""
 
 
 # summary_sample_limit
@@ -47,42 +47,72 @@ endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 # MANDATAORY
 queries = [
 
-
-    {
-        # title
-        # OPTIONAL, if not set, timestamp will be used
-        "title" : "Optional title of first query" ,
-        
-        # description
-        # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Optional description of first query, used to describe the purpose of the query." ,
-
-        # query
-        # the sparql query itself
-        # MANDATORY
-        "query" : """
-            SELECT ?g ?s ?p ?o WHERE {
-                GRAPH ?g {
-                    ?s ?p ?o
-                }
-            }
-        """
-    }, 
     {    
+        "title" : "Count of all triples in Virtuoso" , 
         "query" : """
-            SELECT COUNT(*) WHERE {
-                ?s a ?o
-            }
+			SELECT COUNT(*) WHERE { 
+				[][][] 
+			}
         """
-    },  
+    },
     {    
-        "title" : "Last query" , 
-        "description" : "This query counts the occurences of distinct predicates" , 
+        "title" : "All used predicates + their frequencies" , 
         "query" : """
-            SELECT DISTINCT ?p COUNT(?p) AS ?pCount WHERE {
-                ?s ?p ?o
-            }
-            ORDER BY DESC ( ?pCount )
+			SELECT ?p (COUNT(?p) as ?pCount) WHERE {
+				[] ?p []
+			}
+			GROUP BY ?p
+			ORDER BY DESC(?pCount)
+        """
+    },
+    {    
+        "title" : "All used Subject types + their frequencies" , 
+        "query" : """
+			SELECT ?type (COUNT(?type) as ?typeCount) WHERE {
+				[] a ?type
+			}
+			GROUP BY ?type
+			ORDER BY DESC(?typeCount)			
+        """
+    },
+    {    
+        "title" : "Number of graphs" , 
+        "query" : """
+			SELECT (COUNT (DISTINCT ?g) AS ?numberOfGraphs) WHERE { 
+				GRAPH ?g { ?s ?p ?o }
+			}
+        """
+    },
+    {    
+        "title" : "All graphs, sorted by their number of triples contained within" , 
+        "query" : """
+			SELECT DISTINCT ?g (count(?p) as ?triples) WHERE { 
+				GRAPH ?g { ?s ?p ?o } 
+			} 
+			GROUP BY ?g
+			ORDER BY DESC (?triples)
+        """
+    },
+    {    
+        "title" : "Return most connected entities" , 
+        "query" : """
+			SELECT ?resource COUNT(*) AS ?countOfConnections WHERE {
+				{ ?resource ?pTo ?rTo } UNION
+				{ ?rFrom ?pFrom ?resource } 
+			} 
+			GROUP BY ?resource
+			ORDER BY DESC ( ?countOfConnections )
+        """
+    },
+    {    
+        "title" : "Duplicate tripes (spread over different graphs)" , 
+        "description" : "Heuristically one can assume that the lower this number, the better the data quality" , 
+        "query" : """
+			SELECT ?s ?p ?o COUNT( DISTINCT ( ?g ) ) AS ?countOfOccurrence WHERE {
+				GRAPH ?g { ?s ?p ?o }
+			}
+			GROUP BY ?s ?p ?o
+			ORDER BY DESC( ?countOfOccurrence )
         """
     },
 ]
