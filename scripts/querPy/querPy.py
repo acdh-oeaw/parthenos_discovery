@@ -66,7 +66,8 @@ def read_input(conf, conf_filename):
         message = \
             "\n################################\n" + \
             "READING CONFIG FILE: " + conf_filename + \
-            "\n################################\n"
+            "\n################################\n" + \
+            "\ntimestamp: " + str(data['timestamp_start'])
         logging.info(message)
         print(message)
 
