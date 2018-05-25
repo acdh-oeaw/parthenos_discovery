@@ -33,7 +33,7 @@ def main():
         # read user configuration file
         conf = imp.load_source('conf', args.r)
 
-        logging.basicConfig(filename="./logs/querPy_log.log", filemode="w", level=logging.INFO)
+        logging.basicConfig(filename="querPy_log.log", filemode="w", level=logging.INFO)
 
         # extract and validate data from the configuration
         data = read_input(conf, args.r)
