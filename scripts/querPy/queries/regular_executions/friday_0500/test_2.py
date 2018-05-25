@@ -4,7 +4,7 @@
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = "TEST QUERIES"
+title = "test_2"
 
 
 # description
@@ -21,7 +21,7 @@ description = "This set of queries is used as a template for showcasing a valid 
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"."
+output_destination = r"https://drive.google.com/drive/folders/1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj"
 
 
 # output_format
@@ -68,23 +68,6 @@ queries = [
             }
         """
     }, 
-    {    
-        "query" : """
-            SELECT COUNT(*) WHERE {
-                ?s a ?o
-            }
-        """
-    },  
-    {    
-        "title" : "Last query" , 
-        "description" : "This query counts the occurences of distinct predicates" , 
-        "query" : """
-            SELECT DISTINCT ?p COUNT(?p) AS ?pCount WHERE {
-                ?s ?p ?o
-            }
-            ORDER BY DESC ( ?pCount )
-        """
-    },
 ]
 
 # Notes on syntax of queries-set:
