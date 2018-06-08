@@ -6,40 +6,73 @@ import json
 import logging
 import sys
 import time
+import os
 from httplib2 import Http
 import xlsxwriter
 from pathlib import Path
 from SPARQLWrapper import *
 from googleapiclient import discovery
-from oauth2client.client import GoogleCredentials
+from oauth2client import client, tools, file
 
 
 
 def main():
 
-    # parse arguments
+    # argument parser
     parser = argparse.ArgumentParser()
-    parser.add_argument("-r", help="reads a provided config file and runs its containing queries")
-    parser.add_argument("-t", action='store_true', help="creates a template")
-    if len(sys.argv) == 1 or len(sys.argv) > 3:
+    parser.add_argument("-r", help="runs all queries in the specified file. (To create a template for such a file, use '-t'.)")
+    parser.add_argument("-s", help="reads in a provided client_secret json file. If no client_secret.json is provided as argument, querPy will search the current folder for one. (A client_secret can be obtained by logging into the Google Developer Console where a projects needs to be registered.)")
+    parser.add_argument("-c", help="reads in a provided credentials json file. If no credentials.json is provided as argument, querPy will search the current folder for one. If there does not exist a credentials file yet, you can create one by providing a client_secret, after which you should be directed to a google-login, the resulting credentials file will be saved in the current folder.")
+    parser.add_argument("-t", action='store_true', help="creates a template file for showcasing the queries-layout")
+
+    if len(sys.argv) == 1:
+        print("Invalid arguments!")
         parser.print_help()
         sys.exit()
+
     args = parser.parse_args()
 
+    # user wants to run a queries file and does not want to create a template file
+    if args.r and not args.t:
 
-    # read config, run queries, write results
-    if not args.r is None:
+        logging.basicConfig(filename="querPy_log.log", filemode="w", level=logging.INFO)
 
         # read user configuration file
         conf = imp.load_source('conf', args.r)
 
-        logging.basicConfig(filename="querPy_log.log", filemode="w", level=logging.INFO)
-
         # extract and validate data from the configuration
         data = read_input(conf, args.r)
 
+        ## google authentication cases
+
+        # user provides a credentials.json file
+        if args.c:
+            data['credentials_path'] = args.c
+            data['client_secret_path'] = False
+
+        # user provides a client_secret.json file
+        elif args.s:
+            data['client_secret_path'] = args.s
+            data['credentials_path'] = False
+
+        # user did not provide any file. Search local folder for files and load them
+        else:
+            files_list = os.listdir('./')
+
+            if "credentials.json" in files_list:
+                data['credentials_path'] = "credentials.json"
+                data['client_secret_path'] = False
+
+            elif "client_secret.json" in files_list:
+                data['client_secret_path'] = "client_secret.json"
+                data['credentials_path'] = False
+
+            else:
+                data['credentials_path'] = False
+                data['client_secret_path'] = False
+
         # create OutputWriter object from the given output-configuration
-        output_writer = OutputWriter( data )
+        output_writer = OutputWriter(data)
 
         # run all the queries and let them write using the OutputWriter object
         execute_queries(data, output_writer)
@@ -47,10 +80,17 @@ def main():
         # Close xlsl writer
         output_writer.close()
 
-    # create template
-    elif not args.t is None:
+
+    # user wants to create a template file and does not run a queries-file
+    elif args.t and not args.r:
 
         create_template()
+
+    # invalid arguments, print help
+    else:
+        print("Invalid arguments!")
+        parser.print_help()
+        sys.exit()
 
 
 
@@ -476,118 +516,6 @@ def execute_queries(data, output_writer):
 
 
 
-def create_template():
-    """Creates a template for the config file in the relative folder, where the script is executed"""
-
-    template = """
-
-
-# title
-# defines the title of the whole set of queries
-# OPTIONAL, if not set, timestamp will be used
-title = \"TEST QUERIES\"
-
-
-# description
-# defines the textual and human-intended description of the purpose of these queries
-# OPTIONAL, if not set, nothing will be used or displayed
-description = \"This set of queries is used as a template for showcasing a valid configuration.\"
-
-
-# output_destination
-# defines where to save the results, input can be: 
-# * a local path to a folder 
-# * a URL for a google sheets document  
-# * a URL for a google folder
-# NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r\"C:\\Users\\sresch\\..\"
-# In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
-# OPTIONAL, if not set, folder of executed script will be used
-output_destination = r\".\"
-
-
-# output_format
-# defines the format in which the result data shall be saved (currently available: csv, tsv, xml, json, xlsx)
-# OPTIONAL, if not set, csv will be used
-output_format = \"csv\"
-
-
-# summary_sample_limit
-# defines how many rows shall be displayed in the summary
-# OPTIONAL, if not set, 5 will be used
-summary_sample_limit = 3
-
-
-# endpoint
-# defines the SPARQL endpoint against which all the queries are run
-# MANDATORY
-endpoint = \"https://virtuoso.parthenos.d4science.org/sparql\"
-
-
-# queries
-# defines the set of queries to be run. 
-# MANDATAORY
-queries = [
-
-
-    {
-        # title
-        # OPTIONAL, if not set, timestamp will be used
-        \"title\" : \"Optional title of first query\" ,
-        
-        # description
-        # OPTIONAL, if not set, nothing will be used or displayed
-        \"description\" : \"Optional description of first query, used to describe the purpose of the query.\" ,
-
-        # query
-        # the sparql query itself
-        # MANDATORY
-        \"query\" : \"\"\"
-            SELECT ?g ?s ?p ?o WHERE {
-                GRAPH ?g {
-                    ?s ?p ?o
-                }
-            }
-        \"\"\"
-    }, 
-    {    
-        \"query\" : \"\"\"
-            SELECT COUNT(*) WHERE {
-                ?s a ?o
-            }
-        \"\"\"
-    },  
-    {    
-        \"title\" : \"Last query\" , 
-        \"description\" : \"This query counts the occurences of distinct predicates\" , 
-        \"query\" : \"\"\"
-            SELECT DISTINCT ?p COUNT(?p) AS ?pCount WHERE {
-                ?s ?p ?o
-            }
-            ORDER BY DESC ( ?pCount )
-        \"\"\"
-    },
-]
-
-# Notes on syntax of queries-set:
-# * the set of queries is enclosed by '[' and ']'
-# * individual queries are enclosed by '{' and '},'
-# * All elements of a query (title, description, query) need to be defined using quotes as well as their contents, and both need to be separated by ':'
-# * All elements of a query (title, description, query) need to be separated from each other using quotes ','
-# * The content of a query needs to be defined using triple quotes, e.g. \"\"\" SELECT * WHERE .... \"\"\"
-# * Any indentation (tabs or spaces) do not influence the queries-syntax, they are merely syntactic sugar.
-
-
-"""
-    with open('template.py', 'w') as f:
-        f.write(template)
-
-
-def get_credentials_json():
-
-    creds = """{"_class": "OAuth2Credentials", "id_token_jwt": null, "token_expiry": "2018-05-15T13:23:47Z", "revoke_uri": "https://accounts.google.com/o/oauth2/revoke", "client_id": "652311190216-22nvgfgogetdokugbb53hkre9t4fiips.apps.googleusercontent.com", "client_secret": "zyA9NMB6UayAq_SlP-Tls9KT", "token_info_uri": "https://www.googleapis.com/oauth2/v3/tokeninfo", "token_response": {"token_type": "Bearer", "access_token": "ya29.Gly8BaX9ALrGBeMebs-epP-6psVDBRtksm5Ji3zjwhuqVbwXj0SCCppAI5FZdVkoNfu3RPdXO2YQUqQOxZnDqFLHXm7V2Ba26iW8wAvXySm4_2ocjxX0mL27g1g5Eg", "expires_in": 3600}, "id_token": null, "invalid": false, "access_token": "ya29.Gly8BaX9ALrGBeMebs-epP-6psVDBRtksm5Ji3zjwhuqVbwXj0SCCppAI5FZdVkoNfu3RPdXO2YQUqQOxZnDqFLHXm7V2Ba26iW8wAvXySm4_2ocjxX0mL27g1g5Eg", "_module": "oauth2client.client", "refresh_token": "1/wkiuNIwD5PK-mKRylJORDpMe83sB0zZVTg3SGIiX4OE", "user_agent": null, "token_uri": "https://accounts.google.com/o/oauth2/token", "scopes": ["https://www.googleapis.com/auth/drive"]}"""
-
-    return json.loads(creds)
-
 
 class OutputWriter:
     """the OutputWriter Class encapsulates all technical details which vary due to the specified output destinations"""
@@ -692,20 +620,34 @@ class OutputWriter:
         def init_google_services():
             """Instantiates all necessary services for writing results to a specified google folder / sheets-file"""
 
-            creds_json = get_credentials_json()
-            creds = GoogleCredentials(
-                creds_json['access_token'],
-                creds_json['client_id'],
-                creds_json['client_secret'],
-                creds_json['refresh_token'],
-                creds_json['token_expiry'],
-                creds_json['token_uri'],
-                creds_json['user_agent'],
-                creds_json['revoke_uri']
-            )
+            SCOPES = "https://www.googleapis.com/auth/drive"
 
-            self.google_service_drive = discovery.build('drive', 'v3', http=creds.authorize(Http()))
-            self.google_service_sheets = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+            # use credentials file if available
+            if data['credentials_path']:
+                creds = client.GoogleCredentials.from_json(open(data['credentials_path']).read())
+
+            # if no credentials file is available, then create one using client_secret
+            elif data['client_secret_path']:
+                store = file.Storage('credentials.json')
+                flow = client.flow_from_clientsecrets(data['client_secret_path'], SCOPES)
+                creds = tools.run_flow(flow, store, tools.argparser.parse_args(args=[]))
+                # note: adding 'tools.argparser.parse_args(args=[])' here is important, otherwise
+                # oauth2client.tools would parse the main command line arguments
+
+            # if neither is available, abort
+            else:
+                message = "ERROR: No client_secret.json or credentials.json provided nor found in local folder!."
+                logging.error(message)
+                sys.exit(message)
+
+            # create services to be used by write functions
+            if not creds.invalid:
+                self.google_service_drive = discovery.build('drive', 'v3', http=creds.authorize(Http()))
+                self.google_service_sheets = discovery.build('sheets', 'v4', http=creds.authorize(Http()))
+            else:
+                message = "ERROR: Invalid credentials!"
+                logging.error(message)
+                sys.exit(message)
 
 
         def init_google_sheets():
@@ -724,7 +666,7 @@ class OutputWriter:
                 spreadsheetId=self.google_sheets_id).execute()
             all_sheet = google_sheets_metadata['sheets']
 
-            # create new sheet reserved for summary
+            ## create new sheet reserved for summary
 
             # max_row_count = header + number of queries * (maximum sample lines + query-header)
             max_row_count = 6 + len(data['queries']) * (data['summary_sample_limit'] + 11 )
@@ -949,7 +891,7 @@ class OutputWriter:
                 elif self.output_destination_type == 'local_folder':
                     write_query_result_to_local_folder(query)
 
-                elif self.output_destination_type == 'google_sheets' or 'google_folder':
+                elif self.output_destination_type == 'google_sheets' or self.output_destination_type == 'google_folder':
                     write_query_result_to_google_sheets(query)
 
 
@@ -1207,14 +1149,120 @@ class OutputWriter:
     def close(self):
         """Closes the xlsx writer object"""
 
-        logging.info("close writer")
-
         if self.output_destination_type == "local_xlsx" or self.output_destination_type == 'local_folder' :
+            logging.info("close writer")
             self.xlsx_workbook.close()
 
 
 
+
+def create_template():
+    """Creates a template for the config file in the relative folder, where the script is executed"""
+
+    template = """
+
+
+# title
+# defines the title of the whole set of queries
+# OPTIONAL, if not set, timestamp will be used
+title = \"TEST QUERIES\"
+
+
+# description
+# defines the textual and human-intended description of the purpose of these queries
+# OPTIONAL, if not set, nothing will be used or displayed
+description = \"This set of queries is used as a template for showcasing a valid configuration.\"
+
+
+# output_destination
+# defines where to save the results, input can be: 
+# * a local path to a folder 
+# * a URL for a google sheets document  
+# * a URL for a google folder
+# NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r\"C:\\Users\\sresch\\..\"
+# In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
+# OPTIONAL, if not set, folder of executed script will be used
+output_destination = r\".\"
+
+
+# output_format
+# defines the format in which the result data shall be saved (currently available: csv, tsv, xml, json, xlsx)
+# OPTIONAL, if not set, csv will be used
+output_format = \"csv\"
+
+
+# summary_sample_limit
+# defines how many rows shall be displayed in the summary
+# OPTIONAL, if not set, 5 will be used
+summary_sample_limit = 3
+
+
+# endpoint
+# defines the SPARQL endpoint against which all the queries are run
+# MANDATORY
+endpoint = \"dbpedia.org/sparql\"
+
+
+# queries
+# defines the set of queries to be run. 
+# MANDATAORY
+queries = [
+
+
+    {
+        # title
+        # OPTIONAL, if not set, timestamp will be used
+        \"title\" : \"Optional title of first query\" ,
+
+        # description
+        # OPTIONAL, if not set, nothing will be used or displayed
+        \"description\" : \"Optional description of first query, used to describe the purpose of the query.\" ,
+
+        # query
+        # the sparql query itself
+        # MANDATORY
+        \"query\" : \"\"\"
+            SELECT ?g ?s ?p ?o WHERE {
+                GRAPH ?g {
+                    ?s ?p ?o
+                }
+            }
+        \"\"\"
+    }, 
+    {    
+        \"query\" : \"\"\"
+            SELECT COUNT(*) WHERE {
+                ?s a ?o
+            }
+        \"\"\"
+    },  
+    {    
+        \"title\" : \"Last query\" , 
+        \"description\" : \"This query counts the occurences of distinct predicates\" , 
+        \"query\" : \"\"\"
+            SELECT DISTINCT ?p COUNT(?p) AS ?pCount WHERE {
+                ?s ?p ?o
+            }
+            ORDER BY DESC ( ?pCount )
+        \"\"\"
+    },
+]
+
+# Notes on syntax of queries-set:
+# * the set of queries is enclosed by '[' and ']'
+# * individual queries are enclosed by '{' and '},'
+# * All elements of a query (title, description, query) need to be defined using quotes as well as their contents, and both need to be separated by ':'
+# * All elements of a query (title, description, query) need to be separated from each other using quotes ','
+# * The content of a query needs to be defined using triple quotes, e.g. \"\"\" SELECT * WHERE .... \"\"\"
+# * Any indentation (tabs or spaces) do not influence the queries-syntax, they are merely syntactic sugar.
+
+
+"""
+    with open('template.py', 'w') as f:
+        f.write(template)
+
+
+
+
+
 main()
-
-
-
