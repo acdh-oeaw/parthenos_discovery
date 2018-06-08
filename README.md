@@ -28,75 +28,62 @@ Various scripts and data related to resource discovery in project Parthenos
 
 ## querPy
 
-An extensive and extendable script for executing multiple queries against a SPARQL-endpoint of your choice, returning the result-data either in different data formats or uploaded as a google sheets files into a public google folder or inserted into existing google sheets file.
+An extendable script for executing multiple queries against a SPARQL-endpoint of your choice, returning the result-data either in different data formats (csv, tsv, xml, json, xslx) to be saved locally or uploaded as a google sheets files into a google folder or inserted into existing google sheets file. Additionally anytime it is executed it also creates a summary (as a file if saved locally, or as a page if saved into an xslx or google sheets), wherein the original sparql-queries are included, their execution times, their total number of results, and a few sample result lines.
 
-There is no fancyness yet at all to this script; it just provides the core logic for the described purpose, in a minimalistic manner in order to be extensible for any kind of interface to be wrapped around it later on. 
-
-In the folder ./scripts/querPy/ you can find executables and the source code
-
-### stand-alone executables for windows and linux
-
-These executables are entirely self-contained and are packaged with a python-interpreter, the libraries and the script in one single file, which is run in a terminal.
-
-There are two options available: 
-* '-t' creates a template config file where the user can edit all necessary information (what queries to be run, titles, description, output format, output destination, etc.)
-* '-r' runs the specified config file; e.g. '-r template.py' would run all queries provided in the template.py file
-
-On Windows, run for example:
-
-```querPy_bin_windows.exe -t```
-
-or 
-
-```querPy_bin_windows.exe  -r template.py```
-
-On Linux, run for example:
-
-```querPy_bin_linux -t```
-
-or 
-
-```querPy_bin_linux  -r template.py```
+There is no fancyness at all to this script; it just provides the core logic for the described purpose, in a minimalistic manner in order to be extensible for any kind of interface to be wrapped around it. 
 
 
+### dependencies
 
+The script was written in python3, no downward compability to python2.x was tested.
 
-### run the source code with your own python interpreter
+The script brings in two major dependencies: 
+##### two external libaries:
+* SPARQLWrapper: https://github.com/RDFLib/sparqlwrapper
+* google-api-python-client: https://github.com/google/google-api-python-client
+##### google OAuth2 credentials (their API requires such)
 
-To run the source code with your own python interpreter you need to install the following:
+#### External libaries
+
+The external libraries you can install by running:
 
 ```
 pip install SPARQLWrapper
 pip install google-api-python-client
 ```
 
-Then run the source (assuming template.py again to be a config file):
+#### Google OAuth2 credentials
+
+Only when writing into google sheets or folders, you need to provide two files for google to process the traffic via its API:
+* client_secret.json (basically authenticating the script as a service)
+* credentials.json (authenticating the script to act on a user's behalf, and also to write into his/her private google drive)
+
+
+To obtain a client_secret.json file you must log into the google developer console, register a project, and download the secrets-file, as outlined here:
+https://developers.google.com/drive/api/v3/quickstart/python
+
+To obtain a credentials.json file you simply provide the querPy script the client_secrets.json file (either as explicit argument '-s client_secret.json' or just put it into the folder wherer querPy is saved into). Then when running the querPy script, a browser will popup and you will be asked to authorize the script.
+
+If you want to save the results as local files only, you don't need to obtain these credential files. 
+
+
+### running querPy
+
+To run, you would isse the following command (wherein 'template.py' refers to a file containing sparql-queries)
 ```
 python querPy.py -r template.py
 ```
 
-(Should your pip and python commands be pointing to older versions, you might need to explicitely run 'pip3' or 'python3' instead or install them.)
 
 
-### Building stand-alone executables for your platform
+### structure of the queries file
 
-To make an executable on your own for your platform, you need to install the necessary libraries and pyinstaller:
-
+To create a template you can run:
 ```
-pip install SPARQLWrapper
-pip install google-api-python-client
-pip install pyinstaller
-pyinstaller --onefile querPy.py
+python querPy.py -t
 ```
 
-after these commands, several folders were created; within the dist folder you would find a single executable file which should contain everything needed to run the script (which includes a dedicated python interpreter, all the imported libraries and the script itself).
-
-This single executable file you can run as outlined before.
-
-
-### structure of the config file
-
-The config file fed with the '-r' command is itself actually a python module (due to problems having arisen when using other formats), thus basic python syntax is to be respected. There is a ready-made template file included in the querPy folder.
+After which you would find a template file in your folder. The file is itself a python module (due to problems having arisen when using other popular formats, such as json doesn't allow multilines content (annoying when writing sparql-queries) and xml can't be used due to '<' being a meta-character but sparql queries can contain such). 
 
 Within the file there are several variables (most of which are actually optional):
 
@@ -115,9 +102,9 @@ defines where to save the results, input can be:
 
 * a local path to a folder 
 
-* a URL for a public google sheets document  
+* a URL for a google sheets document  
 
-* a URL for a public google drive folder
+* a URL for a google drive folder
 
 NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
