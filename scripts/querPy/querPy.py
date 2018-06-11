@@ -453,12 +453,16 @@ def execute_queries(data, output_writer):
 
                 for row in reader:
 
-                    # TODO Integer Ueberpruefung hier
-                    # print(row)
-
                     row_harmonized = []
 
                     for column in row:
+
+                        # check if value could be integer, if so change type
+                        try:
+                            column = int(column)
+                        except ValueError:
+                            column = column
+
                         row_harmonized.append(column)
 
                     harmonized_result.append(row_harmonized)
@@ -493,9 +497,15 @@ def execute_queries(data, output_writer):
                     row = result['results']['bindings'][y]
 
                     for key in row:
-                        value = row[key]['value']
-                        # TODO Integer Ueberpruefung hier
-                        dict_tmp[key] = value
+                        column = row[key]['value']
+
+                        # check if value could be integer, if so change type
+                        try:
+                            column = int(column)
+                        except ValueError:
+                            column = column
+
+                        dict_tmp[key] = column
 
                     # check validity of results
                     if len(row) != valid_row_length:
@@ -533,9 +543,15 @@ def execute_queries(data, output_writer):
 
                     dict_tmp = {}
                     for binding in result.getElementsByTagName("binding"):
-                        value = binding.childNodes[0].childNodes[0].nodeValue
-                        # TODO Integer Ueberpruefung hier
-                        dict_tmp[binding.getAttribute('name')] = value
+                        column = binding.childNodes[0].childNodes[0].nodeValue
+
+                        # check if value could be integer, if so change type
+                        try:
+                            column = int(column)
+                        except ValueError:
+                            column = column
+
+                        dict_tmp[binding.getAttribute('name')] = column
 
                     # check validity of results
                     if len(dict_tmp) != valid_row_length:
@@ -876,13 +892,6 @@ class OutputWriter:
             self.xlsx_worksheet_summary.write(self.line_number, 0, "Execution timestamp of script: " + data['timestamp_start'])
             self.line_number += 4
 
-            # # TODO testing
-            # test = []
-            # test.append(666)
-
-            # self.xlsx_worksheet_summary.write(self.line_number, 0, test[0])
-            # self.line_number += 4
-
 
 
         def write_header_summary_google_sheet(data):
@@ -907,8 +916,6 @@ class OutputWriter:
                 ["Execution timestamp of script: " +
                  data['timestamp_start']])
 
-            # TODO testing
-            # header.append([666])
 
 
             # get range for header
@@ -956,8 +963,8 @@ class OutputWriter:
             for y in range(0, len(query['results_harmonized'])):
                 for x in range(0, len(query['results_harmonized'][y])):
                     column = query['results_harmonized'][y][x]
-                    if len(column) > 255:
-                        column = column[:255]
+                    if len(str(column)) > 255:
+                        column = str(column)[:255]
                     worksheet.write(y, x, column)
 
 
@@ -1117,8 +1124,9 @@ class OutputWriter:
                         for x in range(0, len(harmonized_rows[y])):
 
                             column = harmonized_rows[y][x]
-                            if len(column) > 255:
-                                column = column[:255]
+
+                            if len(str(column)) > 255:
+                                column = str(column)[:255]
                             self.xlsx_worksheet_summary.write(y + self.line_number, x, column)
 
                     self.line_number += 1
