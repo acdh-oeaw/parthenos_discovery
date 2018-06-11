@@ -7,6 +7,7 @@ import logging
 import sys
 import time
 import os
+import re
 from httplib2 import Http
 import xlsxwriter
 from pathlib import Path
@@ -191,6 +192,17 @@ def read_input(conf, conf_filename):
         logging.info("summary_sample_limit: " + str(data['summary_sample_limit']))
 
 
+        # cooldown_between_queries
+        try:
+            data['cooldown_between_queries'] = conf.cooldown_between_queries
+        except AttributeError:
+            message = "Did not find cooldown_between_queries in config file, assuming zero instead"
+            logging.info(message)
+            print(message)
+            data['cooldown_between_queries'] = 0
+        logging.info("cooldown_between_queries: " + str(data['cooldown_between_queries']))
+
+
         # endpoint
         try:
             data['endpoint'] = conf.endpoint
@@ -330,7 +342,14 @@ def execute_queries(data, output_writer):
             try:
 
                 # get count of total results for query
-                query_for_count = query['query_text'].replace('SELECT', 'SELECT COUNT(*) WHERE { \nSELECT', 1) + "}"
+
+                pattern = re.compile("select", re.IGNORECASE)
+                query_for_count = pattern.sub(
+                    "SELECT COUNT(*) WHERE { \nSELECT",
+                    query['query_text'],
+                    1)
+                query_for_count += "\n}"
+
                 query['query_for_count'] = query_for_count
                 logging.info("#### query_title: " + query['query_title'] + "\n")
                 logging.info("query_for_count: \n" + query['query_for_count'] + "\n")
@@ -381,6 +400,10 @@ def execute_queries(data, output_writer):
             output_writer.write_query_summary(query)
             output_writer.write_query_result(query)
 
+            if (data['cooldown_between_queries']) > 0 and i+1 < len(data['queries']):
+                print("\nSleep for " + str(data['cooldown_between_queries']) + " seconds.")
+                time.sleep(data['cooldown_between_queries'])
+
             data['queries'][i] = query
 
         return data
@@ -408,6 +431,8 @@ def execute_queries(data, output_writer):
 
             return harmonized_rows
 
+
+
         harmonized_result = []
 
         if result is None:
@@ -428,7 +453,14 @@ def execute_queries(data, output_writer):
 
                 for row in reader:
 
-                    harmonized_result.append(row)
+                    print(row)
+
+                    row_harmonized = []
+
+                    for column in row:
+                        row_harmonized.append(column)
+
+                    harmonized_result.append(row_harmonized)
 
                     # check validity of results
                     current_row_length = len(row)
@@ -460,7 +492,9 @@ def execute_queries(data, output_writer):
                     row = result['results']['bindings'][y]
 
                     for key in row:
-                        dict_tmp[key] = row[key]['value']
+                        value = row[key]['value']
+                        # TODO Integer Ueberpruefung hier
+                        dict_tmp[key] = value
 
                     # check validity of results
                     if len(row) != valid_row_length:
@@ -498,7 +532,9 @@ def execute_queries(data, output_writer):
 
                     dict_tmp = {}
                     for binding in result.getElementsByTagName("binding"):
-                        dict_tmp[binding.getAttribute('name')] = binding.childNodes[0].childNodes[0].nodeValue
+                        value = binding.childNodes[0].childNodes[0].nodeValue
+                        # TODO Integer Ueberpruefung hier
+                        dict_tmp[binding.getAttribute('name')] = value
 
                     # check validity of results
                     if len(dict_tmp) != valid_row_length:
@@ -839,6 +875,14 @@ class OutputWriter:
             self.xlsx_worksheet_summary.write(self.line_number, 0, "Execution timestamp of script: " + data['timestamp_start'])
             self.line_number += 4
 
+            # TODO testing
+            test = []
+            test.append(666)
+
+            self.xlsx_worksheet_summary.write(self.line_number, 0, test[0])
+            self.line_number += 4
+
+
 
         def write_header_summary_google_sheet(data):
             """Writes header to google sheets file"""
@@ -861,6 +905,10 @@ class OutputWriter:
             header.append(
                 ["Execution timestamp of script: " +
                  data['timestamp_start']])
+
+            # TODO testing
+            header.append([666])
+
 
             # get range for header
             range = self.get_range_from_matrix(self.line_number, 0, header)
@@ -903,7 +951,7 @@ class OutputWriter:
             if len(sanitized_query_title) > 30:
                 sanitized_query_title = sanitized_query_title[:29]
 
-            worksheet = self.xlsx_workbook.add_worksheet( query['sanitized_query_title'] )
+            worksheet = self.xlsx_workbook.add_worksheet( sanitized_query_title )
             for y in range(0, len(query['results_harmonized'])):
                 for x in range(0, len(query['results_harmonized'][y])):
                     column = query['results_harmonized'][y][x]
@@ -1199,6 +1247,12 @@ output_format = \"csv\"
 # defines how many rows shall be displayed in the summary
 # OPTIONAL, if not set, 5 will be used
 summary_sample_limit = 3
+
+
+# cooldown_between_queries
+# defines how many seconds should be waited between execution of individual queries in order to prevent exhaustion of Google API due to too many writes per time-interval
+# OPTIONAL, if not set, 0 will be used
+cooldown_between_queries = 10
 
 
 # endpoint

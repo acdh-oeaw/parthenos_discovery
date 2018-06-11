@@ -36,6 +36,12 @@ output_format = ""
 summary_sample_limit = 3
 
 
+# cooldown_between_queries
+# defines how many seconds should be waited between execution of individual queries in order to prevent exhaustion of Google API due to too many writes per time-interval
+# OPTIONAL, if not set, 0 will be used
+cooldown_between_queries = 10
+
+
 # endpoint
 # defines the SPARQL endpoint against which all the queries are run
 # MANDATORY
