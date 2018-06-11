@@ -453,6 +453,8 @@ def execute_queries(data, output_writer):
 
                 for row in reader:
 
+                    print(row)
+
                     row_harmonized = []
 
                     for column in row:
@@ -873,12 +875,12 @@ class OutputWriter:
             self.xlsx_worksheet_summary.write(self.line_number, 0, "Execution timestamp of script: " + data['timestamp_start'])
             self.line_number += 4
 
-            # TODO testing
-            test = []
-            test.append(666)
+            # # TODO testing
+            # test = []
+            # test.append(666)
 
-            self.xlsx_worksheet_summary.write(self.line_number, 0, test[0])
-            self.line_number += 4
+            # self.xlsx_worksheet_summary.write(self.line_number, 0, test[0])
+            # self.line_number += 4
 
 
 
@@ -905,7 +907,7 @@ class OutputWriter:
                  data['timestamp_start']])
 
             # TODO testing
-            header.append([666])
+            # header.append([666])
 
 
             # get range for header
