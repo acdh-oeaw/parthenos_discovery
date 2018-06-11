@@ -453,7 +453,8 @@ def execute_queries(data, output_writer):
 
                 for row in reader:
 
-                    print(row)
+                    # TODO Integer Ueberpruefung hier
+                    # print(row)
 
                     row_harmonized = []
 
