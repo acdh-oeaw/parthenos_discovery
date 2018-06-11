@@ -55,14 +55,15 @@ queries = [
 			WHERE { ?s crm:P3_has_note ?Description;
 					rdf:type ?type .}
         """
-    }, 
-    {    
-        "title" : "QP2 - Description summary" , 
-        "description" : "" , 
-        "query" : """
-			SELECT ?type COUNT(?Description) as ?count
-			WHERE { ?s crm:P3_has_note ?Description;
-					 rdf:type a ?type .}
+    },
+    {
+        "title": "QP2 - Description summary",
+        "description": "",
+        "query": """
+			SELECT ?type COUNT(?Description) as ?count WHERE { 
+			    ?s crm:P3_has_note ?Description;
+				a ?type .
+            }
 			GROUP BY ?type
 			ORDER BY DESC(?count)
         """
@@ -102,19 +103,19 @@ queries = [
 			ORDER BY ?st DESC (?pc)
         """
     }, 
-    {    
-        "title" : "QP4c - count distinct Class / E55_Type" , 
-        "description" : "" , 
-        "query" : """
-			SELECT (COUNT (distinct ?e55t) as ?e55t_cnt) (COUNT(?s) AS ?pc) {
-			GRAPH ?g { ?s a ?st.
-			  ?s crm:P2_has_type ?e55t.
-			  ?e55t  a crm:E55_Type.
-			} }
-			result:
-			?E55t_cnt: 27182, ?pc: 342760
+    {
+        "title": "QP4c - count distinct Class / E55_Type",
+        "description": "",
+        "query": """
+			SELECT (COUNT (distinct ?e55t) as ?e55t_cnt) (COUNT(?s) AS ?pc) WHERE {
+                GRAPH ?g { 
+                    ?s a ?st.
+                    ?s crm:P2_has_type ?e55t.
+                    ?e55t a crm:E55_Type.
+                } 
+            }
         """
-    }, 
+    },
     {    
         "title" : "QP4d - E55_Type in correct namespace" , 
         "description" : "" , 

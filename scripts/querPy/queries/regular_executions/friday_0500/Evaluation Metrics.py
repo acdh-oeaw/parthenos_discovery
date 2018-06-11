@@ -10,7 +10,7 @@ title = "Evaluation Metrics"
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "Set of queries which shall produce metrics to be continuously evaluated"
+description = "Set of queries which shall produce quantifiable metrics so that the development of these metrics can be statistically and continuously recorded and distilled."
 
 
 # output_destination

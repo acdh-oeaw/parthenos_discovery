@@ -166,9 +166,13 @@ queries = [
 			SELECT ?g ?s ?o (COUNT (*) AS ?tNum)
 			FROM Named <http://parthenos.d4science.org/handle/api_________::parthenos___::clarin::p_1357720977461/clarin______::2e87aeb259e8566e2fbc8eca20b93eb5>
 			FROM Named <http://parthenos.d4science.org/handle/api_________::parthenos___::clarin::p_1349361150727/clarin______::819b94220a62615bd37bd594d3efe6a2>
-			WHERE { GRAPH ?g {{ ?s ?p ?o }
-			UNION { ?o ?q ?s } }}
-			GROUP BY ?s ?o ORDER BY DESC (?tNum)
+			WHERE { 
+			    GRAPH ?g {
+			        { ?s ?p ?o }
+			        UNION { ?o ?q ?s } 
+                }
+            }
+			GROUP BY ?g ?s ?o ORDER BY DESC (?tNum)
         """
     }, 
     {    

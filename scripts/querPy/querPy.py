@@ -899,7 +899,11 @@ class OutputWriter:
             """Writes results as harmonized two-dimensional list into a separate sheet in the xlsl file"""
 
             # create new worksheet and write into it
-            worksheet = self.xlsx_workbook.add_worksheet( query['query_id'] )
+            sanitized_query_title = query['query_title']
+            if len(sanitized_query_title) > 30:
+                sanitized_query_title = sanitized_query_title[:29]
+
+            worksheet = self.xlsx_workbook.add_worksheet( query['sanitized_query_title'] )
             for y in range(0, len(query['results_harmonized'])):
                 for x in range(0, len(query['results_harmonized'][y])):
                     column = query['results_harmonized'][y][x]

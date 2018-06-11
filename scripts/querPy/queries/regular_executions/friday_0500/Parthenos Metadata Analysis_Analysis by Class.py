@@ -233,17 +233,18 @@ queries = [
 			GROUP BY ?p ?c ORDER BY DESC (?pc)
         """
     },
-    {    
-        "title" : "PE29_Access_Point" , 
-        "description" : "" , 
+    {
+        "title" : "PE29_Access_Point" ,
+        "description" : "" ,
         "query" : """
 			SELECT ?p ?ot (COUNT(?p) AS ?pc) {
-			GRAPH ?g { ?s a <pe:PE29_Access_Point> .
-			  ?s ?p ?o .
-			  ?o a ?ot.
-
-			  FILTER(?ot != owl:Class)
-			} 
+                GRAPH ?g { 
+                    ?s a <pe:PE29_Access_Point> .
+                    ?s ?p ?o .
+                    ?o a ?ot.
+                    FILTER(?ot != owl:Class)
+			    } 
+			}
 			GROUP BY ?p ?ot
 			ORDER BY DESC (?pc)
         """
@@ -262,20 +263,22 @@ queries = [
 			ORDER BY DESC (?pc)
         """
     }, 
-    {    
-        "title" : "PE38_Schema" , 
-        "description" : "" , 
-        "query" : """
+    {
+        "title": "PE38_Schema",
+        "description": "",
+        "query": """
 			SELECT ?p ?ot (COUNT(?p) AS ?pc) {
-			GRAPH ?g { ?s a cmrpe:PE38_Schema.
-			  ?s ?p ?o .
-			  ?o a ?ot.
-			  FILTER(?ot != owl:Class)
-			} }
+                GRAPH ?g { 
+                    ?s a <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE38_Schema>.
+                    ?s ?p ?o .
+                    ?o a ?ot.
+                    FILTER(?ot != owl:Class)
+                } 
+			}
 			GROUP BY ?p ?ot
 			ORDER BY DESC (?pc)
         """
-    }, 
+    },
     {    
         "title" : "PE22_Persistent_Dataset" , 
         "description" : "" , 
