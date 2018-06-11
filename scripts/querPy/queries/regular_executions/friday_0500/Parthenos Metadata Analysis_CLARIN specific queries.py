@@ -10,7 +10,7 @@ title = "CLARIN specific queries"
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "Some sample queries trying to analyze only CLARIN data."
+description = "Some sample queries trying to analyze only CLARIN data. Queries extracted from google doc: https://docs.google.com/document/d/1aJnpoMIr2MUOLlGKk3ZvLTE5mEGk6fzaixunrMF4HhE/edit#heading=h.a55gxpjrpgfa"
 
 
 # output_destination

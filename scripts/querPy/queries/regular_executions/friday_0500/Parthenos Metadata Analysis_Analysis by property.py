@@ -10,7 +10,7 @@ title = "Analysis by Property"
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = ""
+description = "Queries extracted from google doc: https://docs.google.com/document/d/1aJnpoMIr2MUOLlGKk3ZvLTE5mEGk6fzaixunrMF4HhE/edit#heading=h.nruhl4b7h4vx"
 
 
 # output_destination

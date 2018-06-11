@@ -10,7 +10,7 @@ title = "Analysis by Class"
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "Enumerate classes linked from a given class and predicates that link instances of the given class and the target classes."
+description = "Enumerate classes linked from a given class and predicates that link instances of the given class and the target classes. Queries extracted from google doc: https://docs.google.com/document/d/1aJnpoMIr2MUOLlGKk3ZvLTE5mEGk6fzaixunrMF4HhE/edit#heading=h.3at1eb9qj22g"
 
 
 # output_destination
