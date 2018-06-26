@@ -1,0 +1,21 @@
+#DEFINE input:inference 'parthenos_rules'
+select distinct ?topclass (?class as ?excplicit_class) (count(distinct ?instanceURI) as ?count) {
+
+graph ?gRecord {
+?instanceURI a ?class.
+}
+
+optional { ?class rdfs:subClassOf*  ?topclass. }
+
+filter(
+?topclass = crmpe:PE35_Project ||
+?topclass = crmpe:PE1_Service ||
+?topclass = crm:E39_Actor ||
+?topclass = crmpe:PE18_Dataset ||
+?topclass = crmdig:D14_Software
+)
+GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
+} 
+#group by ?gRecord  ?topclass ?class 
+group by ?topclass ?class
+order by ?topclass ?class
