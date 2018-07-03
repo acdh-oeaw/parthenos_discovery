@@ -37,10 +37,11 @@ There is no fancyness at all to this script; it just provides the core logic for
 
 The script was written in python3, no downward compability to python2.x was tested.
 
-The script brings in two major dependencies: 
-##### two external libaries:
+The script brings in few dependencies: 
+##### three external libaries:
 * SPARQLWrapper: https://github.com/RDFLib/sparqlwrapper
 * google-api-python-client: https://github.com/google/google-api-python-client
+* regex module: https://pypi.org/project/regex/ (not the default one, but with improved capabilities)
 ##### google OAuth2 credentials (their API requires such)
 
 #### External libaries
@@ -50,6 +51,7 @@ The external libraries you can install by running:
 ```
 pip install SPARQLWrapper
 pip install google-api-python-client
+pip install regex
 ```
 
 #### Google OAuth2 credentials
