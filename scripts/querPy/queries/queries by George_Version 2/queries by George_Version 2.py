@@ -33,7 +33,7 @@ output_format = ""
 # summary_sample_limit
 # defines how many rows shall be displayed in the summary
 # OPTIONAL, if not set, 5 will be used
-summary_sample_limit = 50
+summary_sample_limit = 10
 
 
 # endpoint
@@ -51,7 +51,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "types_per_class_V1.0.txt" ,
+        "title" : "types_per_class_V1.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -60,7 +60,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct 
 			?type  (str(?type_label) as ?type_label)
@@ -99,7 +99,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "place_instances_V.1.0.txt" ,
+        "title" : "place_instances_V.1.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -108,7 +108,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select 
 			?classE53
@@ -141,7 +141,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "periods_and_events_V1.0.txt" ,
+        "title" : "periods_and_events_V1.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -150,7 +150,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct
 			?class
@@ -184,7 +184,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "tmp_class_population.V1.0.txt" ,
+        "title" : "tmp_class_population.V1.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -193,7 +193,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			#3 ######### Counts instances per class per record. To have the instances per class replace count(distinct ?instanceURI) with ?instanceURI in 'select' clause #########
 			######### Result is the same as in https://beta-parthenos.d4science.org/aggregator/mvc/ui/lightui.do?ui=parthenos#/doc/objidentifier/parthenos___%253A%253A8d777f385d3dfec8815d20f7496026dc #########
 
@@ -214,7 +214,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "tmp_class_population_PE_top.V1.0.txt" ,
+        "title" : "tmp_class_population_PE_top.V1.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -223,7 +223,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct ?topclass (?class as ?excplicit_class) (count(distinct ?instanceURI) as ?count) {
 
@@ -250,7 +250,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "tmp___all_project_min_data_gen_query_counts_v2.0.txt" ,
+        "title" : "tmp___all_project_min_data_gen_query_counts_v2.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -259,7 +259,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -347,7 +347,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "tmp___all_project_min_data_gen_query_counts_v3.0.txt" ,
+        "title" : "tmp___all_project_min_data_gen_query_counts_v3.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -356,7 +356,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -444,7 +444,7 @@ queries = [
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
-        "title" : "tmp___all_project_min_data_gen_query_v4.0.txt" ,
+        "title" : "tmp___all_project_min_data_gen_query_v4.0" ,
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
@@ -453,7 +453,7 @@ queries = [
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : """
+        "query" : r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
