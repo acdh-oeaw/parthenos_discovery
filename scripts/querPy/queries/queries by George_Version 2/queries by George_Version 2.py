@@ -1,16 +1,21 @@
 
-
-
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = "Queries by George"
+title = [
+    "PARTHENOS: Metadata quality on virtuoso",
+    "ARIADNE: Metadata quality on virtuoso",
+    "CLARIN: Metadata quality on virtuoso",
+    "EHRI: Metadata quality on virtuoso",
+    "Metashare: Metadata quality on virtuoso",
+    "Nakala: Metadata quality on virtuoso"
+]
 
 
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "As originally defined here: https://goo.gl/EXg5ws , now collected here to be processed by querPy"
+description = r"As originally defined here: https://docs.google.com/document/d/1diQQmN8tCXohNtHYqf-KVatb1jhTiILoBXHspF2c-y0/edit"
 
 
 # output_destination
@@ -42,6 +47,8 @@ summary_sample_limit = 10
 endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 
 
+datasources = ["PARTHENOS", "ARIADNE", "CLARIN", "EHRI", "Metashare", "Nakala"]
+
 # queries
 # defines the set of queries to be run. 
 # MANDATAORY
@@ -55,12 +62,12 @@ queries = [
         
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query gives the list of instances of E55 existing in a data source and for what class they stand as type." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct 
 			?type  (str(?type_label) as ?type_label)
@@ -89,34 +96,33 @@ queries = [
 			?instanceClass rdfs:label ?instanceClass_labelX.
 
 			GRAPH <provenance> {
-			values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
-
+			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
+            ?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
 			} 
 			order by ?type ?ds
-        """
+        """]
     }, 
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "place_instances_V.1.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query gives the list of instances of E53 class existing in a data source." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			#DEFINE input:inference 'parthenos_rules'
-			select 
+			select
 			?classE53
 			( GROUP_CONCAT(distinct ?class_label, "/") as ?class)
 			?instanceURI
 			( GROUP_CONCAT(distinct ?instance_labelX, "/") as ?instance_label)
 
-			(str(?ds) as ?ds) 
+			(str(?ds) as ?ds)
 			#?gRecord
 			where{
 
@@ -131,26 +137,26 @@ queries = [
 			}
 
 			GRAPH <provenance> {
-			values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
+			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
 			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
-			 
-			} 
+
+			}
 			order by ?ds ?instanceURI
-        """
-    }, 
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "periods_and_events_V1.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query gives the list of instances of E4 Period and E5 Event existing in a data source." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct
 			?class
@@ -159,7 +165,7 @@ queries = [
 			?instanceURI
 			str(?instance_labelX) as ?instance_label
 
-			(str(?ds) as ?ds) 
+			(str(?ds) as ?ds)
 			?gRecord
 			where{
 
@@ -173,27 +179,27 @@ queries = [
 			optional {?instanceURI rdfs:label ?labelX. bind (str(?labelX) as ?instance_labelX).}
 
 			GRAPH <provenance> {
-			values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
+			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
 			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
 
-			} 
+			}
 			#group by ?ds ?gRecord ?class
 			order by ?ds ?gRecord ?instanceURI
-        """
-    }, 
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "tmp_class_population.V1.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query gives the density of population of classes by instances for a particular named graph in the registry." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			#3 ######### Counts instances per class per record. To have the instances per class replace count(distinct ?instanceURI) with ?instanceURI in 'select' clause #########
 			######### Result is the same as in https://beta-parthenos.d4science.org/aggregator/mvc/ui/lightui.do?ui=parthenos#/doc/objidentifier/parthenos___%253A%253A8d777f385d3dfec8815d20f7496026dc #########
 
@@ -206,24 +212,24 @@ queries = [
 			#optional {?subclass rdfs:subClassOf ?class . }
 			#filter (!bound(?subclass ))
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
-			} 
-			group by ?gRecord ?class 
-        """
-    }, 
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			}
+			group by ?gRecord ?class
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "tmp_class_population_PE_top.V1.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query gives the density of population of classes by instances grouped by Parthenos Top Level Entities (Projects, Services, Actors, Datasets and Software) for a particular named graph in the registry." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			#DEFINE input:inference 'parthenos_rules'
 			select distinct ?topclass (?class as ?excplicit_class) (count(distinct ?instanceURI) as ?count) {
 
@@ -240,26 +246,26 @@ queries = [
 			?topclass = crmpe:PE18_Dataset ||
 			?topclass = crmdig:D14_Software
 			)
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
-			} 
-			#group by ?gRecord  ?topclass ?class 
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			}
+			#group by ?gRecord  ?topclass ?class
 			group by ?topclass ?class
 			order by ?topclass ?class
-        """
-    }, 
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "tmp___all_project_min_data_gen_query_counts_v2.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query is designed to test a top level Parthenos Entity (Projects, Services, Actors, Datasets and Software) for which minimal metadata has been specified and return, per instance of that entity, the count of paths that fulfill the defined minimal metadata for that entity. The query returns a COUNT of the paths that meet the minimal metadata requirements for that entity. The query is designed to be run on a named graph loaded into the registry, therefore allowing the testing of information density per loaded dataset." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -269,9 +275,9 @@ queries = [
 			PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/>
 
 
-			select distinct 
+			select distinct
 			#?gRecord
-			( COALESCE(str(?instance_label), ?instanceURI) as ?instance )  
+			( COALESCE(str(?instance_label), ?instanceURI) as ?instance )
 			( COALESCE(str(?ID_label), ?ID) as ?id)
 			( COALESCE(str(?Name_label), ?Name) as ?name )
 			#( COALESCE(str(?Service_label), ?Service) as ?service )
@@ -288,7 +294,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -300,7 +306,7 @@ queries = [
 			?instanceURI rdfs:label ?instance_label .
 
 			#Gets ID of Project
-			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?ID . 
+			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?ID .
 			 ?ID a crm:E42_Identifier; rdfs:label ?ID_label. }
 
 			#Gets Value of Name of Project
@@ -314,27 +320,27 @@ queries = [
 			#Gets the Team currently maintaining Project
 			OPTIONAL { ?instanceURI parthenos:PP44_has_maintaining_team ?Team .
 			 OPTIONAL { ?Team rdfs:label ?Team_label.}
-			 
+
 			 #Gets the Members of the Team
 			 OPTIONAL { ?Team crm:P107_has_current_or_former_member ?Member .
 			  OPTIONAL { ?Member rdfs:label ?Member_label. }
-			 
+
 			   #Gets the Address of Actor
 			   OPTIONAL { ?Member crm:P76_has_contact_point ?Member_address.
 				OPTIONAL { ?Member_address rdfs:label ?Member_address_label. }
-			 
+
 				#Gets the type of Address of Actor
 				OPTIONAL { ?Member_address crm:P2_has_type ?Member_address_type.
-				 OPTIONAL { ?Member_address_type rdfs:label ?Member_address_type_label. } 
+				 OPTIONAL { ?Member_address_type rdfs:label ?Member_address_type_label. }
 				}#Member_address_type --end
 			   }#Member_address --end
 			  }#Member --end
 			 }#Team --end
-			 
+
 
 			#Gets the Time since when project has been run
 			OPTIONAL { ?instanceURI crm:P4_has_time-span ?Time_span .
-			 OPTIONAL { ?Time_span rdfs:label ?Time_span_label. } 
+			 OPTIONAL { ?Time_span rdfs:label ?Time_span_label. }
 			 OPTIONAL { ?Time_span crm:P82a_begin_of_the_begin ?Time_actual .}
 			}
 
@@ -342,21 +348,21 @@ queries = [
 
 			}
 			order by  ?instance ?id ?name ?team #?service
-        """
-    }, 
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "tmp___all_project_min_data_gen_query_counts_v3.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query is designed to test a top level Parthenos Entity (Projects, Services, Actors, Datasets and Software) for which minimal metadata has been specified and return, per instance of that entity, the count of paths that fulfill the defined minimal metadata for that entity. The query returns a BOOLEAN of the paths that meet the minimal metadata requirements for that entity. The query is designed to be run on a named graph loaded into the registry, therefore allowing the testing of information completeness per loaded dataset. It is envisioned that this query could be loaded into a data analysis and visualization software (e.g. Excel) in order to generate overview data for data providers indicating the strengths and weaknesses of the aggregated data in order to track down quality problems in the graph. N.B.: There is a unique instance of this query for each of the Parthenos Top Level Entities tracking its specific minimal metadata requirements. In order to test a particular kind of entity you must use the appropriate query as indicated by the query name." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -366,9 +372,9 @@ queries = [
 			PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/>
 
 
-			select distinct 
+			select distinct
 			#?gRecord
-			( COALESCE(str(?instance_label), ?instanceURI) as ?instance )  
+			( COALESCE(str(?instance_label), ?instanceURI) as ?instance )
 			( COALESCE(str(?ID_label), ?ID) as ?id)
 			( COALESCE(str(?Name_label), ?Name) as ?name )
 			#( COALESCE(str(?Service_label), ?Service) as ?service )
@@ -385,7 +391,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -397,7 +403,7 @@ queries = [
 			?instanceURI rdfs:label ?instance_label .
 
 			#Gets ID of Project
-			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?ID . 
+			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?ID .
 			 ?ID a crm:E42_Identifier; rdfs:label ?ID_label. }
 
 			#Gets Value of Name of Project
@@ -411,27 +417,27 @@ queries = [
 			#Gets the Team currently maintaining Project
 			OPTIONAL { ?instanceURI parthenos:PP44_has_maintaining_team ?Team .
 			 OPTIONAL { ?Team rdfs:label ?Team_label.}
-			 
+
 			 #Gets the Members of the Team
 			 OPTIONAL { ?Team crm:P107_has_current_or_former_member ?Member .
 			  OPTIONAL { ?Member rdfs:label ?Member_label. }
-			 
+
 			   #Gets the Address of Actor
 			   OPTIONAL { ?Member crm:P76_has_contact_point ?Member_address.
 				OPTIONAL { ?Member_address rdfs:label ?Member_address_label. }
-			 
+
 				#Gets the type of Address of Actor
 				OPTIONAL { ?Member_address crm:P2_has_type ?Member_address_type.
-				 OPTIONAL { ?Member_address_type rdfs:label ?Member_address_type_label. } 
+				 OPTIONAL { ?Member_address_type rdfs:label ?Member_address_type_label. }
 				}#Member_address_type --end
 			   }#Member_address --end
 			  }#Member --end
 			 }#Team --end
-			 
+
 
 			#Gets the Time since when project has been run
 			OPTIONAL { ?instanceURI crm:P4_has_time-span ?Time_span .
-			 OPTIONAL { ?Time_span rdfs:label ?Time_span_label. } 
+			 OPTIONAL { ?Time_span rdfs:label ?Time_span_label. }
 			 OPTIONAL { ?Time_span crm:P82a_begin_of_the_begin ?Time_actual .}
 			}
 
@@ -439,21 +445,21 @@ queries = [
 
 			}
 			order by  ?instance ?id ?name ?team #?service
-        """
-    },  
+        """]
+    },
     {
         # title
         # OPTIONAL, if not set, timestamp will be used
         "title" : "tmp___all_project_min_data_gen_query_v4.0" ,
-        
+
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        "description" : "Maybe George could provide a meaningful description in here?" ,
+        "description" : "This query is designed to test a top level Parthenos Entity (Projects, Services, Actors, Datasets and Software) for which minimal metadata has been specified and return, per instance of that entity, the values for the qualifying data paths fulfilling the minimal metadata requirements for that entity. It is envisioned that this query can be used for spot testing of data in order to understand in a synoptic view of some sample records, what the actual data looks like to an end user. N.B.: There is a unique instance of this query for each of the Parthenos Top Level Entities tracking its specific minimal metadata requirements. In order to test a particular kind of entity you must use the appropriate query as indicated by the query name." ,
 
         # query
         # the sparql query itself
         # MANDATORY
-        "query" : r"""
+        "query" : [r"""
 			DEFINE input:inference 'parthenos_rules'
 
 			PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -463,7 +469,7 @@ queries = [
 			PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/>
 
 
-			select distinct 
+			select distinct
 			#?gRecord
 			( COALESCE(str(?instance_label), ?instanceURI) as ?instance )
 			( COALESCE(str(?id_label), ?id) as ?ID)
@@ -473,16 +479,16 @@ queries = [
 			(GROUP_CONCAT (DISTINCT COALESCE(str(?service_label), ?service), "\n") as ?Services_Label )
 			(GROUP_CONCAT (DISTINCT COALESCE(str(?team_label), ?team), "\n") as ?Team )
 
-			(GROUP_CONCAT (DISTINCT CONCAT ( 
+			(GROUP_CONCAT (DISTINCT CONCAT (
 			STRAFTER( str(?actorRelation), str(crm:)), ": ",
-			COALESCE(str(?member_label), ?member), 
+			COALESCE(str(?member_label), ?member),
 			?delim1,
-			COALESCE(str(?member_address_type_label), ?member_address_type), 
+			COALESCE(str(?member_address_type_label), ?member_address_type),
 			?delim2, COALESCE(str(?member_address_label), ?member_address)
 			),"\n") as ?Team_Members)
 
-			(GROUP_CONCAT (DISTINCT CONCAT( 
-			COALESCE(str(?time_span_label), ?time_span), ?delim3, str(?time_actual) 
+			(GROUP_CONCAT (DISTINCT CONCAT(
+			COALESCE(str(?time_span_label), ?time_span), ?delim3, str(?time_actual)
 			),"\n") as ?Time_Span_of_Project )
 
 
@@ -491,7 +497,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -503,7 +509,7 @@ queries = [
 			?instanceURI rdfs:label ?instance_label .
 
 			#Gets id of Project
-			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?id . 
+			OPTIONAL { ?instanceURI crm:P1_is_identified_by ?id .
 			 ?id a crm:E42_Identifier; rdfs:label ?id_label. }
 
 			#Gets Value of Name of Project
@@ -517,29 +523,29 @@ queries = [
 			#Gets the Team currently maintaining Project
 			OPTIONAL { ?instanceURI parthenos:PP44_has_maintaining_team ?team .
 			 OPTIONAL { ?team rdfs:label ?team_label.}
-			 
+
 			 #Gets the Members of the Team
 			 OPTIONAL { ?team ?actorRelation ?member . #crm:P107_has_current_or_former_member
 			 ?member a crm:E39_Actor.
-			 
+
 			  OPTIONAL { ?member rdfs:label ?member_label. }
-			 
+
 			   #Gets the Address of Actor
 			   OPTIONAL { ?member crm:P76_has_contact_point ?member_address.
 				OPTIONAL { ?member_address rdfs:label ?member_address_label. }
-			 
+
 				#Gets the type of Address of Actor
 				OPTIONAL { ?member_address crm:P2_has_type ?member_address_type.
-				 OPTIONAL { ?member_address_type rdfs:label ?member_address_type_label. } 
+				 OPTIONAL { ?member_address_type rdfs:label ?member_address_type_label. }
 				}#Member_address_type --end
 			   }#Member_address --end
 			  }#Member --end
 			 }#Team --end
-			 
+
 
 			#Gets the Time since when project has been run
 			OPTIONAL { ?instanceURI crm:P4_has_time-span ?time_span .
-			 OPTIONAL { ?time_span rdfs:label ?time_span_label. } 
+			 OPTIONAL { ?time_span rdfs:label ?time_span_label. }
 			 OPTIONAL { ?time_span crm:P82a_begin_of_the_begin ?time_actual .}
 			}
 
@@ -552,7 +558,7 @@ queries = [
 			}
 			group by  ?instanceURI ?instance_label ?id ?id_label ?name ?name_label
 			#order by  ?instance ?ID ?Name
-        """
+        """]
     },
 ]
 
@@ -563,5 +569,3 @@ queries = [
 # * All elements of a query (title, description, query) need to be separated from each other using quotes ','
 # * The content of a query needs to be defined using triple quotes, e.g. """ SELECT * WHERE .... """
 # * Any indentation (tabs or spaces) do not influence the queries-syntax, they are merely syntactic sugar.
-
-

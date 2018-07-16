@@ -152,3 +152,51 @@ OPTIONAL, if not set, nothing will be used or displayed
 the sparql query itself
 
 MANDATORY
+
+### multi values in querPy
+
+Additionally, there exists also the feature of inserting multiple values into any field of a query collections file. Such multi values are defined as lists and querPy will create from such lists individiual fields for each, e.g. one could define 
+
+```
+output_format = ["csv","xml"]
+```
+
+Note that this way the field must be defined as a list itself!
+
+And querPy would create then collection files with all their contents identical except for one having csv and the other xml as defined output_format. Multi values can also be used inside of strings, e.g. inside sparql queries (where again the whole query-text would be a list with some string first, then the list of multi values, then some string again):
+
+
+```
+...
+"query" : [ "SELECT * WHERE { ?s <http://www.w3.org/2000/01/rdf-schema#", ["label", "type"], "> ?o}" ]
+...
+```
+
+Then querPy would create from this two queries:
+
+```
+...
+"query" : [ "SELECT * WHERE { ?s <http://www.w3.org/2000/01/rdf-schema#label> ?o}" ]
+...
+```
+
+and 
+
+```
+...
+"query" : [ "SELECT * WHERE { ?s <http://www.w3.org/2000/01/rdf-schema#label> ?o}" ]
+...
+```
+
+Multi values can also be used multiple times itself, e.g. one could define the output_format and corresponding queries like this:
+
+
+```
+...
+output_format = ["csv","xml"]
+...
+"query" : [ "SELECT * WHERE { ?s <http://www.w3.org/2000/01/rdf-schema#", ["label", "type"], "> ?o}" ]
+...
+```
+
+querPy would always construct new files by joing the elements in the lists with the same index together, i.e. the first element of one list with the first element of another list would create a new file, in the example above, we would receive two new files, where the first has 'csv' as output_format and 'label' used inside its query, while the second would have 'xml' and 'type'. Should there be a mismatch between the number of elements of the lists used, querPy will abort.
