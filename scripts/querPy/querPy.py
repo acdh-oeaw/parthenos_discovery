@@ -45,8 +45,6 @@ def main():
 
         # extract and validate data from the queries collection file
         data_all_query_collections = read_input(conf, args.r)
-        #ToDo alt: data = read_input(conf, args.r)
-
 
         ## google authentication cases
 
@@ -79,8 +77,6 @@ def main():
                 credentials_path = False
                 client_secret_path = False
 
-
-
         for data_single_query_collection in data_all_query_collections['query_collections']:
 
             data_single_query_collection['credentials_path'] = credentials_path
@@ -88,48 +84,8 @@ def main():
             output_writer = OutputWriter(data_single_query_collection)
             execute_queries(data_single_query_collection, output_writer)
 
-            # Close xlsl writer
+            # Close xlsx writer
             output_writer.close()
-
-
-
-        # create OutputWriter object from the given output-configuration in the queries collection file
-        # output_writer = OutputWriter(data) # todo alt
-        # Parameter von data, die in OutputWriter(data) gelesen werden:
-        # * output_destination
-        # * output_format
-        # * title
-        # * description
-        # * timestamp_start
-        # * credentials
-        # * credentials_path
-        # * client_secret_path
-        # * queries
-        # * summary_sample_limit
-
-
-        # run all the queries and let them write using the OutputWriter object
-        # execute_queries(data, output_writer) # todo alt
-        # Parameter von data, die in execute_queries gelesen werden:
-        # * endpoint
-        # * output_format
-        # * cooldown_between_queries
-        # * queries
-        #
-        #   # Parameter von data, die in execute_queries > write_header_summary gelesen werden:
-            # * description
-            # * title
-            # * header_error_message
-            # * timestamp_start
-            # * endpoint
-            # * count_triples_in_endpoint
-
-        # Parameter von data, die in execute_queries geschrieben werden:
-        # * count_triples_in_endpoint
-        # * header_error_message
-        # * queries
-
-
 
     # user wants to create a template file and does not run a queries-file
     elif args.t and not args.r:
@@ -141,7 +97,6 @@ def main():
         print("Invalid arguments!")
         parser.print_help()
         sys.exit()
-
 
 
 
@@ -412,7 +367,6 @@ def read_input(conf, conf_filename):
 
             query = {}
 
-
             # get title,
             # check for existing values, if such does not exist, create one
             try:
@@ -437,7 +391,6 @@ def read_input(conf, conf_filename):
             query['query_title'] = query_titles
             logging.info("query titles: " + str(query_titles))
 
-
             # get descriptions
             # if it doesn't exist, ignore.
             try:
@@ -456,7 +409,6 @@ def read_input(conf, conf_filename):
 
             query['query_description'] = query_descriptions
             logging.info("query titles: " + str(query_descriptions))
-
 
             # get queries
             # scrub them clean of uneccessary whitespaces and indentations
@@ -487,6 +439,8 @@ def read_input(conf, conf_filename):
 
         # iterate through collected data, generating query collections for each element
         data_all_query_collections = {'query_collections':[]}
+        if max_length_of_multi_values is None:
+            max_length_of_multi_values = 1
         for i in range(0, max_length_of_multi_values):
 
             data_single_query_collection = {}
@@ -621,7 +575,6 @@ def read_input(conf, conf_filename):
         return result_values
 
 
-
     def scrub_query(query_text):
         """Scrubs the queries clean from unneccessary whitespaces and indentations, to prevent unneccessary indentations
         when including original sparql queries into the summaries."""
@@ -659,12 +612,10 @@ def read_input(conf, conf_filename):
     return main(conf)
 
 
-
 def execute_queries(data, output_writer):
     """Executes all the queries and calls the writer-method from the OutputWriter object to write it to the specified destinations"""
 
     def main(data):
-
 
         message = \
             "\n################################\n" + \
@@ -756,7 +707,6 @@ def execute_queries(data, output_writer):
                 query['results_lines_count'] = results_lines_count
                 logging.info("results_lines_count: " + query['results_lines_count'] + "\n")
 
-
             except Exception as ex:
                 message = "EXCEPTION OCCURED WHEN EXECUTING QUERY: " + str(ex) + "\n Continue with execution of next query."
                 print(message)
@@ -813,12 +763,10 @@ def execute_queries(data, output_writer):
 
             return harmonized_rows
 
-
-
         harmonized_result = []
 
         if result is None:
-            return None
+            return []
         else:
 
             # CSV, TSV, XLSX (since XLSX means CSV is internally used for querying the endpoint)
@@ -985,6 +933,8 @@ class OutputWriter:
             logging.info(message)
             print(message)
 
+            self.summary_sample_limit = data['summary_sample_limit']
+
             # output_destination_type, interpret from string
 
             if "google.com/drive/folders" in data['output_destination']:
@@ -1076,7 +1026,7 @@ class OutputWriter:
             # NEVER INSERT YOUR CREDENTIALS IF YOU WILL SHARE THIS SCRIPT!!
             #
             # creds_hardcoded = json.loads("""
-            #   UNCOMMENT AND INSERT CONTENT OF CREDENTIALS.JSON FILE HERE
+            #   UNCOMMENT AND INSERT CONTENT OF CREDENTIALS.JSON FILE HERE, DELETE NEXT LINE 'creds_hardcoded = None'
             # """)
             creds_hardcoded = None
 
@@ -1271,9 +1221,6 @@ class OutputWriter:
 
         def main(data):
 
-            self.summary_sample_limit = data['summary_sample_limit']
-            # ToDo verschieben ins initiieren
-
             if self.output_destination_type == 'local_folder' or self.output_destination_type == 'local_xlsx':
                 write_header_summary_xlsx_file(data)
 
@@ -1317,7 +1264,6 @@ class OutputWriter:
             self.line_number += 4
 
 
-
         def write_header_summary_google_sheet(data):
             """Writes header to google sheets file"""
 
@@ -1344,7 +1290,6 @@ class OutputWriter:
                 header.append([data['header_error_message']])
 
 
-
             # get range for header
             range = self.get_range_from_matrix(self.line_number, 0, header)
             range = "0. Summary!" + range
@@ -1363,7 +1308,7 @@ class OutputWriter:
 
         def main(query):
 
-            if not query['results'] is None:
+            if len(query['results_harmonized']) > 1:
                 message = "Writing results to output_destination"
                 logging.info(message)
                 print(message)
@@ -1526,6 +1471,7 @@ class OutputWriter:
             self.line_number += 1
 
             if query['results'] is None:
+                self.line_number += 1
                 self.xlsx_worksheet_summary.write(self.line_number, 0, "NO RESULTS DUE TO ERROR: " + query['error_message'])
                 self.line_number += 1
 
@@ -1578,6 +1524,7 @@ class OutputWriter:
 
 
             if query['results'] is None:
+                query_stats.append([])
                 query_stats.append(["NO RESULTS DUE TO ERROR: " + query['error_message']])
 
             else:
@@ -1640,7 +1587,6 @@ class OutputWriter:
         if self.output_destination_type == "local_xlsx" or self.output_destination_type == 'local_folder' :
             logging.info("close writer")
             self.xlsx_workbook.close()
-
 
 
 
@@ -1710,7 +1656,7 @@ queries = [
 
         # description
         # OPTIONAL, if not set, nothing will be used or displayed
-        \"description\" : \"Optional description of first query, used to describe the purpose of the query.\" ,
+        \"description\" : \"Optional description of first query, used to describe the purpose of the query, which in this case is of mere demonstration.\" ,
 
         # query
         # the sparql query itself
@@ -1731,7 +1677,7 @@ queries = [
     },  
     {    
         \"title\" : \"Last query\" , 
-        \"description\" : \"This query counts the occurences of distinct predicates\" , 
+        \"description\" : \"This query returns all triples with labels\" , 
         \"query\" : r\"\"\"
             SELECT * WHERE {
                 ?s <http://www.w3.org/2000/01/rdf-schema#label> ?o
@@ -1740,7 +1686,7 @@ queries = [
     },
 ]
 
-# Notes on syntax of queries-set:
+# Each query is itself encoded as a python dictionary, and together these dictionaries are collected in a python list. Beginner's note on such syntax as follows:
 # * the set of queries is enclosed by '[' and ']'
 # * individual queries are enclosed by '{' and '},'
 # * All elements of a query (title, description, query) need to be defined using quotes as well as their contents, and both need to be separated by ':'
@@ -1752,8 +1698,6 @@ queries = [
 """
     with open('template.py', 'w') as f:
         f.write(template)
-
-
 
 
 
