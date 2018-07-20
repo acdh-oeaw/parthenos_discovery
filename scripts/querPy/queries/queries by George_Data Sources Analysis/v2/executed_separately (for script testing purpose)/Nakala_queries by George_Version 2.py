@@ -2,7 +2,8 @@
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = "EHRI: Metadata quality on virtuoso"
+title = "Nakala: Metadata quality on virtuoso"
+
 
 # description
 # defines the textual and human-intended description of the purpose of these queries
@@ -18,7 +19,7 @@ description = r"As originally defined here: https://services.d4science.org/group
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"https://drive.google.com/drive/folders/1GHWAKng3qR5zDIF-AiIzD7Q1iahFKwwA"
+output_destination = r"https://drive.google.com/drive/folders/1wvn_czEToGmkIwDDmiTOKPWn83RvSmZd"
 
 
 # output_format
@@ -86,7 +87,7 @@ queries = [
 			?instanceClass rdfs:label ?instanceClass_labelX.
 
 			GRAPH <provenance> {
-			values ?ds { 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string> }
+			values ?ds { 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string> }
             ?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
 			} 
 			order by ?type ?ds
@@ -127,7 +128,7 @@ queries = [
 			}
 
 			GRAPH <provenance> {
-			values ?ds { 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string> }
+			values ?ds { 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string> }
 			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
 
 			}
@@ -169,7 +170,7 @@ queries = [
 			optional {?instanceURI rdfs:label ?labelX. bind (str(?labelX) as ?instance_labelX).}
 
 			GRAPH <provenance> {
-			values ?ds { 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string> }
+			values ?ds { 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string> }
 			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
 
 			}
@@ -202,7 +203,7 @@ queries = [
 			#optional {?subclass rdfs:subClassOf ?class . }
 			#filter (!bound(?subclass ))
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			group by ?gRecord ?class
         """]
@@ -236,7 +237,7 @@ queries = [
 			?topclass = crmpe:PE18_Dataset ||
 			?topclass = crmdig:D14_Software
 			)
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			#group by ?gRecord  ?topclass ?class
 			group by ?topclass ?class
@@ -284,7 +285,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -381,7 +382,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -487,7 +488,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'EHRI'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> 'Nakala'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -559,3 +560,4 @@ queries = [
 # * All elements of a query (title, description, query) need to be separated from each other using quotes ','
 # * The content of a query needs to be defined using triple quotes, e.g. """ SELECT * WHERE .... """
 # * Any indentation (tabs or spaces) do not influence the queries-syntax, they are merely syntactic sugar.
+
