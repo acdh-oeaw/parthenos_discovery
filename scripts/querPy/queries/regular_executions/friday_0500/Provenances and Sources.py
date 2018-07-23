@@ -2,8 +2,7 @@ title = "Measurements of provenances and sources of datasets, comparing them to 
 
 description = "As designed in Parthenos, the origin of a triple is encoded by its respective graph (the fourth part in the quadruple). The graph then again is itself in a relation to its specific provenance (datasets by a provider) as well as its source (the provider). This set of queries produces an overview of how many triples originate from how many provenances and sources."
 
-#~ output_destination = r"https://drive.google.com/drive/folders/1Ha18gd_QqQKrK3TmZcwitb068H2kP6ya"
-output_destination = r"https://drive.google.com/drive/folders/1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj"
+output_destination = r"https://drive.google.com/drive/folders/1Ha18gd_QqQKrK3TmZcwitb068H2kP6ya"
 
 summary_sample_limit = 30
 
