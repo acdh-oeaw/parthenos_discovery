@@ -373,11 +373,11 @@ def read_input(conf, conf_filename):
                 query_titles = construct_value(queries[i]["title"])
                 for j in range(0, len(query_titles)):
                     if query_titles[j].isspace() or query_titles[j] == "":
-                        query_titles[j] = str(i + 1)
+                        query_titles[j] = str(i + 1) + ". "
                     else:
                         query_titles[j] = str(i + 1) + ". " + query_titles[j]
             except KeyError:
-                query_titles = [str(i + 1)]
+                query_titles = [str(i + 1) + ". " ]
 
             if len(query_titles) != 1:
                 if max_length_of_multi_values is None:
@@ -665,6 +665,11 @@ def execute_queries(data, output_writer):
 
             try:
                 # execute query
+
+                # Other formats such as rdf-xml, turtle, and n-triples can be possible with a bit of tweaking.
+                # Problems encountered so far are summarized here:
+                # https://github.com/RDFLib/sparqlwrapper/issues/107
+
 
                 sparql_wrapper.setQuery(query['query_text'])
 

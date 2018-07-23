@@ -1,0 +1,404 @@
+INFO:root:
+################################
+READING QUERY COLLECTION FILE: Provenances and Sources.py
+################################
+
+timestamp: 180723_143552
+INFO:root:reading title
+INFO:root:title: ['Measurements of provenances and sources of datasets, comparing them to the overall count of triples in virtuoso']
+INFO:root:reading description
+INFO:root:description: ['As designed in Parthenos, the origin of a triple is encoded by its respective graph (the fourth part in the quadruple). The graph then again is itself in a relation to its specific provenance (datasets by a provider) as well as its source (the provider). This set of queries produces an overview of how many triples originate from how many provenances and sources.']
+INFO:root:reading output_destination
+INFO:root:output_destination: ['https://drive.google.com/drive/folders/1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj']
+INFO:root:reading output_format
+INFO:root:Did not find valid output_format in query collection file, using csv instead
+INFO:root:output_format: ['csv']
+INFO:root:reading summary_sample_limit
+INFO:root:summary_sample_limit: [30]
+INFO:root:reading cooldown_between_queries
+INFO:root:Did not find cooldown_between_queries in query collection file, assuming zero instead
+INFO:root:cooldown_between_queries: [0]
+INFO:root:reading endpoints
+INFO:root:endpoint: ['https://virtuoso.parthenos.d4science.org/sparql']
+INFO:root:reading queries
+INFO:root:query titles: ['1. Percentage of all triples which are associated with a provenance graph compared to overall numbers of triples']
+INFO:root:query titles: ['']
+INFO:root:query titles: ['PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?countAll ?countHavingSource (xsd:double(xsd:float(?countHavingSource)/xsd:float(?countAll)) AS ?percentageHavingSource) WHERE {\n    {\n        SELECT COUNT(*) as ?countHavingSource WHERE {\n            GRAPH ?g { ?s ?p ?o } .\n            GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }\n        }\n    }\n    {\n        SELECT COUNT(*) as ?countAll WHERE {\n            ?s ?p ?o\n        }\n    }\n}\n']
+INFO:root:query titles: ['2. Count of all triples which are associated with a provenance graph, grouped by source graph']
+INFO:root:query titles: ['']
+INFO:root:query titles: ['SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {\n    GRAPH ?g { ?s ?p ?o } .\n    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }\n    OPTIONAL {\n        GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }\n    }\n}\nGROUP BY ?source ?sourceLabel\nORDER BY DESC ( ?count )\n']
+INFO:root:query titles: ['3. All graphs which are not related to provenance']
+INFO:root:query titles: ['The number produced here is exactly what is missing in first query']
+INFO:root:query titles: ['SELECT ?g COUNT(?p) AS ?count WHERE {\n    GRAPH ?g { ?s ?p ?o }\n    FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } \n}\nGROUP BY ?g\nORDER BY DESC(?count)\n']
+INFO:root:query titles: ['4. Count of all triples which are associated with a provenance graph, grouped by provenance graph']
+INFO:root:query titles: ['']
+INFO:root:query titles: ['SELECT ?g COUNT(*) AS ?count WHERE {\n    GRAPH ?g { ?s ?p ?o } .\n    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }\n}\nGROUP BY ?g\nORDER BY DESC ( ?count )\n']
+INFO:root:query titles: ['5. Count of all triples which are associated with a provenance graph']
+INFO:root:query titles: ['']
+INFO:root:query titles: ['SELECT COUNT(?g) AS ?count WHERE {\n    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }\n}\n']
+INFO:root:query titles: ['6. All relations used in triples of provenance graph']
+INFO:root:query titles: ['']
+INFO:root:query titles: ['SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {\n    GRAPH <provenance> { [] ?p [] }\n}\n']
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1DVS5mw1G8WDVpdytY7eGbwEqt1gsD4hj
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: Measurements of provenances and sources of datasets, comparing them to the overall count of triples in virtuoso
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 16732859
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. Percentage of all triples which are associated with a provenance graph compared to overall numbers of triples
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?countAll ?countHavingSource (xsd:double(xsd:float(?countHavingSource)/xsd:float(?countAll)) AS ?percentageHavingSource) WHERE {
+    {
+        SELECT COUNT(*) as ?countHavingSource WHERE {
+            GRAPH ?g { ?s ?p ?o } .
+            GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+        }
+    }
+    {
+        SELECT COUNT(*) as ?countAll WHERE {
+            ?s ?p ?o
+        }
+    }
+}
+
+INFO:root:query_text: 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?countAll ?countHavingSource (xsd:double(xsd:float(?countHavingSource)/xsd:float(?countAll)) AS ?percentageHavingSource) WHERE {
+    {
+        SELECT COUNT(*) as ?countHavingSource WHERE {
+            GRAPH ?g { ?s ?p ?o } .
+            GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+        }
+    }
+    {
+        SELECT COUNT(*) as ?countAll WHERE {
+            ?s ?p ?o
+        }
+    }
+}
+
+INFO:root:#### query_title: 1. Percentage of all triples which are associated with a provenance graph compared to overall numbers of triples
+
+INFO:root:query_for_count: 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT COUNT(*) WHERE { 
+SELECT ?countAll ?countHavingSource (xsd:double(xsd:float(?countHavingSource)/xsd:float(?countAll)) AS ?percentageHavingSource) WHERE {
+    {
+        SELECT COUNT(*) as ?countHavingSource WHERE {
+            GRAPH ?g { ?s ?p ?o } .
+            GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+        }
+    }
+    {
+        SELECT COUNT(*) as ?countAll WHERE {
+            ?s ?p ?o
+        }
+    }
+}
+
+}
+
+INFO:root:results_lines_count: 1
+
+INFO:root:results_execution_duration: 0.5389244556427002
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 6.604194641113281e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.5389244556427002
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A10%3AC17?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/1.%20Percentage%20of%20all%20triples%20which%20are%20associated%20with%20a%20provenance%20graph%20compared%20to%20overall%20numbe%21A1%3AC2?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 2. Count of all triples which are associated with a provenance graph, grouped by source graph
+SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+    OPTIONAL {
+        GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }
+    }
+}
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC ( ?count )
+
+INFO:root:query_text: 
+SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+    OPTIONAL {
+        GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }
+    }
+}
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC ( ?count )
+
+INFO:root:#### query_title: 2. Count of all triples which are associated with a provenance graph, grouped by source graph
+
+INFO:root:query_for_count: 
+SELECT COUNT(*) WHERE { 
+SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+    OPTIONAL {
+        GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }
+    }
+}
+GROUP BY ?source ?sourceLabel
+ORDER BY DESC ( ?count )
+
+}
+
+INFO:root:results_lines_count: 24
+
+INFO:root:results_execution_duration: 0.8075075149536133
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.00017309188842773438
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.8075075149536133
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A21%3AC51?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/2.%20Count%20of%20all%20triples%20which%20are%20associated%20with%20a%20provenance%20graph%2C%20grouped%20by%20source%20graph%21A1%3AC25?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 3. All graphs which are not related to provenance
+SELECT ?g COUNT(?p) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o }
+    FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } 
+}
+GROUP BY ?g
+ORDER BY DESC(?count)
+
+INFO:root:query_text: 
+SELECT ?g COUNT(?p) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o }
+    FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } 
+}
+GROUP BY ?g
+ORDER BY DESC(?count)
+
+INFO:root:#### query_title: 3. All graphs which are not related to provenance
+
+INFO:root:query_for_count: 
+SELECT COUNT(*) WHERE { 
+SELECT ?g COUNT(?p) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o }
+    FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } 
+}
+GROUP BY ?g
+ORDER BY DESC(?count)
+
+}
+
+INFO:root:results_lines_count: 8
+
+INFO:root:results_execution_duration: 0.5236163139343262
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.00010061264038085938
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.5236163139343262
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A55%3AB70?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/3.%20All%20graphs%20which%20are%20not%20related%20to%20provenance%21A1%3AB9?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 4. Count of all triples which are associated with a provenance graph, grouped by provenance graph
+SELECT ?g COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+GROUP BY ?g
+ORDER BY DESC ( ?count )
+
+INFO:root:query_text: 
+SELECT ?g COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+GROUP BY ?g
+ORDER BY DESC ( ?count )
+
+INFO:root:#### query_title: 4. Count of all triples which are associated with a provenance graph, grouped by provenance graph
+
+INFO:root:query_for_count: 
+SELECT COUNT(*) WHERE { 
+SELECT ?g COUNT(*) AS ?count WHERE {
+    GRAPH ?g { ?s ?p ?o } .
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+GROUP BY ?g
+ORDER BY DESC ( ?count )
+
+}
+
+INFO:root:results_lines_count: 88166
+
+INFO:root:results_execution_duration: 1.4383134841918945
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.06189227104187012
+INFO:root:EXECUTION FINISHED
+Elapsed time: 1.4383134841918945
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A74%3AB110?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/4.%20Count%20of%20all%20triples%20which%20are%20associated%20with%20a%20provenance%20graph%2C%20grouped%20by%20provenance%20graph%21A1%3AB10001?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 5. Count of all triples which are associated with a provenance graph
+SELECT COUNT(?g) AS ?count WHERE {
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+
+INFO:root:query_text: 
+SELECT COUNT(?g) AS ?count WHERE {
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+
+INFO:root:#### query_title: 5. Count of all triples which are associated with a provenance graph
+
+INFO:root:query_for_count: 
+SELECT COUNT(*) WHERE { 
+SELECT COUNT(?g) AS ?count WHERE {
+    GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+}
+
+}
+
+INFO:root:results_lines_count: 1
+
+INFO:root:results_execution_duration: 0.14620542526245117
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 7.43865966796875e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.14620542526245117
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A114%3AA121?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/5.%20Count%20of%20all%20triples%20which%20are%20associated%20with%20a%20provenance%20graph%21A1%3AA2?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 6. All relations used in triples of provenance graph
+SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {
+    GRAPH <provenance> { [] ?p [] }
+}
+
+INFO:root:query_text: 
+SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {
+    GRAPH <provenance> { [] ?p [] }
+}
+
+INFO:root:#### query_title: 6. All relations used in triples of provenance graph
+
+INFO:root:query_for_count: 
+SELECT COUNT(*) WHERE { 
+SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {
+    GRAPH <provenance> { [] ?p [] }
+}
+
+}
+
+INFO:root:results_lines_count: 4
+
+INFO:root:results_execution_duration: 0.2003340721130371
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 4.5299530029296875e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.2003340721130371
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/0.%20Summary%21A125%3AB135?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1AMlKWHPwObn3GT6zlscuu1dTGvGmBol2hWfgf6Z3dhU/values/6.%20All%20relations%20used%20in%20triples%20of%20provenance%20graph%21A1%3AB5?alt=json&valueInputOption=RAW
