@@ -2,11 +2,11 @@ This folder 'queries' shall collect and aggregate SPARQL queries for either manu
 
 ## manual executions:
 
-download the queries files from here and run them using the querPy script locally on your machine.
+download the query collection from here and run them using the querPy script locally on your machine.
 
 ## automated executions
 
-just place your queries files in the folder 'regular_executions', and therein in another subfolder where its name shall indicate its execution intervals. It will then be run automatically by an instance running on one of the ACDH's servers.
+just place your query collection in the folder 'regular_executions', and therein in another subfolder where its name shall indicate its execution intervals. It will then be run automatically by an instance running on one of the ACDH's servers.
 
 ## results
 
