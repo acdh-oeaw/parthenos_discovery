@@ -1,12 +1,12 @@
-This folder 'queries' shall collect and aggregate SPARQL queries for either manual or automated executions in the context of the Parthenos metadata analysis.
+This folder contains sparql query collections for either manual or automated executions by the use of querPy (official git repo: https://github.com/steffres/querPy , and a version of querPy with testing credentials pre-included can be found in the d4science Parthenos Gateway under the path *VRE Folders > PARTHENOS_Registry > querPy with credentials*.
 
 ## manual executions:
 
-download the query collection from here and run them using the querPy script locally on your machine.
+download a query collection file from a subfolder and run it using the querPy script locally on your machine (as described in the querPy repo).
 
 ## automated executions
 
-just place your query collection in the folder 'regular_executions', and therein in another subfolder where its name shall indicate its execution intervals. It will then be run automatically by an instance running on one of the ACDH's servers.
+just place your query collection in the folder 'regular_executions', and therein in another subfolder where its name should indicate its execution intervals (e.g. friday_0500). It will then be run automatically by an instance running on one of the ACDH's servers.
 
 ## results
 
