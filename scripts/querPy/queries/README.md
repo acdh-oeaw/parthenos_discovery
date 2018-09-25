@@ -10,7 +10,7 @@ download a query collection file from a subfolder and run it using the querPy sc
 
 ## automated executions
 
-just place your query collection in the folder 'regular_executions', and therein in another subfolder where its name should indicate its execution intervals (e.g. friday_0500). It will then be run automatically by an instance running on one of the ACDH's servers.
+just place your query collection in the folder 'regular_executions', and therein in another subfolder where its name should indicate its execution intervals (e.g. friday_0500). It will then be added manually by a human and run on one of the ACDH's servers.
 
 ## results
 
