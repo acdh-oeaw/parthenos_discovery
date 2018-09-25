@@ -1,8 +1,12 @@
 This folder contains sparql query collections for either manual or automated executions by the use of querPy (official git repo: https://github.com/steffres/querPy , and a version of querPy with testing credentials pre-included can be found in the d4science Parthenos Gateway under the path *VRE Folders > PARTHENOS_Registry > querPy with credentials*.
 
+## usage of querPy
+
+On how to use querPy, please see its official repo https://github.com/steffres/querPy , or quickly have a look at the 'TEMPLATE.py' file contained in this folder.
+
 ## manual executions:
 
-download a query collection file from a subfolder and run it using the querPy script locally on your machine (as described in the querPy repo).
+download a query collection file from a subfolder and run it using the querPy script locally on your machine.
 
 ## automated executions
 
