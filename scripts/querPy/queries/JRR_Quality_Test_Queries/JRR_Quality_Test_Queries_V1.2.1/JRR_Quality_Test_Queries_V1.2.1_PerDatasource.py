@@ -16,7 +16,7 @@ datasources,
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = r"Set of reworked queries, as documented here: https://docs.google.com/document/d/1l4mzvSkWljwyj4wuOznk6OxXttDd0aYoQWPJRdcUTC8/edit?ts=5b9ba964"
+description = r"Queries updated by Anastasia. Documented here: https://docs.google.com/document/d/1l4mzvSkWljwyj4wuOznk6OxXttDd0aYoQWPJRdcUTC8/edit?ts=5b9ba964"
 
 
 # output_destination
@@ -27,7 +27,7 @@ description = r"Set of reworked queries, as documented here: https://docs.google
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"https://drive.google.com/drive/folders/1jqSLbpyyo_13tPlzebDUGmGO_KeO_OJQ"
+output_destination = r"https://drive.google.com/drive/folders/13hLGucLB9vpB0jbrKcy3Z0gut801Ru2T"
 
 
 # summary_sample_limit
@@ -95,7 +95,7 @@ queries = [
 		"description" : "This query gives the density of population of classes by instances grouped by Parthenos Top Level Entities (Projects, Services, Actors, Datasets and Software) for a particular named graph in the registry.",
 		"query" : [
 			r"""
-			4 ######### The top categories and the count of instances per specific class #########
+			#4 ######### The top categories and the count of instances per specific class #########
 
 			select distinct ?topclass
 			( STR(?topclass_label) as ?topclass_label)

@@ -1,13 +1,13 @@
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = "JRR_Quality_Test_Queries_V1.2_Overall"
+title = "JRR_Quality_Test_Queries_V1.2.1_Overall"
 
 
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = r"Set of reworked queries, as documented here: https://docs.google.com/document/d/1l4mzvSkWljwyj4wuOznk6OxXttDd0aYoQWPJRdcUTC8/edit?ts=5b9ba964"
+description = r"Queries updated by Anastasia. Documented here: https://docs.google.com/document/d/1l4mzvSkWljwyj4wuOznk6OxXttDd0aYoQWPJRdcUTC8/edit?ts=5b9ba964"
 
 
 # output_destination
@@ -18,7 +18,7 @@ description = r"Set of reworked queries, as documented here: https://docs.google
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"https://drive.google.com/drive/folders/1KIhHgMrh2sPnzUTXqi0hUPTHV8YV-_0B"
+output_destination = r"https://drive.google.com/drive/folders/1hAA4_r-PWA-hyYCZYgMY0XQsvKoPNHLY"
 
 
 # summary_sample_limit
