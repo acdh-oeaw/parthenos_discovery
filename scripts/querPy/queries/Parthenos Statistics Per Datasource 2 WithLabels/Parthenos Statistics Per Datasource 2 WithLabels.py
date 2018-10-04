@@ -87,9 +87,9 @@ queries = [
                   ?instanceURI a ?e2class.
                }
 
-               GRAPH <provenance> {
-                     ?gRecord <dnetcollectedFrom> ?api .
-                     ?api <dnetisApiOf> ?ds
+               GRAPH <dnet:graph> {
+                     ?gRecord <dnet:collectedFrom> ?api .
+                     ?api <dnet:isApiOf> ?ds
                }
 
             }
@@ -113,9 +113,9 @@ queries = [
              ?instanceURI a ?class.
                }
 
-               GRAPH <provenance> {
-                     ?gRecord <dnetcollectedFrom> ?api .
-                     ?api <dnetisApiOf> ?ds
+               GRAPH <dnet:graph> {
+                     ?gRecord <dnet:collectedFrom> ?api .
+                     ?api <dnet:isApiOf> ?ds
                }
 
             }
@@ -140,9 +140,9 @@ queries = [
                   ?instanceURI a ?e55class.
                }
 
-               GRAPH <provenance> {
-                     ?gRecord <dnetcollectedFrom> ?api .
-                     ?api <dnetisApiOf> ?ds
+               GRAPH <dnet:graph> {
+                     ?gRecord <dnet:collectedFrom> ?api .
+                     ?api <dnet:isApiOf> ?ds
                }
 
             }
@@ -171,9 +171,9 @@ queries = [
                   ?x rdfs:label ?litVal.
 
                }
-               GRAPH <provenance> {
-                     ?gRecord <dnetcollectedFrom> ?api .
-                     ?api <dnetisApiOf> ?ds
+               GRAPH <dnet:graph> {
+                     ?gRecord <dnet:collectedFrom> ?api .
+                     ?api <dnet:isApiOf> ?ds
                }
             }
 
@@ -201,9 +201,9 @@ queries = [
                   ?x rdfs:label ?litVal.
 
                }
-               GRAPH <provenance> {
-                     ?gRecord <dnetcollectedFrom> ?api .
-                     ?api <dnetisApiOf> ?ds
+               GRAPH <dnet:graph> {
+                     ?gRecord <dnet:collectedFrom> ?api .
+                     ?api <dnet:isApiOf> ?ds
                }
             }
 
