@@ -1,0 +1,29 @@
+#4 ######### The top categories and the count of instances per specific class #########
+
+select distinct ?topclass 
+#( GROUP_CONCAT(distinct ?topclass_labelX, "/") as ?topclass_label )
+(?class as ?specific_class) (count(distinct ?instanceURI) as ?count) 
+#( GROUP_CONCAT(distinct ?class_labelX, "/") as ?specific_class_label )
+
+where{
+
+graph ?gRecord {
+?instanceURI a ?class.
+}
+optional { ?class rdfs:subClassOf*  ?topclass. }
+filter(
+?topclass = crmpe:PE35_Project ||
+?topclass = crmpe:PE1_Service ||
+?topclass = crm:E39_Actor ||
+?topclass = crmpe:PE18_Dataset ||
+?topclass = crmdig:D14_Software
+)
+
+#optional { ?class rdfs:label ?class_labelX }
+#optional { ?topclass rdfs:label ?topclass_labelX }
+
+GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
+} 
+group by ?topclass ?class
+order by ?topclass ?class
+

@@ -1,0 +1,21 @@
+#3 ######### Counts instances per class ignoring the record. To have the instances per class replace count(distinct ?instanceURI) with ?instanceURI in 'select' clause #########
+
+#DEFINE input:inference 'parthenos_rules'
+select distinct ?class count(distinct ?instanceURI)
+( GROUP_CONCAT(distinct ?class_labelX, "/") as ?class_label)
+where{
+graph ?gRecord  {
+?instanceURI a ?class.
+}
+
+optional{
+?class rdfs:label ?class_labelX.
+}
+
+GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
+} 
+group by ?class 
+order by ?class
+
+
+

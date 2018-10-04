@@ -1,0 +1,35 @@
+#8a ############ Get the Periods/Events/Activities instances COUNT per Datasource ###########
+
+#DEFINE input:inference 'parthenos_rules'
+select 
+(?instanceURI as ?instance)
+( GROUP_CONCAT(distinct ?instance_labelX, "/") as ?instance_label)
+(COUNT(distinct ?resource) as ?instanceAppearance)
+(str(?ds) as ?ds) 
+where{
+
+
+graph ?gRecord {
+?instanceURI a ?class.
+optional{
+?instanceURI rdfs:label ?instance_labelX.
+}
+?resource ?relatedto ?instanceURI.
+}
+
+filter (?class = <http://www.cidoc-crm.org/cidoc-crm/E4_Period> || ?class = <http://www.cidoc-crm.org/cidoc-crm/E5_Event>)
+optional{?class rdfs:label ?class_labelX }
+
+GRAPH <provenance> {
+values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
+?api <dnetisApiOf> ?ds.
+?gRecord <dnetcollectedFrom> ?api .
+}
+
+} 
+group by ?ds ?class ?instanceURI
+
+#---end of query ----
+
+
+

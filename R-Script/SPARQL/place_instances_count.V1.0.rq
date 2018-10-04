@@ -1,0 +1,29 @@
+#7b ############ Get the Places instances COUNT per Datasource ###########
+
+select 
+(?instanceURI as ?place)
+( GROUP_CONCAT(distinct ?place_labelX, "/") as ?place_label)
+(COUNT(distinct ?resource) as ?placeAppearance)
+(str(?ds) as ?ds) 
+where{
+
+values ?classE53 { <http://www.cidoc-crm.org/cidoc-crm/E53_Place> }
+?class rdfs:subClassOf* ?classE53 .
+
+graph ?gRecord {
+?instanceURI a ?class.
+optional{
+?instanceURI rdfs:label ?place_labelX.
+}
+?resource ?relatedto ?instanceURI.
+}
+
+
+GRAPH <provenance> {
+values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
+?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+
+} group by ?ds ?instanceURI
+order by ?ds
+
+#---end of query ----

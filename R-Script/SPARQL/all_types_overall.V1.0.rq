@@ -1,0 +1,28 @@
+#5 ############ Discovering the redundant values of all the Types ###########
+
+#DEFINE input:inference 'parthenos_rules'
+select distinct (?instanceURI as ?type)
+( STR(?labelX) as ?label)
+( STR(?ds) as ?ds)
+where{
+values ?classE55 { <http://www.cidoc-crm.org/cidoc-crm/E55_Type> }
+
+graph ?gRecord  {
+?instanceURI a ?class.
+optional{
+?instanceURI rdfs:label ?labelX.
+}
+}
+
+?class rdfs:subClassOf* ?classE55.
+
+GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+} 
+order by  ?ds ?instanceURI
+
+
+#---end of query ----
+
+
+
+
