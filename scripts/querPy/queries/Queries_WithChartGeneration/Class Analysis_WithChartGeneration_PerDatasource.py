@@ -24,7 +24,7 @@ description = ""
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"./results_local"
+output_destination = r"./results_local/PerDatasource"
 
 
 # output_format
