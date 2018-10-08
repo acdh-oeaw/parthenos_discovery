@@ -83,7 +83,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			}
 			group by ?ds ?class ?class_label
 			order by ?ds ?class
@@ -126,7 +126,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			}
 			group by ?ds ?topclass ?class ?topclass_label ?class_label
 			order by ?ds ?topclass ?class
@@ -177,7 +177,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} 
 			group by ?ds ?class ?instanceClass ?type  ?class_label ?instanceClass_label ?type_label 
 			order by ?ds ?type
@@ -230,8 +230,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <provenance> {
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} 
 			group by ?ds ?class ?instanceClass ?type ?class_label ?instanceClass_label ?type_label
 			#group by ?ds ?class ?instanceClass ?type ?type_label
@@ -268,7 +267,7 @@ queries = [
 			values ?ds {'""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} 
 			order by  ?instanceURI
 
@@ -306,8 +305,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <provenance> {
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} group by ?ds ?instanceURI ?place_label
 			order by ?ds
 
@@ -347,8 +345,7 @@ queries = [
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <provenance> {
-			?api <dnetisApiOf> ?ds. ?gRecord <dnetcollectedFrom> ?api .}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} 
 			group by ?ds ?class ?instanceURI ?instance_label
 			order by ?ds ?class
