@@ -317,7 +317,7 @@ def custom_post_processing(results):
             )
 
             fig = dict(data=[data], layout=layout)
-            offline.plot(fig, filename=query_title + ".html", auto_open=True)
+            offline.plot(fig, filename=query_title + ".html", auto_open=False)
 
 
         start_method(query_result)
