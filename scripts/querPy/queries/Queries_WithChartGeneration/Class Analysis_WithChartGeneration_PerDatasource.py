@@ -145,7 +145,7 @@ def custom_post_processing(results):
                 )
             ],
             "layout" : dict( title=query_results['query_title'] )
-        }, filename=query_results['query_title'] + ".html")
+        }, filename=output_destination + "/" + query_results['query_title'] + ".html", auto_open=False)
 
 
 
@@ -317,7 +317,7 @@ def custom_post_processing(results):
             )
 
             fig = dict(data=[data], layout=layout)
-            offline.plot(fig, filename=query_title + ".html", auto_open=False)
+            offline.plot(fig, filename=output_destination + "/" + query_title + ".html", auto_open=False)
 
 
         start_method(query_result)

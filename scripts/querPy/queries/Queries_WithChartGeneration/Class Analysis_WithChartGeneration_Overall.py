@@ -63,7 +63,7 @@ endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 # MANDATAORY
 queries = [
     {
-        "title": "Instances and their count, overview_Overall",
+        "title": "Instances and their count, overview_",
         "query": r"""
             select ?resourceClass count(?resource) as ?countOfInstances where {
                 ?resource a ?resourceClass
@@ -72,7 +72,7 @@ queries = [
         """
     },
     {
-        "title": "A weighted overview of all instanciated classes and their respective superClass hierarchy path_Overall",
+        "title": "Overview of class instances with weighted super-class inheritances_Overall",
         "description": "This query counts the number of classes which are instantiated by some resource, and then uses this number to give weight to the respective super class chain of the original class-instance. This way we can see which super classes are how often used for instantiation, either directly (a particular class is instantiated, while also having further sub classes) or indirectly (through subClass-relations leading to the original instances). Note that in the pure raw data results the ?resourceClass column displays where the path stems from, while ?superClass ?superSuperClass displays some edge in the super class hierarchy, ultimately leading to 'E1_CRM_Entity'. Also note in the sankey chart which is generated from this data, you see the original instantiated classes on the very right, and on the path to their respective super-classes sometimes you will see intermediate nodes merging or splitting; when this happens it indicates some multiple inheritance, e.g. E77 isSubClassOf E1, while also E77 isSubClassOf S15 isSubClassOf E1, where then you would see an identical number of flows merging into E77. This does not mean there is double the amount of E77 instances, but only that there are multiple paths to the same superClass somewhere (and vice versa to subClasses).",
         "query": r"""
             select ?count ?resourceClass ?superClass ?superSuperClass where {
@@ -137,7 +137,7 @@ def custom_post_processing(results):
                 )
             ],
             "layout" : dict( title=query_results['query_title'] )
-        }, filename=query_results['query_title'] + ".html")
+        }, filename=output_destination + "/" + query_results['query_title'] + ".html", auto_open=False)
 
 
 
@@ -311,7 +311,7 @@ def custom_post_processing(results):
             )
 
             fig = dict(data=[data], layout=layout)
-            offline.plot(fig, filename=query_title + ".html", auto_open=True)
+            offline.plot(fig, filename=output_destination + "/" + query_title + ".html", auto_open=False)
 
 
         start_method(query_result)
