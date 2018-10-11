@@ -77,14 +77,18 @@ def main():
                 credentials_path = False
                 client_secret_path = False
 
+        # process either the individual or all query collections, one-by-one
         for data_single_query_collection in data_all_query_collections['query_collections']:
 
+            # writing setup
             data_single_query_collection['credentials_path'] = credentials_path
             data_single_query_collection['client_secret_path'] = client_secret_path
             output_writer = OutputWriter(data_single_query_collection)
 
+            # execute queries, get results with further query data returned
             result_data = execute_queries(data_single_query_collection, output_writer)
 
+            # pass results to custom post processing method in the query collection file (if present)
             if hasattr(query_collection_module, "custom_post_processing"):
                 query_collection_module.custom_post_processing(result_data['queries'])
 
@@ -578,9 +582,9 @@ def read_input(conf, conf_filename):
 
     def construct_value(value):
         """Since users can input not only string values into the various variables and since such input can also contain
-        lists (to represent multi-values), these values must be harmonized, i.e. if there are lists included in a value,
-        then out of the combination of lists and string inside, a new list containing all multi values concatenated
-        with the single static values."""
+        lists (to represent multi-values), these values must be harmonized, e.g. if there are lists included in a value,
+        then out of the combination of lists and string inside the value, a new list is created,
+        containing all multi values which all are concatenated to single static values."""
 
         result_values = []
 
