@@ -1,0 +1,26 @@
+
+  <bs-row>
+    <bs-col sm-offset="2">
+      <h1>Dataset</h1>
+      <p>Title:
+           <semantic-query query="SELECT ?title WHERE {??  crm:P1_is_identified_by ?id. ?id rdfs:label ?title.}" template="<h3>{{#each bindings}}{{title.value}}<br/>{{/each}}</h3>"></semantic-query>
+      </p>
+    </bs-col>
+  </bs-row>
+  <bs-row>
+    <bs-col sm="3" sm-offset="2">
+      <semantic-query query="SELECT ?partOf ?label WHERE {??  crmpe:PP23i_is_dataset_part_of ?partOf. ?partOf  rdfs:label ?label. }" template="<p>Part of:{{#each bindings}}{{label.value}}{{/each}}</p>"></semantic-query>
+        <semantic-query query="SELECT ?metadataFor WHERE {??  crmpe:PP39_is_metadata_for ?metadataFor }" template="<p>Metadata for:{{#each bindings}}{{partOf.value}}{{/each}}</p>"></semantic-query>
+      
+              <semantic-query query="SELECT  ?creationTime  WHERE {
+				??  crm:P94i_was_created_by ?creation.                     
+  				?creation crm:P4_has_time-span	?time.
+?time crm:P82_at_some_time_within ?creationTime.}" 
+                            template="<p>Time created :<ul>{{#each bindings}}<li>{{creationTime.value}}</li>{{/each}}</ul></p>"></semantic-query>
+      
+    </bs-col>
+
+    
+  </bs-row>
+
+  
