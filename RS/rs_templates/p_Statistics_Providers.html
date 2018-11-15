@@ -1,4 +1,4 @@
-  <ol class="page-breadcrumb">
+<ol class="page-breadcrumb">
   <li>
     <mp-link title="Home" url="/">Home</mp-link>
   </li>
@@ -16,6 +16,25 @@
   <div class="page__body">
     <h1> Providers</h1>
   
+ <h2> Providers by count of graphs (which should correspond to individual files imported?) </h2>
+    
+<semantic-table
+             query="SELECT ?source (count (?record) as ?cnt) WHERE {GRAPH <https://parthenos.d4science.org/handle/graph/provenance> {?record <https://parthenos.d4science.org/handle/graph/dnetcollectedFrom> ?api . ?api <https://parthenos.d4science.org/handle/graph/dnetisApiOf> ?source.}}
+GROUP BY ?source
+    
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"source", "displayName":"Provider"}, 
+               {"variableName":"cnt", "displayName":"Count graphs=files?"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+    
+    
 <h2> Providers by count of triples </h2>
     
         <semantic-chart
@@ -33,12 +52,13 @@ GROUP BY ?source
 
     
 <semantic-table
-             query="SELECT ?source (count (?s) as ?cnt_triples) WHERE 
+             query="SELECT ?source (count ( ?s) as ?cnt_triples) WHERE 
 {
   GRAPH <https://parthenos.d4science.org/handle/graph/provenance> {?record <https://parthenos.d4science.org/handle/graph/dnetcollectedFrom> ?api . ?api <https://parthenos.d4science.org/handle/graph/dnetisApiOf> ?source.}
 	GRAPH ?record { ?s ?p ?o }
 }
 GROUP BY ?source
+                    ORDER BY DESC(?cnt_triples)
 "
              number-of-displayed-rows=50
              column-configuration='[
@@ -51,10 +71,32 @@ GROUP BY ?source
            >
            </semantic-table>
   
+  
+    <h2>Classes per Providers</h2>
+    
+        
+<semantic-table
+             query="SELECT ?source ?class (count (distinct ?s) as ?cnt_triples) WHERE 
+{
+  GRAPH <https://parthenos.d4science.org/handle/graph/provenance> {?record <https://parthenos.d4science.org/handle/graph/dnetcollectedFrom> ?api . ?api <https://parthenos.d4science.org/handle/graph/dnetisApiOf> ?source.}
+	GRAPH ?record { ?s a ?class }
+}
+GROUP BY ?source ?class
+
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"source", "displayName":"Provider"}, 
+               {"variableName":"class", "displayName":"Class"}, 
+               {"variableName":"cnt_triples", "displayName":"Count of distinct entities"}
+             ]'
+             options='{
+               "showFilter":true
+             }'
+           >
+           </semantic-table>
+  
     
   </div>
-  
-    </div>
-
-
-
+    
+  </div>
