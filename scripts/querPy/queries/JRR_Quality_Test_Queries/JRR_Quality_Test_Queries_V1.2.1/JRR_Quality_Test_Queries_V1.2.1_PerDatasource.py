@@ -1,7 +1,8 @@
 
 
 # variable datasources, individual values of this variable will be injected into the queries where used.
-datasources = ["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"]
+#~ datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "DARIAH-GR", "METASHARE", "Cultura Italia", "LRE MAP", "European Holocaust Research Infrastructure", "CENDARI", "CLARIN", "ARIADNE"] # orderd by triple size
+datasources = ["ARIADNE"] # orderd by triple size
 
 
 # title
@@ -27,7 +28,7 @@ description = r"Queries updated by Anastasia. Documented here: https://docs.goog
 # NOTE: On windows, folders in a path use backslashes, in such a case it is mandatory to attach a 'r' in front of the quotes, e.g. r"C:\Users\sresch\.."
 # In the other cases the 'r' is simply ignored; thus best would be to always leave it there.
 # OPTIONAL, if not set, folder of executed script will be used
-output_destination = r"https://drive.google.com/drive/folders/13hLGucLB9vpB0jbrKcy3Z0gut801Ru2T"
+output_destination = r"https://drive.google.com/drive/folders/1GQPLj15BJ0xZ5cvc_u_bJUV8Um6N80DK"
 
 
 # summary_sample_limit

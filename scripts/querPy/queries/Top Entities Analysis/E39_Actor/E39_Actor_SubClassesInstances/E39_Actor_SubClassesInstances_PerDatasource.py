@@ -13,7 +13,13 @@ title = ["E39_Actor_SubClassesInstances_PerDataSource: ", datasources]
 # description
 # defines the textual and human-intended description of the purpose of these queries
 # OPTIONAL, if not set, nothing will be used or displayed
-description = "Charts are here: https://parthenos-stats.acdh.oeaw.ac.at/Top_Entities_Neighbourhood_Analysis/E39_Actor/E39_Actor_SubClassesInstances/"
+description = r"""Charts are here:
+https://parthenos-stats.acdh.oeaw.ac.at/Top_Entities_Neighbourhood_Analysis/E39_Actor/E39_Actor_SubClassesInstances/
+Results are here:
+https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+Scripts are here:
+https://github.com/acdh-oeaw/parthenos_discovery/tree/master/scripts/querPy/queries/Top%20Entities%20Analysis/E39_Actor/E39_Actor_SubClassesInstances
+"""
 
 
 # output_destination
