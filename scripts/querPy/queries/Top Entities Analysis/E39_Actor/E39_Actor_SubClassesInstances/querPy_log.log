@@ -1,0 +1,1361 @@
+INFO:root:
+################################
+READING QUERY COLLECTION FILE: E39_Actor_SubClassesInstances_PerDatasource.py
+################################
+
+timestamp: 181116_153923
+INFO:root:reading title
+INFO:root:title: ['E39_Actor_SubClassesInstances_PerDataSource: CLARIN', 'E39_Actor_SubClassesInstances_PerDataSource: PARTHENOS', 'E39_Actor_SubClassesInstances_PerDataSource: Huma-Num - Nakala', 'E39_Actor_SubClassesInstances_PerDataSource: Huma-Num - Isidore', 'E39_Actor_SubClassesInstances_PerDataSource: European Holocaust Research Infrastructure', 'E39_Actor_SubClassesInstances_PerDataSource: ARIADNE', 'E39_Actor_SubClassesInstances_PerDataSource: Cultura Italia', 'E39_Actor_SubClassesInstances_PerDataSource: METASHARE', 'E39_Actor_SubClassesInstances_PerDataSource: LRE MAP']
+INFO:root:reading description
+INFO:root:description: ['Charts are here:\nhttps://parthenos-stats.acdh.oeaw.ac.at/Top_Entities_Neighbourhood_Analysis/E39_Actor/E39_Actor_SubClassesInstances/\nResults are here:\nhttps://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X\nScripts are here:\nhttps://github.com/acdh-oeaw/parthenos_discovery/tree/master/scripts/querPy/queries/Top%20Entities%20Analysis/E39_Actor/E39_Actor_SubClassesInstances\n']
+INFO:root:reading output_destination
+INFO:root:output_destination: ['https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X']
+INFO:root:reading output_format
+INFO:root:Did not find valid output_format, using CSV instead
+INFO:root:output_format: ['csv']
+INFO:root:reading summary_sample_limit
+INFO:root:summary_sample_limit: [100]
+INFO:root:reading cooldown_between_queries
+INFO:root:cooldown_between_queries: [0]
+INFO:root:reading write_empty_results
+INFO:root:write_empty_results: [False]
+INFO:root:reading endpoints
+INFO:root:endpoint: ['https://virtuoso.parthenos.d4science.org/sparql']
+INFO:root:reading queries
+INFO:root:query titles: ['1. E39_Actor_SubClassesInstancess_CLARIN', '1. E39_Actor_SubClassesInstancess_PARTHENOS', '1. E39_Actor_SubClassesInstancess_Huma-Num - Nakala', '1. E39_Actor_SubClassesInstancess_Huma-Num - Isidore', '1. E39_Actor_SubClassesInstancess_European Holocaust Research Infrastructure', '1. E39_Actor_SubClassesInstancess_ARIADNE', '1. E39_Actor_SubClassesInstancess_Cultura Italia', '1. E39_Actor_SubClassesInstancess_METASHARE', '1. E39_Actor_SubClassesInstancess_LRE MAP']
+INFO:root:query titles: ['']
+INFO:root:query titles: ["    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'CLARIN'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'PARTHENOS'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'Huma-Num - Nakala'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'Huma-Num - Isidore'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'European Holocaust Research Infrastructure'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'ARIADNE'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'Cultura Italia'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'METASHARE'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n", "    select ?count ?resourceClass ?superClass ?superSuperClass where {\n    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .\n    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .\n    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .\n    {\n        select count(?resource) as ?count ?resourceClass where {\n            graph ?sourceGraph { ?resource a ?resourceClass }\n            graph <dnet:graph> { \n                ?sourceGraph <dnet:collectedFrom> ?api . \n                ?api <dnet:isApiOf> 'LRE MAP'^^<http://www.w3.org/2001/XMLSchema#string>\n            }\n        }\n    }\n}\ngroup by ?resourceClass ?superClass ?superSuperClass\n"]
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: CLARIN
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_CLARIN
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'CLARIN'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'CLARIN'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_CLARIN
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'CLARIN'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 5
+
+INFO:root:results_execution_duration: 0.27143216133117676
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.00019979476928710938
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.27143216133117676
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs/values/0.%20Summary%21A10%3AD21?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1rJ8qpizviLvnpRoQKF691M5ZvLFaQgCforUSjwS1brs/values/1.%20E39_Actor_SubClassesInstancess_CLARIN%21A1%3AD6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: PARTHENOS
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_PARTHENOS
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'PARTHENOS'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'PARTHENOS'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_PARTHENOS
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'PARTHENOS'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 8
+
+INFO:root:results_execution_duration: 0.2639157772064209
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.0013577938079833984
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.2639157772064209
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18/values/0.%20Summary%21A10%3AD24?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1BSKnKJIs0YGQ88vB0SxCwdTWb8-scXghYKFfRndUD18/values/1.%20E39_Actor_SubClassesInstancess_PARTHENOS%21A1%3AD9?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: Huma-Num - Nakala
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_Huma-Num - Nakala
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Nakala'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Nakala'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_Huma-Num - Nakala
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Nakala'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 5
+
+INFO:root:results_execution_duration: 0.25875043869018555
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.00017571449279785156
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.25875043869018555
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM/values/0.%20Summary%21A10%3AD21?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1cxPRsjIrACoPvCgP8TkN0okd-NQm9Kf4Vmza7S7QEKM/values/1.%20E39_Actor_SubClassesInstancess_Huma-Num%20-%20Nakala%21A1%3AD6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: Huma-Num - Isidore
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_Huma-Num - Isidore
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Isidore'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Isidore'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_Huma-Num - Isidore
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Huma-Num - Isidore'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 2
+
+INFO:root:results_execution_duration: 0.49880528450012207
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.00030612945556640625
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.49880528450012207
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U/values/0.%20Summary%21A10%3AD18?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/18b57m28XPyn2B_omGiz8YSKHVAwpuiIeJDgR-V2hZ_U/values/1.%20E39_Actor_SubClassesInstancess_Huma-Num%20-%20Isidore%21A1%3AD3?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1W8vxhWCAlOJTbJKwU9ay1LEiyUJGy1JX7EOEw1BQDxY:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1W8vxhWCAlOJTbJKwU9ay1LEiyUJGy1JX7EOEw1BQDxY
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: European Holocaust Research Infrastructure
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1W8vxhWCAlOJTbJKwU9ay1LEiyUJGy1JX7EOEw1BQDxY/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_European Holocaust Research Infrastructure
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'European Holocaust Research Infrastructure'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'European Holocaust Research Infrastructure'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_European Holocaust Research Infrastructure
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'European Holocaust Research Infrastructure'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 0
+
+INFO:root:results_execution_duration: 0.2562136650085449
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 9.059906005859375e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.2562136650085449
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1W8vxhWCAlOJTbJKwU9ay1LEiyUJGy1JX7EOEw1BQDxY/values/0.%20Summary%21A10%3AD16?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1MYbRIvZFE46U1Ir1RkwoB-jECKYkKpmhm7Fmxj5e3ZY:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1MYbRIvZFE46U1Ir1RkwoB-jECKYkKpmhm7Fmxj5e3ZY
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: ARIADNE
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1MYbRIvZFE46U1Ir1RkwoB-jECKYkKpmhm7Fmxj5e3ZY/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_ARIADNE
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'ARIADNE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'ARIADNE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_ARIADNE
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'ARIADNE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 0
+
+INFO:root:results_execution_duration: 0.4041881561279297
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 5.125999450683594e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.4041881561279297
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1MYbRIvZFE46U1Ir1RkwoB-jECKYkKpmhm7Fmxj5e3ZY/values/0.%20Summary%21A10%3AD16?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/12hjWkmqaE9oSWv80guhknWkxT9_kJmav7RCYUDvNVOU:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/12hjWkmqaE9oSWv80guhknWkxT9_kJmav7RCYUDvNVOU
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: Cultura Italia
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/12hjWkmqaE9oSWv80guhknWkxT9_kJmav7RCYUDvNVOU/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_Cultura Italia
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Cultura Italia'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Cultura Italia'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_Cultura Italia
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'Cultura Italia'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 0
+
+INFO:root:results_execution_duration: 0.41672706604003906
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 4.0531158447265625e-05
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.41672706604003906
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/12hjWkmqaE9oSWv80guhknWkxT9_kJmav7RCYUDvNVOU/values/0.%20Summary%21A10%3AD16?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: METASHARE
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_METASHARE
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'METASHARE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'METASHARE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_METASHARE
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'METASHARE'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 2
+
+INFO:root:results_execution_duration: 0.40201497077941895
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.0001323223114013672
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.40201497077941895
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc/values/0.%20Summary%21A10%3AD18?alt=json&valueInputOption=RAW
+INFO:root:Writing results to output_destination
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc:batchUpdate?alt=json
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1MSDRYmrpXPqhz-mcFdKgKTHowAOk5m_80Y1j_7lDoLc/values/1.%20E39_Actor_SubClassesInstancess_METASHARE%21A1%3AD3?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+Setting up output destination: https://drive.google.com/drive/folders/1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:root:deduced output_destination_type: google_folder
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/drive/v3/rest
+WARNING:googleapiclient.discovery_cache:file_cache is unavailable when using oauth2client >= 4.0.0
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 36, in autodetect
+    from google.appengine.api import memcache
+ImportError: No module named 'google'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 33, in <module>
+    from oauth2client.contrib.locked_file import LockedFile
+ImportError: No module named 'oauth2client.contrib.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 37, in <module>
+    from oauth2client.locked_file import LockedFile
+ImportError: No module named 'oauth2client.locked_file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/__init__.py", line 41, in autodetect
+    from . import file_cache
+  File "/usr/local/lib/python3.5/dist-packages/googleapiclient/discovery_cache/file_cache.py", line 41, in <module>
+    'file_cache is unavailable when using oauth2client >= 4.0.0')
+ImportError: file_cache is unavailable when using oauth2client >= 4.0.0
+INFO:googleapiclient.discovery:URL being requested: GET https://www.googleapis.com/discovery/v1/apis/sheets/v4/rest
+INFO:root:ID of google folder : 1V9hgA2qlbOVeNTWREPHv3sZssC3Pvl9X
+INFO:googleapiclient.discovery:URL being requested: POST https://www.googleapis.com/drive/v3/files?alt=json
+INFO:oauth2client.transport:Refreshing due to a 401 (attempt 1/2)
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery:URL being requested: POST https://sheets.googleapis.com/v4/spreadsheets/1ZeXJCbL2nG_Q65xEiOulPNO75rgYXhsW8xyveR159R4:batchUpdate?alt=json
+INFO:root:Created google sheets at: docs.google.com/spreadsheets/d/1ZeXJCbL2nG_Q65xEiOulPNO75rgYXhsW8xyveR159R4
+INFO:root:
+################################
+STARTING EXECUTION OF QUERIES: E39_Actor_SubClassesInstances_PerDataSource: LRE MAP
+################################
+
+INFO:root:Getting count of all triples in whole triplestore
+INFO:root:count_triples_in_endpoint: 29770796
+
+INFO:root:Writing header to summary in google sheets
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1ZeXJCbL2nG_Q65xEiOulPNO75rgYXhsW8xyveR159R4/values/0.%20Summary%21A1%3AA6?alt=json&valueInputOption=RAW
+INFO:root:
+################################
+EXECUTE: 1. E39_Actor_SubClassesInstancess_LRE MAP
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'LRE MAP'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:query_text: 
+    select ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'LRE MAP'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+INFO:root:#### query_title: 1. E39_Actor_SubClassesInstancess_LRE MAP
+
+INFO:root:query_for_count: 
+    SELECT COUNT(*) WHERE { 
+SELECT ?count ?resourceClass ?superClass ?superSuperClass where {
+    ?resourceClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass .
+    ?superClass <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?superSuperClass .
+    ?superSuperClass <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
+    {
+        select count(?resource) as ?count ?resourceClass where {
+            graph ?sourceGraph { ?resource a ?resourceClass }
+            graph <dnet:graph> { 
+                ?sourceGraph <dnet:collectedFrom> ?api . 
+                ?api <dnet:isApiOf> 'LRE MAP'^^<http://www.w3.org/2001/XMLSchema#string>
+            }
+        }
+    }
+}
+group by ?resourceClass ?superClass ?superSuperClass
+
+}
+
+INFO:root:results_lines_count: 0
+
+INFO:root:results_execution_duration: 0.2648193836212158
+
+INFO:root:harmonizing results
+INFO:root:Done with harmonizing results, duration: 0.0001277923583984375
+INFO:root:EXECUTION FINISHED
+Elapsed time: 0.2648193836212158
+INFO:root:Writing to summary
+INFO:googleapiclient.discovery:URL being requested: PUT https://sheets.googleapis.com/v4/spreadsheets/1ZeXJCbL2nG_Q65xEiOulPNO75rgYXhsW8xyveR159R4/values/0.%20Summary%21A10%3AD16?alt=json&valueInputOption=RAW
