@@ -78,7 +78,7 @@ queries = [
 			?class rdfs:label ?class_labelX.
 			}
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""",
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -116,7 +116,7 @@ queries = [
 			#optional { ?class rdfs:label ?class_labelX }
 			#optional { ?topclass rdfs:label ?topclass_labelX }
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""",
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -158,11 +158,11 @@ queries = [
 				optional {?instanceClass rdfs:label ?instanceClass_labelX.}
 			}
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 
 			}
 
@@ -209,11 +209,11 @@ queries = [
 
 			optional{ ?instanceURI a ?instanceClass }
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 
 			}
 
@@ -247,7 +247,7 @@ queries = [
 
 			?class rdfs:subClassOf* ?classE55.
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf>'""",
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf>'""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -284,11 +284,11 @@ queries = [
 			}
 
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds {  '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 
 			} group by ?ds ?instanceURI
 			order by ?ds
@@ -324,12 +324,12 @@ queries = [
 			filter (?class = <http://www.cidoc-crm.org/cidoc-crm/E4_Period> || ?class = <http://www.cidoc-crm.org/cidoc-crm/E5_Event>)
 			optional{?class rdfs:label ?class_labelX }
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?api <dnetisApiOf> ?ds.
-			?gRecord <dnetcollectedFrom> ?api .
+			?api <dnet:isApiOf> ?ds.
+			?gRecord <dnet:collectedFrom> ?api .
 			}
 
 			}

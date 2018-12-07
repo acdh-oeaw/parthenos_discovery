@@ -17,7 +17,7 @@ queries = [
 				{
 					SELECT COUNT(*) as ?countHavingSource WHERE {
 						GRAPH ?g { ?s ?p ?o } .
-						GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+						GRAPH <dnet:graph> { ?g <dnet:collectedFrom> ?source }
 					}
 				}
 				{
@@ -33,9 +33,9 @@ queries = [
         "query": """
             SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o } .
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <dnet:graph> { ?g <dnet:collectedFrom> ?source }
 				OPTIONAL {
-					GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }
+					GRAPH <dnet:graph> { ?source <dnet:isApiOf> ?sourceLabel }
 				}
             }
             GROUP BY ?source ?sourceLabel
@@ -48,7 +48,7 @@ queries = [
         "query": """
             SELECT ?g COUNT(?p) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o }
-                FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } 
+                FILTER NOT EXISTS { GRAPH <dnet:graph> { ?g <dnet:collectedFrom> ?source } } 
             }
             GROUP BY ?g
             ORDER BY DESC(?count)
@@ -59,7 +59,7 @@ queries = [
         "query": """
             SELECT ?g COUNT(*) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o } .
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <dnet:graph> { ?g <dnet:collectedFrom> ?source }
             }
             GROUP BY ?g
             ORDER BY DESC ( ?count )
@@ -69,7 +69,7 @@ queries = [
         "title": "Count of all triples which are associated with a provenance graph",
         "query": """
             SELECT COUNT(?g) AS ?count WHERE {
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <dnet:graph> { ?g <dnet:collectedFrom> ?source }
             }
         """
     },
@@ -77,7 +77,7 @@ queries = [
         "title": "All relations used in triples of provenance graph",
         "query": """
             SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {
-                GRAPH <provenance> { [] ?p [] }
+                GRAPH <dnet:graph> { [] ?p [] }
             }
         """
     },

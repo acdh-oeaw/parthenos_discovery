@@ -287,7 +287,7 @@ queries = [
         "query" : """
 			SELECT ?source (COUNT(DISTINCT ?g) as ?gcnt) WHERE { 
 				GRAPH ?g {?s ?p ?o  .} . 
-				GRAPH <provenance> {?g <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?source.}
+				GRAPH <dnet:graph> {?g <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?source.}
 			}
 			GROUP BY ?source
         """

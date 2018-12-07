@@ -82,7 +82,7 @@ queries = [
 			#optional {?subclass rdfs:subClassOf ?class . }
 			#filter (!bound(?subclass ))
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			group by ?gRecord ?class
         """]
@@ -116,7 +116,7 @@ queries = [
 			?topclass = crmpe:PE18_Dataset ||
 			?topclass = crmdig:D14_Software
 			)
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			#group by ?gRecord  ?topclass ?class
 			group by ?topclass ?class
@@ -163,9 +163,9 @@ queries = [
 
 			?instanceClass rdfs:label ?instanceClass_labelX.
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-            ?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+            ?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 			} 
 			order by ?type ?ds
         """]
@@ -204,9 +204,9 @@ queries = [
 			optional {?instanceURI rdfs:label ?instance_labelX.}
 			}
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 
 			}
 			order by ?ds ?instanceURI
@@ -246,9 +246,9 @@ queries = [
 
 			optional {?instanceURI rdfs:label ?labelX. bind (str(?labelX) as ?instance_labelX).}
 
-			GRAPH <provenance> {
+			GRAPH <dnet:graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
 
 			}
 			#group by ?ds ?gRecord ?class
@@ -305,7 +305,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -409,7 +409,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -506,7 +506,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
