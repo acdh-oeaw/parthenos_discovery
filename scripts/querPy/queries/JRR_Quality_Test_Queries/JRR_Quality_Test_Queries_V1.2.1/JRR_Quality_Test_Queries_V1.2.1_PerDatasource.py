@@ -1,8 +1,7 @@
 
 
 # variable datasources, individual values of this variable will be injected into the queries where used.
-#~ datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "DARIAH-GR", "METASHARE", "Cultura Italia", "LRE MAP", "European Holocaust Research Infrastructure", "CENDARI", "CLARIN", "ARIADNE"] # orderd by triple size
-datasources = ["ARIADNE"] # orderd by triple size
+datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "DARIAH-GR", "METASHARE", "Cultura Italia", "LRE MAP", "European Holocaust Research Infrastructure", "CENDARI", "CLARIN", "ARIADNE"] # orderd by triple size
 
 
 # title

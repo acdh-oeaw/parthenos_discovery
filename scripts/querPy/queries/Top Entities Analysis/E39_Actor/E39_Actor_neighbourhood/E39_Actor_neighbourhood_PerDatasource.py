@@ -1,7 +1,6 @@
 
 # datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "LRE MAP", "PARTHENOS", "Cultura Italia", "European Holocaust Research Infrastructure", "ARIADNE", "METASHARE", "CLARIN"]
 datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "METASHARE", "Cultura Italia", "LRE MAP", "European Holocaust Research Infrastructure", "CLARIN", "ARIADNE"] # orderd by number of E55 instances
-# datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "METASHARE"] # orderd by number of E55 instances
 
     
 # -------------------- OPTIONAL SETTINGS -------------------- 
