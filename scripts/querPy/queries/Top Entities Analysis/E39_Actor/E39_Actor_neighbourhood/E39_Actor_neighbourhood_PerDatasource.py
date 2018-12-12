@@ -1,6 +1,5 @@
 
-# datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "LRE MAP", "PARTHENOS", "Cultura Italia", "European Holocaust Research Infrastructure", "ARIADNE", "METASHARE", "CLARIN"]
-datasources = ["Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS", "METASHARE", "Cultura Italia", "LRE MAP", "European Holocaust Research Infrastructure", "CLARIN", "ARIADNE"] # orderd by number of E55 instances
+datasources=["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS WP3", "PARTHENOS WP4", "PARTHENOS WP8"]
 
     
 # -------------------- OPTIONAL SETTINGS -------------------- 
@@ -95,9 +94,9 @@ queries = [
                             graph ?sourceGraph {
                                 ?i <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
                             }
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }
                         } 
                     }
@@ -116,9 +115,9 @@ queries = [
                         ?ir a ?ir_type .
                     }
                 } 
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }   
             }
             group by ?i_p_ir ?ir_type
@@ -157,9 +156,9 @@ queries = [
                             graph ?sourceGraph {
                                 ?i <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> .
                             } 
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }
                         }
                     }
@@ -172,9 +171,9 @@ queries = [
                         ?il a ?il_type .
                     }
                 } 
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }   
             }
             group by ?il_p_i ?il_type
@@ -219,9 +218,9 @@ queries = [
 
                                 ?i ?i_p_ir ?ir .
                             }
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }                                
                         }
                     }
@@ -235,9 +234,9 @@ queries = [
                     }
 
                 }
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }
             }
             group by ?ir_p_irr ?irr_type
@@ -282,9 +281,9 @@ queries = [
 
                                 ?i ?i_p_ir ?ir .
                             }
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }                                
                         }
                     }
@@ -301,9 +300,9 @@ queries = [
                         ?irl a ?irl_type .
                     }
                 }
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }
             }
             group by ?irl_p_ir ?irl_type
@@ -348,9 +347,9 @@ queries = [
 
                                 ?il ?il_p_i ?i .
                             }
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }                                
                         }
                     }
@@ -368,9 +367,9 @@ queries = [
                     }
 
                 }
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }
             }
             group by ?il_p_ilr ?ilr_type
@@ -413,9 +412,9 @@ queries = [
 
                                 ?il ?il_p_i ?i .
                             }
-                            graph <dnet:graph> {
-                                ?sourceGraph <dnet:collectedFrom> ?api .
-                                ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                            graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                                ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                                ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                             }                                
                         }
                     }
@@ -429,9 +428,9 @@ queries = [
                     }
 
                 }
-                graph <dnet:graph> {
-                    ?sourceGraph <dnet:collectedFrom> ?api .
-                    ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                    ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                 }
             }
             group by ?ill_p_il ?ill_type

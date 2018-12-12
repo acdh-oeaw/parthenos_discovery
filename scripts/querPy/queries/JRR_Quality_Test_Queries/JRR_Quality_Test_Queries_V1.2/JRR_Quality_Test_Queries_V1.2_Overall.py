@@ -69,7 +69,7 @@ queries = [
             ?class rdfs:label ?class_labelX.
             }
 
-            GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
+            GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
             }
             group by ?class
             order by ?class
@@ -107,7 +107,7 @@ queries = [
             #optional { ?class rdfs:label ?class_labelX }
             #optional { ?topclass rdfs:label ?topclass_labelX }
 
-            GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+            GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
             }
             group by ?ds ?topclass ?class
             order by ?ds ?topclass ?class
@@ -136,7 +136,7 @@ queries = [
 
             ?class rdfs:subClassOf* ?classE55.
 
-            GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+            GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
             }
             order by  ?ds ?instanceURI
 
@@ -171,9 +171,9 @@ queries = [
             }
 
 
-            GRAPH <dnet:graph> {
+            GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
             #values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-            ?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+            ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
             } group by ?ds ?instanceURI
             order by ?ds
@@ -209,10 +209,10 @@ queries = [
             filter (?class = <http://www.cidoc-crm.org/cidoc-crm/E4_Period> || ?class = <http://www.cidoc-crm.org/cidoc-crm/E5_Event>)
             optional{?class rdfs:label ?class_labelX }
 
-            GRAPH <dnet:graph> {
+            GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
             #values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-            ?api <dnet:isApiOf> ?ds.
-            ?gRecord <dnet:collectedFrom> ?api .
+            ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds.
+            ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
             }
 
             }

@@ -1,11 +1,12 @@
 
+datasources=["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS WP3", "PARTHENOS WP4", "PARTHENOS WP8"]
+
+
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used
-title = [
-["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"],
-": Metadata analysis"
-]
+title = [datasources, ": Metadata analysis"]
+
 
 
 # description
@@ -50,8 +51,6 @@ cooldown_between_queries = 10
 endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 
 
-datasources = ["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"]
-
 # queries
 # defines the set of queries to be run. 
 # MANDATAORY
@@ -82,7 +81,7 @@ queries = [
 			#optional {?subclass rdfs:subClassOf ?class . }
 			#filter (!bound(?subclass ))
 
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			group by ?gRecord ?class
         """]
@@ -116,7 +115,7 @@ queries = [
 			?topclass = crmpe:PE18_Dataset ||
 			?topclass = crmdig:D14_Software
 			)
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
 			#group by ?gRecord  ?topclass ?class
 			group by ?topclass ?class
@@ -163,9 +162,9 @@ queries = [
 
 			?instanceClass rdfs:label ?instanceClass_labelX.
 
-			GRAPH <dnet:graph> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-            ?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+            ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 			} 
 			order by ?type ?ds
         """]
@@ -204,9 +203,9 @@ queries = [
 			optional {?instanceURI rdfs:label ?instance_labelX.}
 			}
 
-			GRAPH <dnet:graph> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			}
 			order by ?ds ?instanceURI
@@ -246,9 +245,9 @@ queries = [
 
 			optional {?instanceURI rdfs:label ?labelX. bind (str(?labelX) as ?instance_labelX).}
 
-			GRAPH <dnet:graph> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			}
 			#group by ?ds ?gRecord ?class
@@ -305,7 +304,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -409,7 +408,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#
@@ -506,7 +505,7 @@ queries = [
 			where {
 
 			#source
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources, r"""'^^<http://www.w3.org/2001/XMLSchema#string>.}
 
 			#Gets all Projects per source-record
 			GRAPH ?gRecord {#

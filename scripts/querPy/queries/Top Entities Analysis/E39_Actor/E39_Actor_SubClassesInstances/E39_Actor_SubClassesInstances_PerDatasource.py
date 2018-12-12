@@ -2,7 +2,7 @@
 # -------------------- OPTIONAL SETTINGS --------------------
 
 # variable datasources, individual values of this variable will be injected into the queries where used.
-datasources = ["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"]
+datasources=["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS WP3", "PARTHENOS WP4", "PARTHENOS WP8"]
 
 # title
 # defines the title of the whole set of queries
@@ -82,9 +82,9 @@ queries = [
             {
                 select count(?resource) as ?count ?resourceClass where {
                     graph ?sourceGraph { ?resource a ?resourceClass }
-                    graph <dnet:graph> { 
-                        ?sourceGraph <dnet:collectedFrom> ?api . 
-                        ?api <dnet:isApiOf> '""", datasources ,r"""'^^<http://www.w3.org/2001/XMLSchema#string>
+                    graph <http://www.d-net.research-infrastructures.eu/provenance/graph> { 
+                        ?sourceGraph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . 
+                        ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""", datasources ,r"""'^^<http://www.w3.org/2001/XMLSchema#string>
                     }
                 }
             }
