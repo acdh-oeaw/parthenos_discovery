@@ -1,8 +1,6 @@
 
 # -------------------- OPTIONAL SETTINGS --------------------
 
-# variable datasources, individual values of this variable will be injected into the queries where used.
-
 # title
 # defines the title of the whole set of queries
 # OPTIONAL, if not set, timestamp will be used

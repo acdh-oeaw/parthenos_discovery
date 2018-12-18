@@ -49,7 +49,6 @@ write_empty_results = False
 
 
 # variable datasources, individual values of this variable will be injected into the queries where used.
-# datasources = ["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"]
 
 # -------------------- MANDATORY SETTINGS --------------------
 

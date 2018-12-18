@@ -72,7 +72,7 @@ queries = [
 			}
 
 			#values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 			} 
 			group by ?ds ?class ?class_label
 			order by ?ds ?class
@@ -113,7 +113,7 @@ queries = [
 			optional { ?topclass rdfs:label ?topclass_label . FILTER(langmatches(lang(?topclass_label), "en") || langmatches(lang(?topclass_label), "")) }
 
 			#values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string>}
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 			} 
 			group by ?ds ?topclass ?class ?topclass_label ?class_label
 			order by ?ds ?topclass ?class
@@ -143,7 +143,7 @@ queries = [
 
 			?class rdfs:subClassOf* ?classE55.
 
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 			} 
 			order by  ?ds ?instanceURI
 
@@ -179,7 +179,7 @@ queries = [
 			}
 
 			#values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			} group by ?ds ?instanceURI ?place_label
 			order by ?ds
@@ -218,7 +218,7 @@ queries = [
 			#optional{?class rdfs:label ?class_label. FILTER(langmatches(lang(?class_label), "en") || langmatches(lang(?class_label), ""))}
 
 			#values ?ds { "PARTHENOS"^^<http://www.w3.org/2001/XMLSchema#string> }
-			GRAPH <dnet:graph> {?gRecord <dnet:collectedFrom> ?api . ?api <dnet:isApiOf> ?ds}
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 			} 
 			group by ?ds ?class ?instanceURI ?instance_label
 			order by ?ds ?class

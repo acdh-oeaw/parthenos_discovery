@@ -1,7 +1,7 @@
 
 
 # variable datasources, individual values of this variable will be injected into the queries where used.
-datasources = ["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "European Holocaust Research Infrastructure", "ARIADNE", "Cultura Italia", "METASHARE", "LRE MAP"]
+datasources=["CLARIN", "PARTHENOS", "Huma-Num - Nakala", "Huma-Num - Isidore", "PARTHENOS WP3", "PARTHENOS WP4", "PARTHENOS WP8"]
 
 
 # title
@@ -78,7 +78,7 @@ queries = [
 			?class rdfs:label ?class_labelX.
 			}
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""",
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -116,7 +116,7 @@ queries = [
 			#optional { ?class rdfs:label ?class_labelX }
 			#optional { ?topclass rdfs:label ?topclass_labelX }
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> '""",
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -158,11 +158,11 @@ queries = [
 				optional {?instanceClass rdfs:label ?instanceClass_labelX.}
 			}
 
-			GRAPH <provenance> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			}
 
@@ -209,11 +209,11 @@ queries = [
 
 			optional{ ?instanceURI a ?instanceClass }
 
-			GRAPH <provenance> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			}
 
@@ -247,7 +247,7 @@ queries = [
 
 			?class rdfs:subClassOf* ?classE55.
 
-			GRAPH <provenance> {?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf>'""",
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf>'""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string>}
 			}
@@ -284,11 +284,11 @@ queries = [
 			}
 
 
-			GRAPH <provenance> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds {  '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?gRecord <dnetcollectedFrom> ?api . ?api <dnetisApiOf> ?ds}
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds}
 
 			} group by ?ds ?instanceURI
 			order by ?ds
@@ -324,12 +324,12 @@ queries = [
 			filter (?class = <http://www.cidoc-crm.org/cidoc-crm/E4_Period> || ?class = <http://www.cidoc-crm.org/cidoc-crm/E5_Event>)
 			optional{?class rdfs:label ?class_labelX }
 
-			GRAPH <provenance> {
+			GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
 			values ?ds { '""",
 			datasources,
 			r"""'^^<http://www.w3.org/2001/XMLSchema#string> }
-			?api <dnetisApiOf> ?ds.
-			?gRecord <dnetcollectedFrom> ?api .
+			?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds.
+			?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
 			}
 
 			}

@@ -10,14 +10,39 @@ endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
 
 queries = [
     {
+        "title": "All current source apis and their labels",
+        "query": r"""
+            select ?api ?source_label where {
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> { 
+                    ?source_graph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?source_label .
+                }
+            }
+            group by ?api ?source_label
+        """
+    },
+    {
+        "title": "All current source labels",
+        "query": r"""
+            select distinct ?source_label where {
+                graph <http://www.d-net.research-infrastructures.eu/provenance/graph> { 
+                    ?source_graph <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                    ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?source_label .
+                }
+            }
+        """
+    },
+    {
         "title": "Percentage of all triples which are associated with a provenance graph compared to overall numbers of triples",
-        "query": """
+        "query": r"""
 			PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			SELECT ?countAll ?countHavingSource (xsd:double(xsd:float(?countHavingSource)/xsd:float(?countAll)) AS ?percentageHavingSource) WHERE {
 				{
 					SELECT COUNT(*) as ?countHavingSource WHERE {
 						GRAPH ?g { ?s ?p ?o } .
-						GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+						GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                            ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom>  ?source 
+                        }
 					}
 				}
 				{
@@ -30,12 +55,12 @@ queries = [
     },
     {
         "title": "Count of all triples which are associated with a provenance graph, grouped by source graph",
-        "query": """
+        "query": r"""
             SELECT ?source ?sourceLabel COUNT(*) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o } .
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?source }
 				OPTIONAL {
-					GRAPH <provenance> { ?source <dnetisApiOf> ?sourceLabel }
+					GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { ?source <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?sourceLabel }
 				}
             }
             GROUP BY ?source ?sourceLabel
@@ -45,10 +70,10 @@ queries = [
     {
         "title": "All graphs which are not related to provenance",
         "description": "The number produced here is exactly what is missing in first query",
-        "query": """
+        "query": r"""
             SELECT ?g COUNT(?p) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o }
-                FILTER NOT EXISTS { GRAPH <provenance> { ?g <dnetcollectedFrom> ?source } } 
+                FILTER NOT EXISTS { GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?source } } 
             }
             GROUP BY ?g
             ORDER BY DESC(?count)
@@ -56,10 +81,10 @@ queries = [
     },
     {
         "title": "Count of all triples which are associated with a provenance graph, grouped by provenance graph",
-        "query": """
+        "query": r"""
             SELECT ?g COUNT(*) AS ?count WHERE {
                 GRAPH ?g { ?s ?p ?o } .
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?source }
             }
             GROUP BY ?g
             ORDER BY DESC ( ?count )
@@ -67,17 +92,17 @@ queries = [
     },
     {
         "title": "Count of all triples which are associated with a provenance graph",
-        "query": """
+        "query": r"""
             SELECT COUNT(?g) AS ?count WHERE {
-                GRAPH <provenance> { ?g <dnetcollectedFrom> ?source }
+                GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?source }
             }
         """
     },
     {
         "title": "All relations used in triples of provenance graph",
-        "query": """
+        "query": r"""
             SELECT DISTINCT ?p COUNT(?p) AS ?count WHERE {
-                GRAPH <provenance> { [] ?p [] }
+                GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { [] ?p [] }
             }
         """
     },

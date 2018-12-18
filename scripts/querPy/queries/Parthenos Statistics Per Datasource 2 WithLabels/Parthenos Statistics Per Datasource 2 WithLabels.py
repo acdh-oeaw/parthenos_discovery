@@ -87,9 +87,9 @@ queries = [
                   ?instanceURI a ?e2class.
                }
 
-               GRAPH <dnet:graph> {
-                     ?gRecord <dnet:collectedFrom> ?api .
-                     ?api <dnet:isApiOf> ?ds
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                     ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                     ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds
                }
 
             }
@@ -113,9 +113,9 @@ queries = [
              ?instanceURI a ?class.
                }
 
-               GRAPH <dnet:graph> {
-                     ?gRecord <dnet:collectedFrom> ?api .
-                     ?api <dnet:isApiOf> ?ds
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                     ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                     ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds
                }
 
             }
@@ -140,9 +140,9 @@ queries = [
                   ?instanceURI a ?e55class.
                }
 
-               GRAPH <dnet:graph> {
-                     ?gRecord <dnet:collectedFrom> ?api .
-                     ?api <dnet:isApiOf> ?ds
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                     ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                     ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds
                }
 
             }
@@ -171,9 +171,9 @@ queries = [
                   ?x rdfs:label ?litVal.
 
                }
-               GRAPH <dnet:graph> {
-                     ?gRecord <dnet:collectedFrom> ?api .
-                     ?api <dnet:isApiOf> ?ds
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                     ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                     ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds
                }
             }
 
@@ -201,9 +201,9 @@ queries = [
                   ?x rdfs:label ?litVal.
 
                }
-               GRAPH <dnet:graph> {
-                     ?gRecord <dnet:collectedFrom> ?api .
-                     ?api <dnet:isApiOf> ?ds
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {
+                     ?gRecord <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api .
+                     ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?ds
                }
             }
 
