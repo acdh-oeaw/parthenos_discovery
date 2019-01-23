@@ -10,18 +10,20 @@ The crawling is started from a given start_query, from which querPy reuses the r
 
 Also a text file is written locally ('results.txt') which contains a more compressed view on the results."""
 
-
-output_destination = r"https://drive.google.com/drive/folders/17YIw327UaATOSfAN1pWwVIVBpCSJKUw-?usp=sharing"
-
 summary_sample_limit = 100
-
-cooldown_between_queries = 3
-
 write_empty_results = False
-
 count_the_results = False
 
+
+output_destination = r"https://drive.google.com/drive/folders/17YIw327UaATOSfAN1pWwVIVBpCSJKUw-?usp=sharing"
+# output_destination = r"crawling/simple_crawling/results"
+
 endpoint = "https://virtuoso.parthenos.d4science.org/sparql"
+# endpoint = "http://localhost:8890/sparql"
+
+cooldown_between_queries = 3
+# cooldown_between_queries = 0
+
 
 
 
@@ -43,6 +45,7 @@ class MetaFunctionsManager:
 
 
     def crawl_further(self, query_data_object):
+
 
         def main():
             print("\nCALL META FUNCTION: crawl_further\n")
@@ -133,7 +136,11 @@ class MetaFunctionsManager:
             })
 
 
-        main()
+        if query_data_object.custom_data_container['current_depth'] < (self.depth_limit - 1) :
+            main()
+
+        else:
+            print("Reached defined depth limit of " + str(self.depth_limit) + "\nNo further crawling from here.")
 
 
 
@@ -194,6 +201,12 @@ class MetaFunctionsManager:
 
 
 
+# MODIFIABLE: creating an instance of MetaFunctionsManager
+
+meta_functions_manager = MetaFunctionsManager(depth_limit=2)
+
+
+
 
 # MODIFIABLE: define a custom starting query here
 
@@ -204,9 +217,6 @@ start_query = r"""
 """
 
 
-# MODIFIABLE: creating an instance of MetaFunctionsManager
-
-meta_functions_manager = MetaFunctionsManager(depth_limit=1)
 
 
 # Do not change this list
