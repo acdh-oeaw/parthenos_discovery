@@ -1,0 +1,84 @@
+  <ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Classes</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1>Classes</h1>
+  
+<h2>Top ten classes</h2>
+    
+        <semantic-chart
+    provider="chartjs"
+    type="bar"
+    query="SELECT  ?type (count( ?sub) as ?cnt_type )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_type) LIMIT 10"
+    sets='[{"dataSetName": "Top ten types", "category": "type", "value": "cnt_type"}]'
+></semantic-chart>
+
+      
+<h2>List of CRM/PE classes with their frequencies</h2>
+
+    <semantic-table
+             query="    SELECT   ?type (count(DISTINCT ?sub) as ?cnt_sub)
+                    WHERE {  
+                    {?type rdfs:subClassOf* crm:E1_CRM_Entity}
+                      ?sub a ?type.
+                    }
+                    GROUP BY ?type
+                    ORDER BY DESC(?cnt_sub)
+                    "
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"type", "displayName":"Class"}, 
+               {"variableName":"cnt_sub", "displayName":"Count"},                                    {
+    						"displayName": "Class URI", 
+    						"cellTemplate": "<div>{{type.value}}</div>" 
+    						}
+             ]'
+             options='{
+               "showFilter":true
+             }'
+           >
+           </semantic-table>
+
+    
+<h2>List of all classes with their frequencies</h2>
+    
+       <mp-sparql-result-counts id='query-count'
+                                     query="SELECT  DISTINCT ?type  WHERE {  ?sub a ?type }"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span>Found {{numberOfResults}} distinct (used) classes </span>{{/if}}'>
+            </mp-sparql-result-counts>
+    
+<semantic-table
+             query="SELECT  ?type (count( ?sub) as ?cnt_sub )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_sub)"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"type", "displayName":"Class"},                
+              {"variableName":"cnt_sub", "displayName":"Count instances"},                                    
+               {
+    						"displayName": "Class URI", 
+    						"cellTemplate": "<div>{{type.value}}</div>" 
+    						}
+             ]'
+             options='{
+               "showFilter":true
+             }'
+           >
+           </semantic-table>
+  
+    
+  </div>
+  
+    </div>

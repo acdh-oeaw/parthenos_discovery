@@ -1,0 +1,86 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">
+    <mp-label iri='[[this]]'></mp-label>
+  </li>
+</ol>
+
+<div class="page">
+	[[#if (ask "ASK { {SELECT * WHERE {?? ?p ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?? ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?p ??}LIMIT 1}UNION{ {SELECT * WHERE {?a ?p ?o. FILTER(??=<Template:http://www.w3.org/2000/01/rdf-schema#Resource> )} LIMIT 1} } }")]]
+    <div class='page__header-navtabs'>
+      [[> Platform:DefaultResourceHeader]]
+    </div>
+    <bs-tabs id="tabs" class='page__body-navtabs' unmount-on-exit=true>
+      <bs-tab event-key="1" title="Overview usage">
+      <semantic-table
+             query="SELECT ?class ?p (count (distinct ?s) as ?cnt)  WHERE {
+   GRAPH ?g {?s ?p ??.
+   ?s a ?class.}
+}
+GROUP BY ?class ?p
+ORDER BY DESC(?cnt)
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"class", "displayName":"Class"}, 
+               {"variableName":"p", "displayName":"Property"},
+              {"variableName":"cnt", "displayName":"Count instances"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+			</bs-tab>
+      <bs-tab event-key="2" title="Instances">
+	     
+  		  <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT ?s WHERE { GRAPH ?g {?s ?p ??. ?s a ?class.}
+}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span>Found {{numberOfResults}} distinct instances annotated with given type</span>{{/if}}'>
+            </mp-sparql-result-counts>
+<semantic-table
+             query="SELECT ?s ?class ?p  WHERE {
+   GRAPH ?g {?s ?p ??.
+   ?s a ?class.}
+}
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"s", "displayName":"Instance"}, 
+               {"variableName":"class", "displayName":"Class"}, 
+               {"variableName":"p", "displayName":"Property"}               
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+            
+          
+    
+           </semantic-table
+        
+			</bs-tab>
+      <bs-tab event-key="3" title="Source (Raw triples)">
+        [[> Platform:SourceStatements]]
+      </bs-taAb>
+        <bs-tab event-key="3" title="Viewer">          
+        <iframe width="100%" height="1000" src="https://rdfvisualizer.acdh-dev.oeaw.ac.at/?resource=[[this]]" />                     
+      </bs-tab>
+      [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
+    </bs-tabs>
+  [[else]]
+  <div class='page__body'>
+    <p>
+      It seems that no entity with IRI <code>"[[this]]"</code> in any subject, predicate or object position is known in the knowledge graph. Also no static application page with this identifier can be found.
+    </p>
+    <p>
+      Click on the edit button (<i class="fa fa-pencil"></i>) in the top right of this page (<i>only visibile if the respective ACL permissions are being granted to you</i>) to create a new, static application page with this identifier.
+    </p>
+  </div>
+  [[/if]]
+</div>

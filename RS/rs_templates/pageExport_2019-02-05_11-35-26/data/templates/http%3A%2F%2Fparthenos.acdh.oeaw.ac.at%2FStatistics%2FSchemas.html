@@ -1,0 +1,39 @@
+g<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Schemas</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Schemas used</h1>
+  
+<semantic-table
+             query="SELECT ?schema (count(DISTINCT ?subject) as ?cnt_subject) WHERE { 
+  		?schema a  <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE38_Schema>.   
+        OPTIONAL {?subject <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/L23_used_software_or_firmware>  ?schema.}
+ 
+ } GROUP BY ?schema 
+ORDER BY DESC(?cnt_subject)
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"schema", "displayName":"Schema"},
+               {"variableName":"cnt_subject", "displayName":"Count distinct subject"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+  </div>
+  
+ </div>

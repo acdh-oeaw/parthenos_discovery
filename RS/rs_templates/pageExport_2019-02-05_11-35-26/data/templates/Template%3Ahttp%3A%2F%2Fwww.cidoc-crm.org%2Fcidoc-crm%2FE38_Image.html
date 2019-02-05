@@ -1,0 +1,65 @@
+<ol class="page-breadcrumb">
+ <li> 
+   <mp-link title="Home" url="/">Home</mp-link>
+ </li>
+ <li class="active">
+  <mp-label iri='[[this]]'></mp-label>
+  </li>
+</ol>
+    <bs-col sm="3">
+      <b>Friends</b>
+      <semantic-table
+              query='SELECT ?friend ?label ?thumbnail WHERE { ?? <http://xmlns.com/foaf/0.1/knows> ?friend. ?friend rdfs:label ?label; <http://schema.org/thumbnail> ?thumbnail }'
+              options='{"showFilter":false}'
+              tuple-template='{{> tupleTemplate}}'
+      >
+        <template id='tupleTemplate'>
+          <div style="height: 250px; width: 250px; margin: 10px;" class="panel panel-default">         
+            <div class="panel-heading" style="overflow: hidden; text-overflow: ellipsis;">
+              <semantic-link uri="{{friend.value}}">{{label.value}}</semantic-link>
+            </div>
+            <div class="panel-body">
+              <img class="img-responsive img-thumbnail" style="max-height: 130px;display: block;margin-left:auto;margin-right:auto;" src="{{thumbnail.value}}"/>
+            </div>
+          </div>
+        </template>
+      </semantic-table>
+    </bs-col>
+
+<bs-row>
+  <bs-col sm="9">
+    <h1>PE25_RI_Consortium Template</h1>
+  </bs-col>
+</bs-row>
+<bs-row>
+  <bs-col sm="9">
+    <semantic-query query="SELECT * WHERE {?? <http://www.w3.org/2000/01/rdf-schema#label> ?label}" template="<p><b>Name:</b> {{#each bindings}}{{label.value}}{{/each}}</p>"></semantic-query>
+    <semantic-query query="SELECT * WHERE {?? <http://www.cidoc-crm.org/cidoc-crm/P74_has_current_or_former_residence> ?residence}" template="<p><b>Residence:</b> {{#each bindings}}{{contactPoint.value}}{{/each}}</p>"></semantic-query>
+    <semantic-query query="SELECT * WHERE {?? <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> ?note}" template="<p><b>Note:</b> {{#each bindings}}{{note.value}}{{/each}}</p>"></semantic-query>
+</bs-col>
+<bs-row>
+  <bs-col sm="9">
+      <div class="page">
+        [[#if (ask "ASK { {SELECT * WHERE {?? ?p ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?? ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?p ??}LIMIT 1}UNION{ {SELECT * WHERE {?a ?p ?o. FILTER(??=<Template:http://www.w3.org/2000/01/rdf-schema#Resource> )} LIMIT 1} } }")]]
+          <div class='page__header-navtabs'>
+            [[> Platform:DefaultResourceHeader]]
+          </div>
+          <bs-tabs id="tabs" class='page__body-navtabs' unmount-on-exit=true>
+            <bs-tab event-key="1" title="Source">
+              [[> Platform:SourceStatements]]
+            </bs-tab>
+            [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
+          </bs-tabs>
+        [[else]]
+        <div class='page__body'>
+          <p>
+            It seems that no entity with IRI <code>"[[this]]"</code> in any subject, predicate or object position is known in the knowledge graph. Also no static application page with this identifier can be found.
+          </p>
+          <p>
+            Click on the edit button (<i class="fa fa-pencil"></i>) in the top right of this page (<i>only visibile if the respective ACL permissions are being granted to you</i>) to create a new, static application page with this identifier.
+          </p>
+        </div>
+        [[/if]]
+      </div>
+  </bs-col>
+</bs-row>

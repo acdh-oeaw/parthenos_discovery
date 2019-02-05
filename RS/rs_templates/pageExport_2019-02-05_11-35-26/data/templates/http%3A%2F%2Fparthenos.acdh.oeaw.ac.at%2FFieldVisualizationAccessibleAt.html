@@ -1,0 +1,17 @@
+<div>
+  {{#each fields as |field|}}
+    {{log field}}
+    {{#if field.values}}  
+      	<dt style='float: left; padding-right: 10px; width: 190px;'>{{field.label}}</dt>
+        <dd style='margin-left: 190px;'>
+          {{#each field.values as |value|}}
+          <span>
+                  <a href="{{value.value.value}}"  style="font-size: 12px;" target='_blank'>{{value.value.value}}&nbsp;<i class="fa fa-external-link" aria-hidden="true"></i></a><br/>
+                
+          </span>
+
+          {{/each}}
+        </dd>
+    {{/if}}
+  {{/each}}
+</div>

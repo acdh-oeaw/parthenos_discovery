@@ -1,0 +1,120 @@
+<!--
+https://parthenos.acdh-dev.oeaw.ac.at/resource/p:Search_Stefan
+-->
+
+
+  <div class="page__body">
+
+
+
+    <bs-tabs id="tabs">
+      <bs-tab event-key="2" title="Legal Bodies">
+
+        
+        
+
+        <semantic-query
+        query='
+        SELECT (count(?instance) as ?count) ?class WHERE {
+          ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+          filter ( ?class = <http://www.cidoc-crm.org/cidoc-crm/E40_Legal_Body> )
+        }
+        group by ?class
+        '
+        template='{{> template_1}}'
+        >
+          <template id='template_1'>
+            {{#each bindings}}
+              <h3>
+                Found {{count.value}} instances of 
+                <semantic-link uri="{{class.value}}">
+                {{class.label}}
+                </semantic-link>
+              </h3>
+            {{/each}}
+          </template>
+        </semantic-query>
+
+
+
+        <semantic-table
+        query="
+        select * where {
+          {
+            ?instance ?p ?o .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+
+          } union
+          {
+            ?s ?p ?instance .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+          }
+        }
+        "
+        number-of-displayed-rows=2
+        options='{"showFilter": false}'
+        ></semantic-table>
+
+        
+        
+      </bs-tab>
+      
+      
+      
+      <bs-tab event-key="1" title="Documents">
+
+        <semantic-query
+        query='
+        SELECT (count(?instance) as ?count) ?class WHERE {
+          ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+          filter ( ?class = <http://www.cidoc-crm.org/cidoc-crm/E31_Document> )
+        }
+        group by ?class
+        '
+        template='{{> template_1}}'
+        >
+          <template id='template_1'>
+            {{#each bindings}}
+              <h3>
+                Found {{count.value}} instances of class
+                <semantic-link uri="{{class.value}}">
+                {{class.label}}
+                </semantic-link>
+              </h3>
+            {{/each}}
+          </template>
+        </semantic-query>
+
+
+
+        <semantic-table
+        query="
+        select * where {
+          {
+            ?instance ?p ?o .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+
+          } union
+          {
+            ?s ?p ?instance .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+          }
+        }
+        "
+        number-of-displayed-rows=2
+        options='{"showFilter": false}'
+        ></semantic-table>
+
+
+
+      </bs-tab>
+      
+    </bs-tabs>
+
+
+
+
+
+
+
+  </div>

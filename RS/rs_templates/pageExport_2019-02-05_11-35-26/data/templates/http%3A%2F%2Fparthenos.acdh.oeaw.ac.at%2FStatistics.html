@@ -1,0 +1,66 @@
+  <ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">Statistics</li>
+</ol>
+
+
+<div class="page">
+
+
+  
+  <div class="page__body">
+    <h1> Parthenos Statistics </h1>
+ 
+    
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Providers">Data Providers</semantic-link></h2>
+  
+    <semantic-chart
+    provider="chartjs"
+    type="bar"
+    query="SELECT ?source (count (?record) as ?cnt) WHERE {GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?record <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?source.}}
+GROUP BY ?source"
+    sets='[{"dataSetName": "Graphs per provider", "category": "source", "value": "cnt"}]'
+></semantic-chart>
+    
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Classes">Classes</semantic-link></h2>
+    
+    <p> Top ten classes </p>
+        <semantic-chart
+    provider="chartjs"
+    type="bar"
+    query="SELECT  ?type (count( ?sub) as ?cnt_type )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_type) LIMIT 10"
+    sets='[{"dataSetName": "Top ten types", "category": "type", "value": "cnt_type"}]'
+></semantic-chart>
+
+    
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Properties">Properties</semantic-link></h2>
+    
+<mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT ?p WHERE {[] ?p []}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span>Currently <b>{{numberOfResults}}</b> distinct properties in use</span>{{/if}}'>
+            </mp-sparql-result-counts>    
+
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Types">Types</semantic-link></h2>
+
+    <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT ?type WHERE {   ?s <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> ?type.}"
+                                     template='<span><b>{{numberOfResults}}</b> distinct types in use</span>'>
+            </mp-sparql-result-counts>  
+
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Aboutness">Aboutness</semantic-link></h2>
+
+    <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT ?concept WHERE {   ?s <http://www.cidoc-crm.org/cidoc-crm/P129_is_about> ?concept.}"
+                                     template='<span><b>{{numberOfResults}}</b> distinct concepts in use</span>'>
+            </mp-sparql-result-counts>  
+    
+<h2><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Schemas">Schemas</semantic-link></h2>
+    
+  </div>
+  
+</div>
+

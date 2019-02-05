@@ -1,0 +1,33 @@
+<!-- query on the main types.
+relying on precomputed frequencies stored in property acdh:hasExtent -->
+
+<semantic-query
+        id='primary-query'
+                    
+        query='PREFIX acdh: <http://acdh.oeaw.ac.at/>
+SELECT ?maintype ?icon ?label ?count ?order  WHERE {?maintype acdh:hasExtent ?count
+                              BIND (?maintype as ?type)
+                                                   }
+ORDER BY ?order
+VALUES (?type ?icon ?label ?order) {
+(<http://www.cidoc-crm.org/cidoc-crm/E39_Actor> "user" "E39 Actor" 1	)
+(<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE18_Dataset> "circle" "PE18 Dataset"  2)	
+(<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE1_Service> "angle-double-right" "PE1 Service" 3)
+(<http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D14_Software> "code" "D14 Software" 4) 
+(<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE35_Project> "project-diagram" "PE35 Project" 5)
+(<http://www.cidoc-crm.org/cidoc-crm/E53_Place> "map-marker" "E53 Place" 6)
+  
+  }
+
+  '
+        template='{{> resultTemplate}}'        
+      >
+    <template id='resultTemplate'>
+  <div class="griddle-custom-row">{{#each bindings}}<div style="float:left;width:200px;height:170px;" class="panel panel-default text-center" title="{{maintype.value}}">
+            <div class="panel-body"><i class="fa fa-{{icon.value}} fa-4x"></i></div>
+            <div class="panel-footer" style="position: relative"><semantic-link iri="{{maintype.value}}">{{label.value}}</semantic-link> <br/>|{{count.value}}|</div>
+          </div>    
+  {{/each}}</div>
+</template>
+    </semantic-query>
+      

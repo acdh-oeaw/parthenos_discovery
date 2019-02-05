@@ -1,28 +1,54 @@
-
 PREFIX acdh: <http://acdh.oeaw.ac.at/>
+
+DELETE  { ?maintype acdh:hasExtent ?count } WHERE  { ?maintype acdh:hasExtent ?count }
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
-WHERE {
-
-SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
-?s a ?t .
-  
-  ?t rdfs:subClassOf* ?maintype.    
-  
-BIND (pe:PE18_Dataset as ?maintype)
-      BIND (?maintype as ?type )
-} GROUP BY ?maintype
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://www.cidoc-crm.org/cidoc-crm/E39_Actor> as ?maintype)
+	} GROUP BY ?maintype
   }
-  
-  
-  
-#  http://www.cidoc-crm.org/cidoc-crm/E39_Actor	313109 (xsd:integer)
-#http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE18_Dataset	341079 (xsd:integer)
-#http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE1_Service
-# http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D14_Software 
 
+INSERT { ?maintype acdh:hasExtent ?count. }  
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE18_Dataset> as ?maintype)
+	} GROUP BY ?maintype
+  }
 
+INSERT { ?maintype acdh:hasExtent ?count. }  
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE1_Service> as ?maintype)
+	} GROUP BY ?maintype
+  }
 
-PREFIX acdh: <http://acdh.oeaw.ac.at/>
+INSERT { ?maintype acdh:hasExtent ?count. }  
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D14_Software> as ?maintype)
+	} GROUP BY ?maintype
+   }
+
+INSERT { ?maintype acdh:hasExtent ?count. }  
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://www.cidoc-crm.org/cidoc-crm/E53_Place> as ?maintype)
+	} GROUP BY ?maintype
+  }
+
+INSERT { ?maintype acdh:hasExtent ?count. }  
+	WHERE {
+	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
+			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
+	BIND (<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE35_Project> as ?maintype)
+	} GROUP BY ?maintype
+  }
+    
 SELECT ?maintype ?count WHERE {?maintype acdh:hasExtent ?count }
 

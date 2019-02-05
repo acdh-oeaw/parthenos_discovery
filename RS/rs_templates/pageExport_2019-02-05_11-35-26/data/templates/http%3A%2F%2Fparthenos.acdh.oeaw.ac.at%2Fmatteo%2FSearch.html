@@ -1,0 +1,109 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">Sesarch</li>
+</ol>
+
+<div class="page">
+  <div class="page__header">
+    <div class='page__header-thumbnail'>
+      <h2><i class="fa fa-search fa-2x"></i></h2>
+    </div>
+    <div class='page__header-body'>
+      <h2>Search</h2>
+    </div>
+  </div>
+  <div class="page__body">
+          
+<p> keyword search with faceting </p>
+<p> <b>Remarks:</b> currently only searching in <code>rdfs:label|skos:prefLabel</code>. facetting by type</p>
+    
+ <semantic-search 
+                   search-profile='{ 
+                      "categories": [{
+                                       "iri": "<http://www.w3.org/2000/01/rdf-schema#Resource>",
+                                       "label": "Resource"
+                                     },
+                                   	{
+                                       "iri": "<http://www.w3.org/2000/01/rdf-schema#Class>",
+                                       "label": "Class"
+                                     },
+                                   	{
+                                       "iri": "<http://www.cidoc-crm.org/cidoc-crm/E39_Actor>",
+                                       "label": "E39 Actor",
+                                       "thumbnail": "../images/help/thenounproject/noun_1113333.png"
+                                     },
+                                     {
+                                       "iri": "<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE18_Dataset>",
+                                       "label": "PE18 Dataset",
+                                       "thumbnail": "../images/help/thenounproject/noun_1285331.png"
+                                     },
+                                     {
+                                       "iri": "<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE1_Service>",
+                                       "label": "PE1 Service",
+                                       "thumbnail": "../images/help/thenounproject/noun_739855.png"
+                                     }
+                                  ],
+                      "relations": [{
+                                     "iri": "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>",
+                                     "label": "type",
+                                     "hasDomain": "<http://www.w3.org/2000/01/rdf-schema#Resource>",
+                                     "hasRange": "<http://www.w3.org/2000/01/rdf-schema#Class>"
+                                   }                                    
+                                   ]
+                    }'
+                  >
+  
+   <!-- 1. search definition -->
+  <semantic-search-query-keyword
+    domain='<http://www.w3.org/2000/01/rdf-schema#Resource>'
+    query='
+      PREFIX bds: <http://www.bigdata.com/rdf/search#>
+      SELECT DISTINCT ?suggestion ?label WHERE {
+        ?suggestion (rdfs:label|skos:prefLabel) ?label.
+        SERVICE <http://www.bigdata.com/rdf/search#search> {
+          ?label bds:search ?__token__.
+          ?label bds:relevance ?score.
+          ?label bds:minRelevance "0.5".
+          ?label bds:matchAllTerms "true".
+        }
+      }
+      ORDER BY DESC(?score)
+    '
+  ></semantic-search-query-keyword>
+  
+               <div data-flex-layout="row stretch-stretch">
+               <div data-flex-self="size-1of3" style="flex: 0 0 20px;">
+  
+  <semantic-search-facet > </semantic-search-facet>
+</div>
+  <semantic-search-result-holder>
+        <div data-flex-self="md-full">
+          <semantic-search-result>
+            <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT * {}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span> found {{numberOfResults}} matches </span>{{/if}}'>
+            </mp-sparql-result-counts>
+          </semantic-search-result>
+          
+           <semantic-search-result>
+                <semantic-table id='table-result'
+                                query='SELECT DISTINCT ?subject ?type WHERE { ?subject a ?type }'
+                                options='{"showFilter":false, "resultsPerPage":10'
+                >
+                </semantic-table>
+              </semantic-search-result>
+    </div>
+    </semantic-search-result-holder>
+                 </div>
+   </semantic-search>
+    
+  </div>
+  
+  
+</div>
+
+

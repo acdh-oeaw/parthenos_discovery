@@ -1,0 +1,112 @@
+  <!--
+	https://parthenos.acdh-dev.oeaw.ac.at/resource/p:example_reuse_sparql_as_html
+  -->
+
+
+
+  <h2>Example: reuse sparql results as html elements</h2>
+
+    <div class="page__body">
+      <p>[Comment matej: This is similar to the page <semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/Statistics/Classes">Classes</semantic-link> under Statistics]</p>
+
+      <!-- IMPORTANT: When using count, always put it in brackets and save the result in variable -->
+
+      
+      <semantic-query
+        query='
+        SELECT (count(?instance) as ?count) ?class WHERE {
+          ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+        }
+        group by ?class
+        order by desc (?count)
+        '
+        template='{{> template_1}}' 
+      >
+        <template id='template_1'>
+          <div>
+            <b>hardcoded sparql query results rendered as html list</b>
+            <ul>
+              {{#each bindings}}
+                <li>
+                    {{count.value}}
+                    <semantic-link uri="{{class.value}}">
+                    {{class.value}}
+                    </semantic-link>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </template>
+      </semantic-query>
+
+
+
+    </div>
+
+
+
+
+  <!--
+  temporary storage
+
+
+
+
+
+  #######################################################################
+  use results from query as html element
+
+  original from help site:
+
+  <semantic-query
+    query='
+      PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+      PREFIX person: <http://example.com/person/>
+      SELECT ?personx ?name WHERE {
+        VALUES (?personx ?name) {
+          (person:alice "Alice")
+          (person:carol "Carol")
+          (person:bob "Bob")
+          (person:mike "Mike")
+        }
+      }
+    '
+    template='{{> template}}'
+  >
+    <template id='template'>
+      <div>
+        <b>My List:</b>
+        <ul>
+          {{#each bindings}}
+            <li>
+              <semantic-link uri="{{personx.value}}">
+                <i class="fa fa-user" style="margin-right: 5px"></i>
+                {{name.value}}
+              </semantic-link>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </template>
+  </semantic-query>
+
+
+
+  #######################################################################
+  simple grid
+
+  <bs-row>
+    <bs-col sm=2>
+      <div  style="background-color:#F0FFFF;"> A</div>
+    </bs-col>
+    <bs-col sm=2>
+      <div style="background-color:#CFECEC"> B </div>
+    </bs-col>
+    <bs-col sm=4>
+      <div style="background-color:#ADDFFF"> C </div>
+    </bs-col>
+  </bs-row>
+
+
+
+  -->

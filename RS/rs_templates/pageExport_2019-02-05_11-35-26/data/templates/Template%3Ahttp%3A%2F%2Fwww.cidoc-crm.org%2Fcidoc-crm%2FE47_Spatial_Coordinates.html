@@ -1,0 +1,12 @@
+<semantic-query query="SELECT ?s ?location WHERE {?? ?s <http://www.w3.org/2000/01/rdf-schema#label> ?coord }" template="<p><b>Coordinates: </b>{{#each bindings}}{{coord.value}}{{/each}}</p>"></semantic-query>
+
+<semantic-map
+  query='
+    SELECT ?wkt ?description ?link WHERE {
+      VALUES(?wkt ?description ?link) {
+        (<http://www.w3.org/2000/01/rdf-schema#label> "Location is here"  <http://www.wikidata.org/entity/Q22132500>)
+      }
+    }
+  '
+  tuple-template='<b>{{description.value}}</b><br><a href="https://wikidata.metaphacts.com/resource/?uri={{link.value}}" target="_blank">Open in wikidata</a>'
+></semantic-map>

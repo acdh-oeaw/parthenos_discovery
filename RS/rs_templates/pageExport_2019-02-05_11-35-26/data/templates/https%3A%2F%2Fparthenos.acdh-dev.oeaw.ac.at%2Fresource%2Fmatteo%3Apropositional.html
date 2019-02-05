@@ -1,0 +1,32 @@
+
+<semantic-table
+  query="
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/>
+
+select ?actor_label ?team_label
+
+where {?actor rdfs:subClassOf* ?type.
+       ?type a crm:E39_Actor;
+               rdfs:label ?actor_label;
+ 				^crm:P107_has_current_or_former_member ?team.
+       ?team a crmpe:PE34_Team;
+               rdfs:label ?team_label.}"
+  number-of-displayed-rows=2
+  tuple-template='
+    <div style="padding:10px;">
+      <div class="text-center panel panel-default" style="border:none;margin-right:20px;font-size:12px;height:120px;width: 100%;">
+        <div class="panel-body" style="height: 100px;">
+	        <img src="{{thumbnail.value}}" style="max-width:100px; margin: 0 auto;" class="img-rounded">
+        </div>
+        <div class="panel-footer" style="position: relative;  border: none;">
+  	      <semantic-link title="{{label.value}}" class="grid-resource-link" uri="{{subject.value}}">
+    	  	  {{label.value}}
+      	  </semantic-link>
+        </div>
+      </div>
+    </div>
+  '
+></semantic-table>

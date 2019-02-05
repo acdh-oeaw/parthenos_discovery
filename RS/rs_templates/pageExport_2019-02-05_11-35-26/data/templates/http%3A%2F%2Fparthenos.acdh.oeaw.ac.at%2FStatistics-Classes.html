@@ -1,0 +1,47 @@
+  <ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Parthenos Classes</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Parthenos Classes</h1>
+  
+<h2>Classes</h2>
+    
+    <p> Top ten classes </p>
+        <semantic-chart
+    provider="chartjs"
+    type="bar"
+    query="SELECT  ?type (count( ?sub) as ?cnt_type )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_type) LIMIT 10"
+    sets='[{"dataSetName": "Top ten types", "category": "type", "value": "cnt_type"}]'
+></semantic-chart>
+
+    
+<semantic-table
+             query="SELECT  ?type (count( ?sub) as ?cnt_type )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_type)"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"type", "displayName":"Class"}, 
+               {"variableName":"cnt_type", "displayName":"Count"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+  
+    
+  </div>
+  
+    </div>
+

@@ -1,0 +1,20 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Actor Test</mp-link>
+  </li>
+  <li class="active">Actor test</li>
+</ol>
+
+<div class="page">
+  <div class="page__body">
+    
+    <h1>Actor Graph Limit 100</h1>
+    <semantic-graph query='CONSTRUCT WHERE {?Actor a <http://www.cidoc-crm.org/cidoc-crm/E39_Actor>} LIMIT 100'></semantic-graph>
+
+    <h1> Actor Table Limit 100</h1>
+      <semantic-table
+      query="SELECT * WHERE {?Actor a <http://www.cidoc-crm.org/cidoc-crm/E39_Actor>} LIMIT 100">
+      </semantic-table>    
+  </div>
+</div>
+

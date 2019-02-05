@@ -1,0 +1,36 @@
+<h1>Search</h1>
+<p> keyword search (REGEX-based) with faceting </p>
+
+<semantic-search>
+  <semantic-search-query-keyword
+                                 query='SELECT ?subject WHERE {           						
+          ?subject rdfs:label ?label .
+          FILTER REGEX(STR(?label), ?__uservar__, "i")
+        }'
+           search-term-variable="__uservar__" 
+           escape-lucene-syntax=false
+           ></semantic-search-query-keyword> <!-- 1. search definition -->
+<semantic-search-facet> </semantic-search-facet>
+
+  <semantic-search-result-holder>
+        <div data-flex-self="md-full">
+          <semantic-search-result>
+            <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT * {}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span> found {{numberOfResults}} matches </span>{{/if}}'>
+            </mp-sparql-result-counts>
+          </semantic-search-result>
+          
+           <semantic-search-result>
+                <semantic-table id='table-result'
+                                query='SELECT DISTINCT ?subject ?type WHERE { ?subject a ?type }'
+                                options='{"showFilter":false, "resultsPerPage":10'
+                >
+                </semantic-table>
+              </semantic-search-result>
+    </div>
+    </semantic-search-result-holder>
+   </semantic-search>
+    

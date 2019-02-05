@@ -1,0 +1,143 @@
+<!--
+https://parthenos.acdh-dev.oeaw.ac.at/resource/p:Search_Stefan_2
+-->
+
+
+  <div class="page__body">
+
+
+
+    <bs-tabs id="tabs">
+      <bs-tab event-key="2" title="Places">
+
+
+
+        <semantic-query
+        query='
+        select (count( distinct ?instance) as ?count) ?superClass where {
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+            ?class <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass
+            filter ( ?superClass = <http://www.cidoc-crm.org/cidoc-crm/E53_Place> )
+        }
+        group by ?superClass
+        '
+        template='{{> template_1}}'
+        >
+          <template id='template_1'>
+            {{#each bindings}}
+              <h3>
+                Found {{count.value}} instances of places
+                <semantic-link uri="{{superClass.value}}">
+                {{class.label}}
+                </semantic-link>
+              </h3>
+            {{/each}}
+          </template>
+        </semantic-query>
+
+
+
+
+      <semantic-simple-search
+      query='
+      PREFIX bds: <http://www.bigdata.com/rdf/search#>
+      SELECT DISTINCT ?suggestion ?label WHERE {
+        ?suggestion <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?label.
+        SERVICE <http://www.bigdata.com/rdf/search#search> {
+          ?label bds:search ?__token__.
+          ?label bds:relevance ?score.
+          ?label bds:minRelevance "0.5".
+          ?label bds:matchAllTerms "true".
+        }
+      }
+      ORDER BY DESC(?score)
+
+
+      '
+      template='<span style="color: blue;" title="{{resource.value}}">{{label.value}} ({{typelabel.value}})</span>'
+      input-placeholder='Search for anyhing related to a Place"'
+      ></semantic-simple-search>
+
+
+			<!--
+      <semantic-simple-search
+        query='
+          PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+          PREFIX person: <http://example.com/person/>
+          SELECT ?resource ?label ?typelabel WHERE {
+            FILTER REGEX(?label, ?__token__, "i")
+            VALUES(?resource ?label ?typelabel){
+              ( person:alice "Alice" "Person" )
+              ( person:carola "Carola" "Person" )
+              ( person:bob "Bob" "Person" )
+              ( person:mike "Mike" "Person" )
+            }
+          } LIMIT 10
+        '
+        template='<span style="color: blue;" title="{{resource.value}}">{{label.value}} ({{typelabel.value}})</span>'
+        input-placeholder='Search for something e.g. "Bob"'
+      ></semantic-simple-search>
+			-->
+
+
+      </bs-tab>
+
+
+
+      <bs-tab event-key="1" title="Documents">
+
+        <semantic-query
+        query='
+        SELECT (count(?instance) as ?count) ?class WHERE {
+          ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+          filter ( ?class = <http://www.cidoc-crm.org/cidoc-crm/E31_Document> )
+        }
+        group by ?class
+        '
+        template='{{> template_1}}'
+        >
+          <template id='template_1'>
+            {{#each bindings}}
+              <h3>
+                Found {{count.value}} instances of class
+                <semantic-link uri="{{class.value}}">
+                {{class.label}}
+                </semantic-link>
+              </h3>
+            {{/each}}
+          </template>
+        </semantic-query>
+
+
+
+        <semantic-table
+        query="
+        select * where {
+          {
+            ?instance ?p ?o .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+
+          } union
+          {
+            ?s ?p ?instance .
+            ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+          }
+        }
+        "
+        number-of-displayed-rows=2
+        options='{"showFilter": false}'
+        ></semantic-table>
+
+
+
+      </bs-tab>
+
+    </bs-tabs>
+
+
+
+
+
+
+
+  </div>

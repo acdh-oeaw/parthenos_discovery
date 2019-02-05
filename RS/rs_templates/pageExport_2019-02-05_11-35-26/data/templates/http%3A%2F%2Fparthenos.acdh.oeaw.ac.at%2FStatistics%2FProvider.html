@@ -1,0 +1,101 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li>
+    <mp-link title="Providers Overview" url="http://parthenos.acdh.oeaw.ac.at/Statistics/Providers">Providers</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Provider: [[urlParam "provider"]]</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Provider: [[urlParam "provider"]]</h1>
+    
+    <p>An overview of data for a specific provider (source)</p>
+    
+    [[#if (urlParam "provider") ]]
+  
+    
+<semantic-table
+        id='primary-query'
+        query='SELECT (count (DISTINCT ?api) as ?cnt_api) (count (DISTINCT ?record) as ?cnt_records) (count (DISTINCT ?s) as ?cnt_distinct_subjects) (count (?s) as ?cnt_triples)
+               WHERE { 
+                GRAPH ?record { ?s ?p ?o.} 
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?record <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf>	 "[[urlParam "provider"]]"^^xsd:string.}}
+  '
+        column-configuration='[
+               {"variableName":"cnt_api", "displayName":"Count source API"}, 
+               {"variableName":"cnt_records", "displayName":"Count records (graphs)"}, 
+               {"variableName":"cnt_distinct_subjects", "displayName":"Count distinct subjects"}, 
+               {"variableName":"cnt_triples", "displayName":"Count triples"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+     >
+    </semantic-table>
+
+    
+ <h2> List APIs </h2>
+   
+<semantic-table
+        id='primary-query'
+        query='SELECT ?api (count (DISTINCT ?record) as ?cnt_records) (count (DISTINCT ?s) as ?cnt_distinct_subjects) (count (?s) as ?cnt_triples)
+               WHERE { 
+                GRAPH ?record { ?s ?p ?o.} 
+               GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?record <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf>	 "[[urlParam "provider"]]"^^xsd:string.}}
+               GROUP BY ?api
+  '
+        column-configuration='[
+               {"variableName":"api", "displayName":"API"}, 
+               {"variableName":"cnt_records", "displayName":"Count records (graphs)"}, 
+               {"variableName":"cnt_distinct_subjects", "displayName":"Count distinct subjects"}, 
+               {"variableName":"cnt_triples", "displayName":"Count triples"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+     >
+    </semantic-table>
+
+    
+<h2>Classes per Provider</h2>
+    
+        
+<semantic-table
+             query='SELECT ?class (count (distinct ?s) as ?cnt_entities) WHERE 
+{
+  GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> {?record <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?api . ?api <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> "[[urlParam "provider"]]"^^xsd:string.}
+	GRAPH ?record { ?s a ?class }
+}
+GROUP BY ?class
+
+'
+             number-of-displayed-rows=50
+             column-configuration='[               
+               {"variableName":"class", "displayName":"Class"}, 
+               {"variableName":"cnt_entities", "displayName":"Count of distinct entities"}
+             ]'
+             options='{
+               "showFilter":true
+             }'
+           >
+           </semantic-table>
+
+    
+    [[else]]
+       <bs-alert bs-style="warning">[Provider (<code>provider</code>) parameter not set</bs-alert>       
+     [[/if]]
+    
+        
+  </div>
+    
+  </div>
