@@ -1,0 +1,305 @@
+
+<!--
+https://parthenos.acdh-dev.oeaw.ac.at/resource/p:search_test_literals_with_index_1
+-->
+[[urlParam "__uservar__"]]
+
+
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+   <li class="active">
+    <mp-label iri='[[this]]'></mp-label>
+  </li>
+</ol>
+
+<div class="page">
+  <div class="page__body">
+
+
+
+    <semantic-search>
+
+
+
+
+
+        <semantic-query
+        query='
+        select (count( distinct ?instance_for_count) as ?count) ?superClass where {
+            ?instance_for_count <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class .
+            ?class <http://www.w3.org/2000/01/rdf-schema#subClassOf>* ?superClass
+            filter ( ?superClass = <http://www.cidoc-crm.org/cidoc-crm/E53_Place> )
+        }
+        group by ?superClass
+        '
+        template='{{> template_1}}'
+        >
+          <template id='template_1'>
+            {{#each bindings}}
+              <h3>
+                Search through {{count.value}} instances of
+                <semantic-link uri="{{superClass.value}}">
+                {{class.label}}
+                </semantic-link>
+              </h3>
+            {{/each}}
+          </template>
+        </semantic-query>
+
+
+
+
+
+
+
+        <semantic-search-query-keyword
+        domain='<http://www.w3.org/2000/01/rdf-schema#Resource>'
+        query='
+
+        PREFIX bds: <http://www.bigdata.com/rdf/search#>
+
+        select distinct ?instance where {
+
+          ?c <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+
+          ?instance <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?c .
+
+          ?instance ?p ?instance_literal .
+
+          filter ( isLiteral ( ?instance_literal ) )
+
+          SERVICE <http://www.bigdata.com/rdf/search#search> {
+            ?instance_literal bds:search ?__uservar__.
+            ?instance_literal bds:relevance ?score.
+            ?instance_literal bds:minRelevance "0.5".
+            ?instance_literal bds:matchAllTerms "true".
+          }
+        }
+        ORDER BY DESC(?score)
+        '
+        search-term-variable="__uservar__"
+        escape-lucene-syntax=false
+        >
+
+        </semantic-search-query-keyword>
+
+
+        <semantic-search-result-holder>
+              <div data-flex-self="md-full">
+
+
+
+
+
+
+                  <semantic-search-result>
+                    <mp-sparql-result-counts
+                    id='query-count'
+                    query="SELECT DISTINCT * {}"
+                    template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                           Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                           {{else}}<span> found {{numberOfResults}} matches </span>{{/if}}'>
+                    </mp-sparql-result-counts>
+                  </semantic-search-result>
+
+
+
+                <bs-tabs unmount-on-exit=true id='search-results' animation=false>
+
+                  <bs-tab event-key="1" title="Table">
+
+                    <semantic-search-result>
+                       <semantic-table id='table-result'
+                       query='SELECT ?subject WHERE {
+
+                       }'
+                       options='{"showFilter":false, "resultsPerPage":10}'
+                       >
+                       </semantic-table>
+ 					         </semantic-search-result>
+
+                  </bs-tab>
+
+
+
+
+                  <bs-tab event-key="2" title="Gallery">
+
+                    <semantic-search-result>
+                      <semantic-carousel id='carousel-result'
+                                        query='
+                                          PREFIX schema: <http://schema.org/>
+
+                                          SELECT DISTINCT ?subject ?thumbnail WHERE {
+                                            OPTIONAL { ?subject schema:thumbnail ?image  }
+                                            BIND(
+                                              REPLACE(
+                                                COALESCE(
+                                                  STR(?image),
+                                                  "//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/200px-No_image_available.svg.png"
+                                                ),
+                                                "http://", "//"
+                                              ) as ?thumbnail
+                                            ).
+                                          }'
+                                          tuple-template='{{> tupleTemplate}}'
+                                          options='{"centerMode":true, "dots":false}'
+                      >
+                        <template id='tupleTemplate'>
+                          <div class="text-center panel panel-default" style="border:none;margin-right:20px;font-size:12px;height:300px;width: 100%;">
+                            <div class="panel-body" style="height: 280px;">
+                              <img src="{{thumbnail.value}}" style="max-height:260px; margin: 0 auto;" class="img-rounded">
+                            </div>
+                            <div class="panel-footer" style="position: relative;  border: none;">
+                              <semantic-link class="grid-resource-link" uri="{{subject.value}}"></semantic-link>
+                            </div>
+                          </div>
+                        </template>
+
+                      </semantic-carousel>
+                    </semantic-search-result>
+
+                  </bs-tab>
+
+
+
+
+                  <bs-tab event-key="3" title="Grid">
+
+                    <semantic-search-result>
+                      <semantic-table id='grid-result'
+                      query='
+                        PREFIX schema: <http://schema.org/>
+
+                        SELECT DISTINCT ?subject ?thumbnail WHERE {
+                          OPTIONAL { ?subject schema:thumbnail ?image  }
+
+                          BIND(
+                            REPLACE(
+                              COALESCE(
+                                STR(?image),
+                                "//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/200px-No_image_available.svg.png"
+                              ),
+                              "http://", "//"
+                            ) as ?thumbnail
+                          ).
+                        }'
+                      tuple-template='{{>tupleTemplate}}'
+                      options:='{"showFilter":true, "resultsPerPage":1}'
+                      >
+                        <template id='tupleTemplate'>
+                          <div class="rs-grid-element text-center panel panel-default">
+                            <div class="panel-body">
+                              <img src="{{thumbnail.value}}" style="height:120px;max-width:150px;" class="img-rounded">
+                            </div>
+                            <div class="panel-footer" style="position: relative">
+                              <semantic-link class="grid-resource-link" uri="{{subject.value}}"></semantic-link>
+                            </div>
+                          </div>
+                        </template>
+                      </semantic-table>
+                    </semantic-search-result>
+
+                  </bs-tab>
+
+
+                  <bs-tab event-key="4" title="Map">
+
+                    <semantic-search-result>
+                      <semantic-map id='maps-result'
+
+                      query='
+                      SELECT ?lat ?lng ?description ?link WHERE {
+
+
+                        ?instance <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?instance_coordinates .
+
+                        ?instance_coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude .
+
+                        bind ( ?instance_literal as ?description )
+                        bind ( ?instance as ?link )
+
+
+                        # sanitise coordinates
+
+                        filter ( regex ( str( ?raw_latitude_longitude ), "east=.*north=", "i") )
+
+                        # lat
+                        bind ( replace (?raw_latitude_longitude, "east=", "", "i") as ?latitude_tmp )
+                        bind ( replace (?latitude_tmp, "; north.*", "", "i") as ?lat )
+
+                        # lng
+                        bind ( replace (?raw_latitude_longitude, ".*north=", "", "i") as ?longitude_tmp )
+                        bind ( replace (?longitude_tmp, ";.*", "", "i") as ?lng )
+                      }'
+
+                      tuple-template='
+                      <br>
+                      <a href="https://parthenos.acdh-dev.oeaw.ac.at/resource/?uri={{link.value}}" target="_blank">
+                        {{description.value}}
+                      </a>'
+                      ></semantic-map>
+                    </semantic-search-result>
+
+
+
+
+                    <semantic-search-result>
+                       <semantic-table id='table-result'
+                       query='
+                       SELECT ?instance ?latitude ?longitude WHERE {
+
+                        ?instance <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?instance_coordinates .
+
+                        ?instance_coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude .
+
+                        # sanitise coordinates
+
+                        filter ( regex ( str( ?raw_latitude_longitude ), "east=.*north=", "i") )
+
+                        # lat
+                        bind ( replace (?raw_latitude_longitude, "east=", "", "i") as ?latitude_tmp )
+                        bind ( replace (?latitude_tmp, "; north.*", "", "i") as ?latitude )
+
+                        # lng
+                        bind ( replace (?raw_latitude_longitude, ".*north=", "", "i") as ?longitude_tmp )
+                        bind ( replace (?longitude_tmp, ";.*", "", "i") as ?longitude )
+
+                       }'
+                       options='{"showFilter":false, "resultsPerPage":10}'
+                       >
+                       </semantic-table>
+                    </semantic-search-result>
+
+                  </bs-tab>
+
+
+                  <bs-tab event-key="5" title="Full Results">
+
+                    <semantic-search-result>
+
+                       <semantic-table id='table-result'
+                       query='SELECT * WHERE {
+
+                       }'
+                       options='{"showFilter":false, "resultsPerPage":10}'
+                       >
+                       </semantic-table>
+
+                    </semantic-search-result>
+
+                  </bs-tab>
+
+                </bs-tabs>
+
+
+          </div>
+          </semantic-search-result-holder>
+
+    </semantic-search>
+
+  </div>
+
+</div>

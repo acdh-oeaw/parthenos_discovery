@@ -1,0 +1,95 @@
+<!--
+https://parthenos.acdh-dev.oeaw.ac.at/resource/p:Search_Stefan_4
+-->
+[[urlParam "__uservar__"]]
+
+
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+   <li class="active">
+    <mp-label iri='[[this]]'></mp-label>
+  </li>
+</ol>
+
+<div class="page">
+  <div class="page__header">
+    <div class='page__header-thumbnail'>
+      <h2><i class="fa fa-search fa-2x"></i></h2>
+    </div>
+    <div class='page__header-body'>
+      <h2>Search</h2>
+    </div>
+  </div>
+  <div class="page__body">
+
+
+
+    <semantic-search>
+
+
+
+
+
+        <semantic-search-query-keyword
+        domain='<http://www.w3.org/2000/01/rdf-schema#Resource>'
+        query='
+
+
+        select distinct ?i where {
+
+          ?c <http://www.w3.org/2000/01/rdf-schema#subClassOf>* <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+
+          ?i <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?c .
+
+          ?i ?p ?literal .
+
+          filter (
+            isLiteral ( ?literal ) &&
+
+            regex ( str(?literal), str( ?__uservar__ ), "i" )
+
+          )
+        }
+        '
+        search-term-variable="__uservar__"
+        escape-lucene-syntax=false
+        ></semantic-search-query-keyword>
+
+
+          <semantic-search-result-holder>
+                <div data-flex-self="md-full">
+
+                    <semantic-search-result>
+                      <mp-sparql-result-counts id='query-count'
+                      query="SELECT DISTINCT * {}"
+                      template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                             Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                             {{else}}<span> found {{numberOfResults}} matches </span>{{/if}}'>
+                      </mp-sparql-result-counts>
+                    </semantic-search-result>
+
+
+                   <semantic-search-result>
+                        <semantic-table id='table-result'
+                        query='SELECT distinct * WHERE {
+
+                        }'
+                        options='{"showFilter":false, "resultsPerPage":10}'
+                        >
+                        </semantic-table>
+        					</semantic-search-result>
+
+            </div>
+            </semantic-search-result-holder>
+    </semantic-search>
+
+
+
+
+
+  </div>
+
+
+</div>

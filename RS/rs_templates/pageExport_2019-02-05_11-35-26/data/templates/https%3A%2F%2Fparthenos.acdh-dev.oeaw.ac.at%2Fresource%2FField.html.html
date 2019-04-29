@@ -1,0 +1,49 @@
+<ol class="page-breadcrumb">
+  <li><a title="Home" href="/">Home</a></li>
+  <li>
+    <semantic-link uri='[[urlParam "subject"]]'></semantic-link>
+  </li>
+  <li class="active">
+    Field: <semantic-context repository='assets'><mp-label iri='[[urlParam "field"]]'></mp-label></semantic-context>
+  </li>
+</ol>
+
+[[#*inline "newAssertionButton"]]
+<div style="padding-top:24px">
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  <semantic-link
+    uri="http://www.researchspace.org/resource/Assertion"
+    urlqueryparam-field="[[urlParam "field"]]"
+  urlqueryparam-subject="[[urlParam "subject"]]"
+  ><span style="margin-left:6px;"><strong>Assert new value</strong></span>
+  </semantic-link>
+</div>
+[[/inline]]
+
+[[#*inline "assertions"]]
+<div class='rs-field-assertions'>
+  <div class='row'>
+    <bs-col sm=6>
+      <mp-panel collapsible=true default-expanded=true bs-style='success'>
+        <mp-panel-header>
+          <div data-flex-layout="row">
+            <span>British Museum Assertions</span>
+          </div>
+        </mp-panel-header>
+        <mp-panel-body>
+          <div>
+            <mp-field-visualization
+              subject='[[urlParam "subject"]]'
+              fields='[[fieldDefinitions field=(urlParam "field")]]'
+              template='{{> rsp:FieldBasedCanonicalValueVisualization fieldIri="[[urlParam "field"]]"}}'
+            ></mp-field-visualization>
+            <div>
+              [[> newAssertionButton]]
+            </div>
+          </div>
+        </mp-panel-body>
+      </mp-panel>
+    </bs-col>
+  </div>
+
+  <div class='row'>

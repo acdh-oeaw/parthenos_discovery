@@ -1,0 +1,73 @@
+
+      <semantic-form new-subject-template='http://www.example.com/id/{{UUID}}'
+        post-action='redirect'
+        browser-persistence=true
+        form-id='example-1'
+        fields='[
+          {
+            "id": "type",
+            "label": "Type",
+            "description": "The type of the created instance",
+            "xsdDatatype": "xsd:anyURI",
+            "minOccurs": "1",
+            "maxOccurs": "1",
+            "valueSetPattern": "
+              SELECT $value $label WHERE {
+                VALUES ($value $label) {
+                  (<http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object> \"Man Made Object\")
+                  (<http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> \"Information Object\")
+                }
+              }
+            ",
+            "selectPattern": "SELECT $value WHERE { $subject a $value }",
+            "insertPattern": "INSERT { $subject a $value } WHERE {}",
+            "deletePattern": "DELETE { $subject a $value } WHERE {}"
+          },
+          {
+            "id": "label",
+            "label": "Label",
+            "description": "The label used to display the instance",
+            "xsdDatatype": "xsd:string",
+            "minOccurs": "1",
+            "maxOccurs": "1",
+            "selectPattern": "SELECT $value WHERE { $subject rdfs:label $value }",
+            "insertPattern": "INSERT { $subject rdfs:label $value } WHERE {}",
+            "deletePattern": "DELETE { $subject rdfs:label $value } WHERE {}"
+          },
+          {
+            "id": "location",
+            "label": "Location",
+            "description": "The former or current location of an instance",
+            "xsdDatatype": "xsd:anyURI",
+            "minOccurs": "1",
+            "maxOccurs": "3",
+            "selectPattern": "
+              PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+              SELECT $value WHERE { $subject crm:P53_has_former_or_current_location $value }
+            ",
+            "insertPattern": "
+              PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+              INSERT { $subject crm:P53_has_former_or_current_location $value } WHERE {}
+            ",
+            "deletePattern": "
+              PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+              DELETE { $subject crm:P53_has_former_or_current_location $value } WHERE {}
+            ",
+            "treePatterns": {
+              "type": "simple",
+              "schemePattern": "?item <http://www.w3.org/2004/02/skos/core#inScheme> <http://collection.britishmuseum.org/id/place>"
+            }
+          }
+        ]'>
+        <bs-panel>
+          <h4>Create new CRM Instance</h4>
+          <semantic-form-recover-notification></semantic-form-recover-notification>
+          <semantic-form-text-input for='label'></semantic-form-text-input>
+          <semantic-form-select-input for='type'></semantic-form-select-input>
+          <semantic-form-tree-picker-input for='location'></semantic-form-tree-picker-input>
+          <semantic-form-errors></semantic-form-errors>
+          <!-- save and reset button for form -->
+          <button name="submit" class="btn btn-default">Save</button>
+          <button name="reset" class="btn btn-default">Reset</button>
+        </bs-panel>
+      </semantic-form>

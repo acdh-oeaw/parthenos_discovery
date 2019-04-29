@@ -1,0 +1,62 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">
+    <mp-label iri='[[this]]'></mp-label>
+  </li>
+</ol>
+
+<div class="page">
+	[[#if (ask "ASK { {SELECT * WHERE {?? ?p ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?? ?o}LIMIT 1}UNION {SELECT * WHERE {?s ?p ??}LIMIT 1}UNION{ {SELECT * WHERE {?a ?p ?o. FILTER(??=<Template:http://www.w3.org/2000/01/rdf-schema#Resource> )} LIMIT 1} } }")]]
+    <div class='page__header-navtabs'>
+      [[> Platform:DefaultResourceHeader]]
+    </div>
+    <bs-tabs id="tabs" class='page__body-navtabs' unmount-on-exit=true>
+      <bs-tab event-key="1" title="Minimal metadata">
+      <mp-field-visualization
+              subject='[[this]]'
+              fields='[[fieldDefinitions 
+                          hasID="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasID"
+                          hasTitle="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasTitle"
+                          hasType="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasType"
+                          hasDescription="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasDescription"
+                          hasCompetence="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasCompetence"
+                          isProvidedBy="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/isProvidedBy"
+                          hasDeclarativeTime="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasDeclarativeTime"
+                          hasRights="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasRights"
+                          hasRightsText="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasRightsText"
+                          hasContactPerson="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasContactPerson"
+                          hostsObject="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hostsObject"
+                          hostsDigitalObject="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hostsDigitalObject"
+                          hostsDataset="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hostsDataset"
+                          curates="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/curates"
+                          curatesDigitalHolding="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/curatesDigitalHolding"
+                          curatesVolatileDataset="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/curatesVolatileDataset"
+                          hasPreservationActivity="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasPreservationActivity"
+                          hasOnlineAccessPoint="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasOnlineAccessPoint"
+                          hasProtocolType="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasProtocolType"
+                          hasAccessPoint="https://parthenos.acdh-dev.oeaw.ac.at/fieldDefinition/hasAccessPoint"
+                           ]]'
+              template='{{> Platform:FieldsVisualization subject="[[this]]" [[#if asserted]]guess="true"[[/if]]}}'
+            ></mp-field-visualization>
+			</bs-tab>
+      <bs-tab event-key="2" title="Source (Raw triples)">
+        [[> Platform:SourceStatements]]
+      </bs-tab>
+        <bs-tab event-key="3" title="Viewer">          
+        <iframe width="100%" height="1000" src="https://rdfvisualizer.acdh-dev.oeaw.ac.at/?resource=[[this]]" />                     
+      </bs-tab>
+      [[> "http://www.metaphacts.com/resource/LinksToOtherDatabases" eventKey='2']]
+    </bs-tabs>
+  [[else]]
+  <div class='page__body'>
+    <p>
+      It seems that no entity with IRI <code>"[[this]]"</code> in any subject, predicate or object position is known in the knowledge graph. Also no static application page with this identifier can be found.
+    </p>
+    <p>
+      Click on the edit button (<i class="fa fa-pencil"></i>) in the top right of this page (<i>only visibile if the respective ACL permissions are being granted to you</i>) to create a new, static application page with this identifier.
+    </p>
+  </div>
+  [[/if]]
+</div>

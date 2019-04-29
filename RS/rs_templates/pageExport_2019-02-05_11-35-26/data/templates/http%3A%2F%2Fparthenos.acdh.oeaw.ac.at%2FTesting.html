@@ -1,0 +1,65 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">
+    <mp-label iri='[[this]]'>Testing</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Testing</h1>
+  [[urlParam "subject"]]
+     <semantic-query query='SELECT * WHERE { {{$subject}} ?p ?o } LIMIT 10'
+										>
+    </semantic-query> 
+    
+ <h2>Comparing data sources</h2>
+    <p>using <code>semantic-context</code> element, one can specify which source/triple store (of the defined ones) to query:</p>
+<!-- 
+<semantic-context repository='assets'
+   named-graphs='["http://graph2", "http://graph2"]'
+ *   default-graphs='["http://graph3", "http://graph4"]'
+ *   bindings='{"var1": "http://some-iri",
+ *     "var2": "\\"42\\"^^<http://www.w3.org/2001/XMLSchema#integer>"}'>
+ *   <semantic-table query="SELECT * WHERE { ?x a ?var1 }"></semantic-table>
+ * </semantic-context>
+  
+-->
+   
+<semantic-context repository="default">    
+<mp-sparql-result-counts id='query-count-blazegraph'
+                                     query="SELECT DISTINCT ?p WHERE {[] ?p []}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span><b>{{numberOfResults}}</b> distinct properties in use in <a href="/sparql">default repository</a></span>{{/if}}'>
+            </mp-sparql-result-counts> 
+ </semantic-context>
+  <br/>  
+    
+ <semantic-context repository="parthenos-virtuoso-wrapper">    
+<mp-sparql-result-counts id='query-count-virtuoso'
+                                     query="SELECT DISTINCT ?p WHERE {[] ?p []}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span><b>{{numberOfResults}}</b> distinct properties in use in virtuoso [<a href="/sparql?repository=parthenos-virtuoso-wrapper" ><code>parthenos-virtuoso-wrapper</code></a>] </span>{{/if}}'>
+            </mp-sparql-result-counts> 
+ </semantic-context>
+    <br/>
+  <semantic-context repository="blazegraph-public">    
+<mp-sparql-result-counts id='query-count-virtuoso'
+                                     query="SELECT DISTINCT ?p WHERE {[] ?p []}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span><b>{{numberOfResults}}</b> distinct properties in use in [<a href="/sparql?blazegraph-public" ><code>blazegraph-public</code></a></span>{{/if}}'>
+            </mp-sparql-result-counts> 
+ </semantic-context>
+    <br/>  
+      </div>
+   
+ 
+  </div>
+    

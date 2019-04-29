@@ -1,0 +1,15 @@
+<h1> Parthenos Statistics </h1>
+
+<h2>Classes</h2>
+<semantic-table
+             query="SELECT  ?type (count( ?sub) as ?cnt_type )  WHERE {  ?sub a ?type } GROUP BY ?type ORDER BY DESC(?cnt_type)"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"type", "displayName":"Class"}, 
+               {"variableName":"cnt_type", "displayName":"Count"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>

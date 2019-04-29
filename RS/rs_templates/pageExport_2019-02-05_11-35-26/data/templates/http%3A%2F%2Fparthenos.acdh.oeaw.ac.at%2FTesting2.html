@@ -1,0 +1,42 @@
+h<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">
+    <mp-label iri='[[this]]'>Testing</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Testing2 </h1>
+    <p>parametrize application page</p>
+    [try use e.g. <a href='?subject=http://parthenos.d4science.org/handle/Clarin/VLO/ubompogtjlf6'>http://parthenos.d4science.org/handle/Clarin/VLO/ubompogtjlf6</a> ]
+    
+    
+    
+    [[#if (urlParam "subject") ]]
+    <p>Properties of a <code>subject</code>:  [[urlParam "subject"]]</p>
+     <semantic-table query='SELECT ?p ?o WHERE { <[[urlParam "subject"]]> ?p ?o } LIMIT 10' >
+    [[else]]
+       <bs-alert bs-style="warning">[Parameter <code>subject</code> not set</bs-alert>       
+     [[/if]]
+     
+    </semantic-table> 
+   
+    <h2> main types </h2>
+    
+    [[> p:MaintypeOverview]]
+   
+    <h2>icons</h2>
+      search: <i class="fa fa-search fa-2x"></i><br/>
+      circle: <i class="fa fa-circle-thin fa-2x"></i><br/>
+      map-marker-alt <i class="fa fa-map-marker-alt fa-2x"></i><br/>
+      code  <i class="fa fa-code fa-2x"></i><br/>
+     user  <i class="fa fa-user fa-2x"></i><br/>
+    angle-double-right  <i class="fa fa-angle-double-right fa-2x"></i><br/>
+  </div> 
+  </div>
+    

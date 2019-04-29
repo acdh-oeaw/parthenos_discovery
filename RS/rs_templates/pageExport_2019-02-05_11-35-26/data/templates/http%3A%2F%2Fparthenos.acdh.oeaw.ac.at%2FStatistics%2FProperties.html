@@ -1,0 +1,49 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Properties</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Properties</h1>
+  
+<h2> Properties and their usage frequency </h2>
+     
+    <mp-sparql-result-counts id='query-count'
+                                     query="SELECT DISTINCT ?p WHERE {[] ?p []}"
+                                     template='{{#if hasLimit}} <bs-alert bs-style="warning">
+                                               Showing {{numberOfResults}} of {{totalNumberOfResults}} matches. <strong>Please, refine your search.</strong> </bs-alert>
+                                               {{else}}<span>Found {{numberOfResults}} distinct properties </span>{{/if}}'>
+            </mp-sparql-result-counts>
+<semantic-table
+             query=" SELECT ?p (COUNT(?p) as ?pCount)
+  WHERE {[] ?p []}
+  GROUP BY ?p
+ORDER BY DESC(?pCount)
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"p", "displayName":"Property"}, 
+               {"variableName":"pCount", "displayName":"Count of triples"}
+             ]'
+             options='{
+               "showFilter":true
+             }'
+           >
+            
+          
+    
+           </semantic-table>
+      
+  </div>
+    
+  </div>

@@ -1,0 +1,88 @@
+h<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li class="active">
+    <mp-label iri='[[this]]'>View Subject Type - Predicate - Object Type</mp-label>
+  </li>
+</ol>
+<div class="page">
+ 
+  <div class="page__body">
+    <h1>View Subject Type - Predicate - Object Type</h1>
+    
+    <p>A generic view for a given combination of a <code>subject class - predicate - object class</code>. At least a <code>predicate AND (subject OR object)</code> is required as parameter.</p>
+    
+    [[#if (urlParam "p") ]]
+    	[[#if (urlParam "st") ]]
+		    [[#if (urlParam "ot") ]]
+    			<h3><semantic-link iri='[[urlParam "st"]]'></semantic-link> -<semantic-link iri='[[urlParam "p"]]' ></semantic-link>-> <semantic-link iri='[[urlParam "ot"]]' ></semantic-link></h3>	  
+    			
+     <semantic-table query='SELECT (count(?s) as ?cnt_s) (count( distinct ?s) as ?cnt_distinct_s) (count( ?o) as ?cnt_o) (count(distinct ?o) as ?cnt_distinct_o)
+             WHERE {  BIND(<[[urlParam "st"]]> as ?st).
+                     BIND(<[[urlParam "p"]]> as ?p). 
+                     BIND(<[[urlParam "ot"]]> as ?ot).
+                  GRAPH ?g {  ?s ?p ?o. 
+                    {?s a ?st. ?o a ?ot. 
+                     } } }' 
+                     options='{"showFilter": false}'
+                     >
+       </semantic-table> 
+    <semantic-table query='SELECT ?s ?o 
+                    WHERE { BIND(<[[urlParam "st"]]> as ?st).
+                     BIND(<[[urlParam "p"]]> as ?p). 
+                     BIND(<[[urlParam "ot"]]> as ?ot). 
+                        GRAPH ?g {   ?s ?p ?o. 
+                    {?s a ?st. ?o a ?ot. 
+                     } } }            
+                      LIMIT 1000' 
+                     number-of-displayed-rows=50
+                   >
+       </semantic-table>
+    		[[else]]
+        <h3><semantic-link iri='[[urlParam "st"]]'></semantic-link> -<semantic-link iri='[[urlParam "p"]]' ></semantic-link>-> *</h3>	  
+
+     <semantic-table query='SELECT ?ot (count(?s) as ?cnt_s) (count( distinct ?s) as ?cnt_distinct_s) (count( ?o) as ?cnt_o) (count(distinct ?o) as ?cnt_distinct_o)
+             WHERE { BIND(<[[urlParam "p"]]> as ?p). BIND(<[[urlParam "st"]]> as ?st).
+                    GRAPH ? { ?s ?p ?o. 
+                    {?s a ?st. ?o a ?ot.  } } } GROUP BY ?ot' 
+                     options='{"showFilter": false}'
+                     >
+       </semantic-table> 
+    <semantic-table query='SELECT ?s ?o ?ot WHERE { 
+								  BIND(<[[urlParam "p"]]> as ?p). BIND(<[[urlParam "st"]]> as ?st). 
+                			GRAPH ? {?s ?p ?o. 
+                    {?s a ?st. ?o a ?ot.} } } LIMIT 1000' 
+                     number-of-displayed-rows=50
+                   >
+       </semantic-table>
+    	[[/if]]
+    [[else]]
+    		[[#if (urlParam "ot") ]]
+    <h3>* -<semantic-link iri='[[urlParam "p"]]' ></semantic-link>-> <semantic-link iri='[[urlParam "ot"]]' ></semantic-link></h3>	  
+        
+     <semantic-table query='SELECT ?st (count(?s) as ?cnt_s) (count( distinct ?s) as ?cnt_distinct_s) (count( ?o) as ?cnt_o) (count(distinct ?o) as ?cnt_distinct_o)
+             WHERE { BIND(<[[urlParam "p"]]> as ?p). BIND(<[[urlParam "ot"]]> as ?ot).
+                    GRAPH ? {?s ?p ?o. 
+                    {?o a ?ot. ?s a ?st.  } } } GROUP BY ?st' 
+                     options='{"showFilter": false}'
+                     >
+       </semantic-table> 
+    <semantic-table query='SELECT ?s ?st ?o WHERE {
+  							 BIND(<[[urlParam "p"]]> as ?p). BIND(<[[urlParam "ot"]]> as ?ot).
+  										GRAPH ? {?s ?p ?o. 
+                    {?o a ?ot. ?s a ?st } } } LIMIT 1000' 
+                     number-of-displayed-rows=50
+                   >
+       </semantic-table>
+          [[else]]
+             <bs-alert bs-style="warning">Neither subject type (<code>st</code>), nor object type<code>ot</code> parameter set</bs-alert>       
+           [[/if]]
+      [[/if]]
+    [[else]]
+       <bs-alert bs-style="warning">[Predicate (<code>p</code>) parameter not set</bs-alert>       
+     [[/if]]
+            
+  </div> 
+  </div>
+    

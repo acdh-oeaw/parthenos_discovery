@@ -1,0 +1,41 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Types</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Types</h1>
+  
+    <h2> Count Types per class </h2>
+    <p>based on <code>crm:P2_has_type</code></p>
+<semantic-table
+             query="SELECT ?class (count (distinct ?type) as ?cnt) (count (distinct ?s) as ?cnt_s)  WHERE {
+   GRAPH ?g {?s a ?class.
+   ?s <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> ?type.}
+}
+GROUP BY ?class
+ORDER BY DESC(?cnt_s)
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"class", "displayName":"Provider"}, 
+               {"variableName":"cnt", "displayName":"Count distinct types"},
+              {"variableName":"cnt_s", "displayName":"Count instances"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+    
+  </div>

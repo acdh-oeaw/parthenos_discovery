@@ -1,0 +1,72 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Statistics Overview" url="p:Statistics">Statistics</mp-link>
+  </li>          
+  <li class="active">
+    <mp-label iri='[[this]]'>Aboutness</mp-label>
+  </li>
+</ol>
+
+
+<div class="page">
+ 
+  <div class="page__body">
+    <h1> Aboutness (<code>is_about</code>)</h1>
+  
+    <h2> Count Concepts per class </h2>
+    <p>based on <code>crm:P129_is_about</code></p>
+    
+<semantic-table
+             query="SELECT ?class ?concept_class (count (distinct ?concept) as ?cnt_concepts_per_class)  (count (distinct ?s) as ?cnt_s)  WHERE {
+   GRAPH ?g {?s a ?class.
+   ?s <http://www.cidoc-crm.org/cidoc-crm/P129_is_about> ?concept.
+                    ?concept a ?concept_class}
+}
+GROUP BY ?class ?concept_class
+ORDER BY DESC(?cnt_s)
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"class", "displayName":"Class"}, 
+               {"variableName":"concept_class", "displayName":"Concept Type"}, 
+               {"variableName":"cnt_concepts_per_class", "displayName":"Count distinct concepts"},
+              {"displayName":"Count instances",                               
+    							"cellTemplate": "<a href=\"./p:StPOt?st={{class.value}}&ot={{concept_class.value}}&p=http://www.cidoc-crm.org/cidoc-crm/P129_is_about\">{{cnt_s.value}}</a>" 
+    					}                             
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+
+<h2> Top 100 Concepts</h2>
+
+    
+<semantic-table
+             query="SELECT ?concept ?class (count (distinct ?s) as ?cnt_s)  WHERE {
+   GRAPH ?g {?s a ?class.
+   ?s <http://www.cidoc-crm.org/cidoc-crm/P129_is_about> ?concept.}
+}
+GROUP BY ?concept ?class
+ORDER BY DESC(?cnt_s)
+LIMIT 100
+"
+             number-of-displayed-rows=50
+             column-configuration='[
+               {"variableName":"concept", "displayName":"Concept"}, 
+               {"variableName":"class", "displayName":"Class"},
+              {"variableName":"cnt_s", "displayName":"Count instances"}
+             ]'
+             options='{
+               "showFilter":false
+             }'
+           >
+           </semantic-table>
+    
+    
+    
+  </div>
