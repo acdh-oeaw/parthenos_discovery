@@ -1,14 +1,14 @@
 PREFIX acdh: <http://acdh.oeaw.ac.at/>
 
-DELETE  { ?maintype acdh:hasExtent ?count } WHERE  { ?maintype acdh:hasExtent ?count }
+DELETE  { ?maintype acdh:hasExtent ?count } WHERE  { ?maintype acdh:hasExtent ?count };
 
-INSERT { ?maintype acdh:hasExtent ?count. }  
+INSERT { ?maintype acdh:hasExtent ?count. }
 	WHERE {
 	SELECT ?maintype (COUNT (DISTINCT ?s) as ?count) WHERE {
 			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
 	BIND (<http://www.cidoc-crm.org/cidoc-crm/E39_Actor> as ?maintype)
 	} GROUP BY ?maintype
-  }
+  }; 
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
 	WHERE {
@@ -16,7 +16,7 @@ INSERT { ?maintype acdh:hasExtent ?count. }
 			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
 	BIND (<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE18_Dataset> as ?maintype)
 	} GROUP BY ?maintype
-  }
+  };
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
 	WHERE {
@@ -24,7 +24,7 @@ INSERT { ?maintype acdh:hasExtent ?count. }
 			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
 	BIND (<http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE1_Service> as ?maintype)
 	} GROUP BY ?maintype
-  }
+  };
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
 	WHERE {
@@ -32,7 +32,7 @@ INSERT { ?maintype acdh:hasExtent ?count. }
 			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
 	BIND (<http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/D14_Software> as ?maintype)
 	} GROUP BY ?maintype
-   }
+   };
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
 	WHERE {
@@ -40,7 +40,7 @@ INSERT { ?maintype acdh:hasExtent ?count. }
 			?s a ?t .   ?t rdfs:subClassOf* ?maintype.    
 	BIND (<http://www.cidoc-crm.org/cidoc-crm/E53_Place> as ?maintype)
 	} GROUP BY ?maintype
-  }
+  };
 
 INSERT { ?maintype acdh:hasExtent ?count. }  
 	WHERE {
@@ -50,5 +50,5 @@ INSERT { ?maintype acdh:hasExtent ?count. }
 	} GROUP BY ?maintype
   }
     
-SELECT ?maintype ?count WHERE {?maintype acdh:hasExtent ?count }
+# SELECT ?maintype ?count WHERE {?maintype acdh:hasExtent ?count }
 
