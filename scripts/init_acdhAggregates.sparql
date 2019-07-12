@@ -3,7 +3,6 @@ PREFIX acdh: <http://acdh.oeaw.ac.at/>
 DELETE {?s ?p ?o} WHERE { GRAPH acdh:agg-graph { ?s ?p ?o } };
 
 
-# E39_Actor http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -32,7 +31,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
             }
        };
 	   
-# E39_Actor urn
 	   
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
@@ -63,7 +61,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
        };
 	   
 
-# PE18_Dataset http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -91,8 +88,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
                      
             }
        };
-	   
-# PE18_Dataset urn
 	   
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
@@ -123,7 +118,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
        };
 	   
 
-# PE1_Service http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -152,8 +146,7 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
             }
        };
 	   
-# PE1_Service urn
-	   
+   
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -184,7 +177,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
 	   
 
 
-# D14_Software http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -212,8 +204,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
                      
             }
        };
-	   
-# D14 Software urn
 	   
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
@@ -243,7 +233,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
             }
        };
 	   	   
-# E53_Place http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -272,7 +261,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
             }
        };
 	   
-# E53_Place urn
 	   
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
@@ -303,7 +291,6 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
        };
 	   	   
 
-# PE35_Project http
 INSERT { GRAPH acdh:agg-graph {_:a a acdh:Aggregate.
            _:a acdh:hasKey ?key.
            _:a acdh:hasValue ?cnt.
@@ -363,8 +350,11 @@ SELECT ?sourceLabel ?key ?maintype (COUNT (DISTINCT ?s) as ?cnt)  WHERE {
        };
 	   	   	   
 	   
-	   
-	   
+
+# comments seem to invoke <EOF> when using curl:
+# curl 'https://parthenos-dev:v77nF6Xj4Jtd@blazegraph.herkules.arz.oeaw.ac.at/parthenos-dev/sparql' -H 'Content-Type: application/sparql-update; charset=UTF-8' -H 'Accept: text/boolean' -d @init_acdhAggregates.sparql	   
+# therefore they have been removed from between the individual SPARQL statements :/
+
 # control query: 
 #SELECT ?g ?s ?p ?o WHERE  { GRAPH ?g {?s a acdh:Aggregate. ?s ?p ?o. }}
 		   
