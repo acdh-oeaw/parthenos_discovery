@@ -1,0 +1,122 @@
+<ol class="page-breadcrumb">
+  <li>
+    <mp-link title="Home" url="/">Home</mp-link>
+  </li>
+  <li>
+    <mp-link title="Curation" url="p:Curation">Curation</mp-link>
+  </li>          
+  <li class="active">
+    <!-- <mp-label iri='[[this]]'>Places</mp-label> -->
+    Places
+  </li>
+</ol>
+<div class="page">
+
+
+<div class="page__body">
+<h1>Curation of Places</h1>
+
+<p>Collecting issues with instances of <semantic-link iri="crm:E53_Place">crm:E53_Place</semantic-link>
+</p>
+
+  <ul>
+<li><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/search_places">search_places (with map)</semantic-link></li>
+<li><semantic-link  iri="http://parthenos.acdh.oeaw.ac.at/maps_testing">Map of all place instances with parseable coordinates</semantic-link> (Currently none even though we have many place instances. See analyiss below.)<br/>
+    </li>
+  </ul>
+    
+    
+    <h2>ARIADNE places</h2>
+    <p>ARIADNE is (not surprisingly) contributing by far the most Place instances. However these are not in a good shape.
+     
+     <dl class="clearfix">
+       <dt style="float: left; padding-right: 10px; width: 190px;">ARIADNE/Places</dt>
+       <dd style="margin-left: 190px;">
+         <semantic-query
+                  query='PREFIX acdh: <http://acdh.oeaw.ac.at/>
+                    PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+                    SELECT (count (DISTINCT ?s) as ?cnt) WHERE {
+                     GRAPH ?g { ?s a crm:E53_Place.}
+                     GRAPH <http://www.d-net.research-infrastructures.eu/provenance/graph> { 
+                      ?g <http://www.d-net.research-infrastructures.eu/provenance/collectedFrom> ?source .
+                        ?source <http://www.d-net.research-infrastructures.eu/provenance/isApiOf> ?sourceLabel .
+                          FILTER (?sourceLabel = "ARIADNE")
+                         }
+                     }' ></semantic-query>
+       </dd> 
+     <dt style="float: left; padding-right: 10px; width: 190px;">ARIADNE/Places with http-uri</dt>
+       <dd style="margin-left: 190px;">
+         <semantic-query
+                  query='[[getQueryString "https://parthenos.acdh-dev.oeaw.ac.at/container/queryTemplateContainer/entities-per-type-and-source-count" pKey='"http"' pMaintype="<http://www.cidoc-crm.org/cidoc-crm/E53_Place>" pSource='"ARIADNE"' ]]'
+                  ></semantic-query> (                
+                  <mp-link url="/sparql" urlqueryparam-query='[[getQueryString "https://parthenos.acdh-dev.oeaw.ac.at/container/queryTemplateContainer/entities-per-type-and-source" pKey='"http"' pMaintype="<http://www.cidoc-crm.org/cidoc-crm/E53_Place>" pSource='"ARIADNE"' ]]'>SPARQL</mp-link>).
+       </dd>
+      </dl>  
+  <ul>   
+   <li><semantic-link iri="http://www.cidoc-crm.org/cidoc-crm/E47_Spatial_Coordinates" >Spatial Coordinates (see Types)</semantic-link></li>
+    <li><semantic-link iri="http://parthenos.d4science.org/handle/Ariadne/AriadnePortal/r1dcbgukufjt" >Spatial Coordinates example with "(lat lng)"</semantic-link></li>
+    <li><semantic-link iri="http://parthenos.d4science.org/handle/Ariadne/AriadnePortal/1iv73syaepch1" >Spatial Coordinates example with single number and type (Bounding Box Max Lat)</semantic-link></li>
+    <li><semantic-link iri="urn:uuid:67639872-6061-4219-a6a5-17a4f29e4482 " >ARIADNE place without a label but with 4 Spatial Coordinates (as separate triples)</semantic-link></li>
+        
+<li>
+  <semantic-query
+                  query='select (count(distinct ?instance) as ?cnt_places) (count(distinct ?instance_coordinates) as ?cnt_coordinates) where {
+												?instance a <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+        								?instance <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?instance_coordinates .
+								        ?instance_coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude ;
+                                  a <http://www.cidoc-crm.org/cidoc-crm/E47_Spatial_Coordinates>.
+      }' 
+       template='{{> template-places-coordinates}}'
+         >
+      <template id="template-places-coordinates">
+{{#each bindings}}
+          <span><mp-link url="/sparql" urlqueryparam-query='SELECT ?place ?coordinates WHERE  {
+												?place a <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+        								?place <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?coordinates .
+								        ?coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude ;
+                                  a <http://www.cidoc-crm.org/cidoc-crm/E47_Spatial_Coordinates>. } LIMIT 10'>
+						{{cnt_places.value}} places</mp-link>, {{cnt_coordinates.value}} spatial coordinates 
+          </span>
+        {{/each}}
+        </template>
+  </semantic-query>
+
+  There was an non-standard encoding of the geoocordinates: <code>east=.*north=</code> - this query checks if this still appears:
+  <semantic-query query='select (countdistinct ?instance) as ?cnt_places) (count(distinct ?instance_coordinates) as ?cnt_coordinates) where {
+												?instance a <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+        								?instance <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?instance_coordinates .
+								        ?instance_coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude . 
+filter ( regex ( str( ?raw_latitude_longitude ), "east=.*north=", "i")) } LIMIT 10'></semantic-query>
+
+
+  
+ <br/>
+  
+  <semantic-query id="places-coordinates2"
+                  query='select (count(distinct ?instance) as ?cnt_places) (count(distinct ?instance_coordinates) as ?cnt_coordinates) where {
+												?instance a <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+        								?instance <http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by> ?instance_coordinates .
+								        ?instance_coordinates <http://www.w3.org/2000/01/rdf-schema#label> ?raw_latitude_longitude . }'
+                   
+       template='{{> template-places-coordinates2}}'
+   >
+   
+     <template id="template-places-coordinates2">
+            {{#each bindings}}
+            <span>{{cnt_places.value}} places with some coordinates ({{cnt_coordinates.value}})</span>
+            {{/each}}
+          </template>
+  </semantic-query>
+    
+    </li>
+</ul>
+  
+  <ul>
+     <li><semantic-link iri="http://parthenos.d4science.org/handle/Ariadne/AriadnePortal/1iuvi03b02sf5" >Example of a Place with two rdfs:labels</semantic-link> - only one is shown (unfortunately the more general one "Czech Republic", even though there is a more specific label "Netolice"
+    </li>
+    https://parthenos.acdh-dev.oeaw.ac.at/resource/?uri=http%3A%2F%2Fparthenos.d4science.org%2Fhandle%2FAriadne%2FAriadnePortal%2F1iuvi03b02sf5
+  </ul>
+
+</div>
+
+</div>
