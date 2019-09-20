@@ -58,7 +58,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE1_Service> .
+			  ?f a pe:PE1_Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -70,7 +70,7 @@ queries = [
         "description" : "Same as qPE1a, with change in the FILTER option and the declaration of the predicate ?p" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-				?f a <pe:PE1_Service> ;
+				?f a pe:PE1_Service ;
 				?p [ a ?c ].
 				FILTER(!sameTerm(?c, owl:Class))
 			} 
@@ -95,7 +95,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?f ?t {
-			  ?f a <pe:PE1_Service> .
+			  ?f a pe:PE1_Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -107,7 +107,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE7_Data_Hosting_Service> .
+			  ?f a pe:PE7_Data_Hosting_Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -119,7 +119,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE12_Data_Curating_Service> .
+			  ?f a pe:PE12_Data_Curating_Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -131,7 +131,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE13_Software_Computing_E-Service> .
+			  ?f a pe:PE13_Software_Computing_E-Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -143,7 +143,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			?f a <pe:PE15_Data_E-Service> .
+			?f a pe:PE15_Data_E-Service .
 			?t a ?c .
 			?f ?p ?t .
 			FILTER(?c != owl:Class)
@@ -155,7 +155,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE17_Curated_Data_E-Service> .
+			  ?f a pe:PE17_Curated_Data_E-Service .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -167,7 +167,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE21_Persistent_Software> .
+			  ?f a pe:PE21_Persistent_Software .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -179,7 +179,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?ot (COUNT(?p) AS ?pc) {  
-			GRAPH ?g {?s a <pe:PE22_Persistent_Dataset> .
+			GRAPH ?g {?s a pe:PE22_Persistent_Dataset .
 			  ?o a ?ot .
 			  ?s ?p ?o .
 			  FILTER(?ot != owl:Class) }
@@ -192,7 +192,7 @@ queries = [
         "title" : "PE24_Volatile_Dataset" , 
         "description" : "" , 
         "query" : """
-			SELECT ?p ?c (COUNT(?p) AS ?pc) { ?f a <pe:PE24_Volatile_Dataset> .
+			SELECT ?p ?c (COUNT(?p) AS ?pc) { ?f a pe:PE24_Volatile_Dataset .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -205,7 +205,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE25_RI_Consortium> .
+			  ?f a pe:PE25_RI_Consortium .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -218,7 +218,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE26_RI_Project> .
+			  ?f a pe:PE26_RI_Project .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -231,7 +231,7 @@ queries = [
         "description" : "" , 
         "query" : """
 			SELECT ?p ?c (COUNT(?p) AS ?pc) {
-			  ?f a <pe:PE28_Curation_Plan> .
+			  ?f a pe:PE28_Curation_Plan .
 			  ?t a ?c .
 			  ?f ?p ?t .
 			  FILTER(?c != owl:Class)
@@ -245,7 +245,7 @@ queries = [
         "query" : """
 			SELECT ?p ?ot (COUNT(?p) AS ?pc) {
                 GRAPH ?g { 
-                    ?s a <pe:PE29_Access_Point> .
+                    ?s a pe:PE29_Access_Point .
                     ?s ?p ?o .
                     ?o a ?ot.
                     FILTER(?ot != owl:Class)
@@ -275,7 +275,7 @@ queries = [
         "query": """
 			SELECT ?p ?ot (COUNT(?p) AS ?pc) {
                 GRAPH ?g { 
-                    ?s a <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE38_Schema>.
+                    ?s a http://parthenos.d4science.org/CRMext/CRMpe.rdfs/PE38_Schema.
                     ?s ?p ?o .
                     ?o a ?ot.
                     FILTER(?ot != owl:Class)
@@ -299,7 +299,7 @@ queries = [
         "description" : "As specialisation of Q1, just looking at the distinct properties and object-classes of the instances of class E39_Actor:" , 
         "query" : """
 			SELECT ?p ?ot (COUNT(?p) as ?pCount)
-			  WHERE {?s ?p ?o. ?s a <crm:E39_Actor>. ?o a ?ot.}
+			  WHERE {?s ?p ?o. ?s a crm:E39_Actor. ?o a ?ot.}
 			  GROUP BY ?p ?ot
 			ORDER BY DESC(?pCount)
         """
@@ -310,7 +310,7 @@ queries = [
         "query" : """
 			SELECT ?p ?st (COUNT(?p) as ?pCount)
 			  WHERE {
-			GRAPH ?g {?s ?p ?o. ?o a <crm:E39_Actor>. ?s a ?st.} }
+			GRAPH ?g {?s ?p ?o. ?o a crm:E39_Actor. ?s a ?st.} }
 			  GROUP BY ?p ?st
 			ORDER BY DESC(?pCount)
         """
